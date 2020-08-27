@@ -16,19 +16,25 @@ class CreateRaidsTable extends Migration
         Schema::create('raids', static function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('trainer_id');
-            $table->string('name');
-            $table->integer('level');
+            $table->unsignedBigInteger('pokemon_id')->nullable();
+            $table->string('name')->nullable();
+            $table->integer('level')->nullable();
             $table->tinyInteger('party_size');
             $table->boolean('status');
             $table->boolean('weather_boost');
-            $table->string('icon_name');
             $table->timestamp('end_time');
             $table->timestamps();
 
-/*            $table->foreign('trainer_id')
+            $table->foreign('trainer_id')
                 ->references('id')
                 ->on('trainers')
                 ->onDelete('cascade');
+
+/*            $table->foreign('pokemon_id')
+                ->references('id')
+                ->on('pokemons')
+                ->onDelete('cascade');
+
             $table->foreign('party_id')
                 ->references('id')
                 ->on('party');*/

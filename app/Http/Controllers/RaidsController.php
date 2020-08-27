@@ -8,16 +8,21 @@ use PhpParser\Node\Scalar\String_;
 
 class RaidsController extends Controller
 {
-    public function test(): String {
-        return "It works!";
+    public function index() {
+        // Shows a list of all items
+        return Raid::latest()->get();
     }
 
-    public function searchByName(){
+    public function searchByName() {
         $request = \Request::get('q');
         if ($request !== null){
             return Raid::searchByName($request)->get();
         } else {
             return Raid::latest()->get();
         }
+    }
+
+    public function store(): String {
+        return "It works!";
     }
 }

@@ -4,12 +4,10 @@
     <div class="column is-one-fifth">
         <example>
             <header>
-                test
+                test adf
             </header>
-            <content>
-
-            </content>
         </example>
+
         <br/>
         <div class="card">
             <header class="card-header">

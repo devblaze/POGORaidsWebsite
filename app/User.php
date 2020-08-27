@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -38,13 +39,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function raid(): HasMany
+    public function trainer(): BelongsTo
     {
-        return $this->hasMany(Raid::class);
-    }
-
-    public function trainer(): HasMany
-    {
-        return $this->hasMany(Trainer::class);
+        return $this->belongsTo(Trainer::class);
     }
 }

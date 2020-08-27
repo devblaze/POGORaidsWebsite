@@ -15,7 +15,7 @@ class CreatePartiesTable extends Migration
     {
         Schema::create('parties', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('raid_id')->unique();
+            $table->unsignedBigInteger('raid_id');
             $table->unsignedBigInteger('trainer_id');
             $table->timestamps();
 

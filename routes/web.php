@@ -22,7 +22,8 @@ Route::get('/raids', 'RaidController@index')->name('raid_index');
 Route::post('/raids/create', 'RaidController@store')->name('raid_store');
 Route::get('/raids/create', 'RaidController@create')->name('raid_create');
 Route::get('/raids/{raid}', 'RaidController@show')->name('raid_show');
-Route::get('/raids/{raid}/edit', 'RaidController@edit')->name('raid_edit')->where('any', '.*');
+Route::get('/raids/{raid}/edit', 'RaidController@edit')->name('raid_edit');
+//Route::get('/raids/{raid}/edit', 'RaidController@edit')->name('raid_edit')->where('any', '.*');
 Route::post('/raids/update', 'RaidController@update')->name('raid_update');
 
 Auth::routes();

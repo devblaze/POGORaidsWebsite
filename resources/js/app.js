@@ -3,6 +3,8 @@ import raids from './components/Raids';
 import filters from './components/RaidsFilters';
 import customslider from './components/customSlider';
 import example from './components/ExampleComponent';
+import Form from './core/Form';
+import raid from './components/RaidCreate';
 
 let app = new Vue ({
     el: '#app',
@@ -12,10 +14,11 @@ let app = new Vue ({
         filters,
         customslider,
         example,
+        raid
     }
 });
 
-new Vue ({
+/*new Vue ({
     el: '#form',
 
     data: {
@@ -31,10 +34,10 @@ new Vue ({
 
     methods: {
         onSubmit() {
-            this.form.submit('post', '/route');
+            this.form.submit('post', '/raids/create');
         }
     }
-});
+});*/
 /*
 
 var intervalTimer;

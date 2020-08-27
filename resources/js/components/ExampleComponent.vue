@@ -4,7 +4,7 @@
             <p class="card-header-title">
                 <slot></slot>
             </p>
-            <a class="card-header-icon" aria-label="more options" @click="show = !show">
+            <a class="card-header-icon" aria-label="more options" @click="toggle = !toggle">
                 <span class="icon" v-show="toggle">
                     <i class="fas fa-angle-down" aria-hidden="true"></i>
                 </span>
@@ -13,21 +13,26 @@
                 </span>
             </a>
         </header>
-        <transition name="fadce">
-            <p v-if="show">test</p>
-        </transition>
+<!--        <transition name="fade">
+            <div class="card-content" v-if="show">
+                <div class="content" v-if="show">
+                    <slot v-if="show"></slot>
+                </div>
+            </div>
+        </transition>-->
 
-<!--        <div class="card-content" v-show="toggle">
+        <div class="card-content" v-show="toggle">
             <div class="content">
                 <slot></slot>
             </div>
-        </div>-->
+        </div>
     </div>
 </template>
 
 <style>
 .fade-enter-active, .fade-leave-active {
-    transition: opacity .5s;
+    transition: height 2s;
+    transition-timing-function: ease;
 }
 
 .fade-enter, fade-leave-to {
@@ -40,7 +45,6 @@ export default {
 
     data() {
         return {
-            show: true,
             toggle: true
         }
     }

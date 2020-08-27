@@ -15,11 +15,6 @@ class RaidController extends Controller
         return view('raid.index', ['raids' => $raids]);
     }
 
-    public function index2() {
-        // Shows a list of all items
-        return Raid::latest()->get();
-    }
-
     public function show(Raid $raid): Renderable {
         // Shows one item of that list
         return view('raid.show', ['raid' => $raid]);
@@ -58,8 +53,10 @@ class RaidController extends Controller
     protected function validateRaid(): array
     {
         return request()->validate([
-            'username' => ['required', 'min:3'],
-            'trainer_id' => ['required', 'min:12', 'max:12'],
+/*            'username' => ['required', 'min:3'],
+            'trainer_id' => ['required', 'min:12', 'max:12'],*/
+            'trainer_id' => ['required'],
+            'name' => ['required', 'min:3', 'max:12']
         ]);
     }
 }

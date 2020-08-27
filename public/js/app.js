@@ -1945,12 +1945,47 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      show: true,
       toggle: true
     };
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/RaidCreate.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/RaidCreate.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      name: '',
+      tier: '',
+      time_left: '',
+      invites: '',
+      status: '',
+      weather_boosted: ''
+    };
+  },
+  onSubmit: function onSubmit() {
+    this.Form.submit('post', '/raids/create');
   }
 });
 
@@ -2167,7 +2202,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.fade-enter-active, .fade-leave-active {\n    transition: opacity .5s;\n}\n.fade-enter, fade-leave-to {\n    opacity: 0;\n}\n", ""]);
+exports.push([module.i, "\n.fade-enter-active, .fade-leave-active {\n    transition: height 2s;\n    transition-timing-function: ease;\n}\n.fade-enter, fade-leave-to {\n    opacity: 0;\n}\n", ""]);
 
 // exports
 
@@ -3283,79 +3318,104 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "card" },
-    [
-      _c("header", { staticClass: "card-header" }, [
-        _c("p", { staticClass: "card-header-title" }, [_vm._t("default")], 2),
-        _vm._v(" "),
-        _c(
-          "a",
-          {
-            staticClass: "card-header-icon",
-            attrs: { "aria-label": "more options" },
-            on: {
-              click: function($event) {
-                _vm.show = !_vm.show
-              }
-            }
-          },
-          [
-            _c(
-              "span",
-              {
-                directives: [
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: _vm.toggle,
-                    expression: "toggle"
-                  }
-                ],
-                staticClass: "icon"
-              },
-              [
-                _c("i", {
-                  staticClass: "fas fa-angle-down",
-                  attrs: { "aria-hidden": "true" }
-                })
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "span",
-              {
-                directives: [
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: !_vm.toggle,
-                    expression: "!toggle"
-                  }
-                ],
-                staticClass: "icon"
-              },
-              [
-                _c("i", {
-                  staticClass: "fas fa-angle-up",
-                  attrs: { "aria-hidden": "true" }
-                })
-              ]
-            )
-          ]
-        )
-      ]),
+  return _c("div", { staticClass: "card" }, [
+    _c("header", { staticClass: "card-header" }, [
+      _c("p", { staticClass: "card-header-title" }, [_vm._t("default")], 2),
       _vm._v(" "),
-      _c("transition", { attrs: { name: "fadce" } }, [
-        _vm.show ? _c("p", [_vm._v("test")]) : _vm._e()
-      ])
-    ],
-    1
-  )
+      _c(
+        "a",
+        {
+          staticClass: "card-header-icon",
+          attrs: { "aria-label": "more options" },
+          on: {
+            click: function($event) {
+              _vm.toggle = !_vm.toggle
+            }
+          }
+        },
+        [
+          _c(
+            "span",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.toggle,
+                  expression: "toggle"
+                }
+              ],
+              staticClass: "icon"
+            },
+            [
+              _c("i", {
+                staticClass: "fas fa-angle-down",
+                attrs: { "aria-hidden": "true" }
+              })
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "span",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: !_vm.toggle,
+                  expression: "!toggle"
+                }
+              ],
+              staticClass: "icon"
+            },
+            [
+              _c("i", {
+                staticClass: "fas fa-angle-up",
+                attrs: { "aria-hidden": "true" }
+              })
+            ]
+          )
+        ]
+      )
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.toggle,
+            expression: "toggle"
+          }
+        ],
+        staticClass: "card-content"
+      },
+      [_c("div", { staticClass: "content" }, [_vm._t("default")], 2)]
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/RaidCreate.vue?vue&type=template&id=cca79a5e&":
+/*!*************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/RaidCreate.vue?vue&type=template&id=cca79a5e& ***!
+  \*************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function () {}
+var staticRenderFns = []
 
 
 
@@ -3431,136 +3491,115 @@ var render = function() {
         _vm._v(" "),
         _vm._l(_vm.raids, function(raid) {
           return _c("div", { staticClass: "column is-one-third" }, [
-            _c(
-              "div",
-              {
-                staticClass: "card",
-                staticStyle: { "margin-left": "15px", "margin-right": "5px" }
-              },
-              [
-                _c("div", { staticClass: "card" }, [
-                  _c("div", { staticClass: "card-image" }, [
-                    _c("figure", { staticClass: "image is-2by2" }, [
-                      _c("img", {
-                        attrs: {
-                          alt: "Placeholder image",
-                          src: "/images/" + raid.icon_name + ".jpg"
+            _c("div", { staticClass: "card" }, [
+              _c("div", { staticClass: "card" }, [
+                _c("div", { staticClass: "card-image" }, [
+                  _c("figure", { staticClass: "image is-2by2" }, [
+                    _c("img", {
+                      attrs: {
+                        alt: "Placeholder image",
+                        src: "/images/icon_" + raid.name.toLowerCase() + ".jpg"
+                      }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "card-content" }, [
+                  _c("div", { staticClass: "media" }, [
+                    _c("div", { staticClass: "media-content" }, [
+                      _c("p", { staticClass: "title" }, [
+                        _vm._v(_vm._s(raid.name))
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "subtitle" }, [
+                        _vm._v("Raid Tier: " + _vm._s(raid.level))
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticStyle: {
+                          "margin-top": "5%",
+                          display: "flex",
+                          "align-items": "center",
+                          "justify-content": "center",
+                          "padding-right": "14px"
                         }
-                      })
-                    ])
+                      },
+                      [
+                        raid.weather_boost
+                          ? _c(
+                              "div",
+                              {
+                                staticStyle: {
+                                  color: "green",
+                                  "font-weight": "bold"
+                                }
+                              },
+                              [_vm._v("Weather Boosted")]
+                            )
+                          : _c("div", [_vm._v("Not Boosted")])
+                      ]
+                    )
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "card-content" }, [
-                    _c("div", { staticClass: "media" }, [
-                      _c("div", { staticClass: "media-content" }, [
-                        _c("p", { staticClass: "title" }, [
-                          _vm._v(_vm._s(raid.name))
-                        ]),
-                        _vm._v(" "),
-                        _c("p", { staticClass: "subtitle" }, [
-                          _vm._v("Raid Tier: " + _vm._s(raid.level))
+                  _c("div", { staticClass: "content" }, [
+                    _c("div", { staticClass: "columns is-mobile" }, [
+                      _c("div", { staticClass: "column" }, [
+                        _c("div", { staticStyle: { "text-align": "center" } }, [
+                          _vm._v(
+                            "\n                                        Party Invites\n                                        "
+                          ),
+                          _c("br"),
+                          _vm._v(
+                            "\n                                        0 / " +
+                              _vm._s(raid.party_size) +
+                              "\n                                    "
+                          )
                         ])
                       ]),
                       _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticStyle: {
-                            "margin-top": "5%",
-                            display: "flex",
-                            "align-items": "center",
-                            "justify-content": "center",
-                            "padding-right": "14px"
-                          }
-                        },
-                        [
-                          raid.weather_boost
+                      _c("div", { staticClass: "column" }, [
+                        _c("div", { staticStyle: { "text-align": "center" } }, [
+                          raid.status
+                            ? _c("div", [_vm._v("Before Hatch:")])
+                            : _c("div", [_c("b", [_vm._v("Time Left:")])]),
+                          _vm._v(
+                            "\n                                        28:33\n                                    "
+                          )
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "column" }, [
+                        _c("div", { staticStyle: { "text-align": "center" } }, [
+                          _vm.user !== ""
                             ? _c(
-                                "div",
-                                {
-                                  staticStyle: {
-                                    color: "green",
-                                    "font-weight": "bold"
-                                  }
-                                },
-                                [_vm._v("Weather Boosted")]
-                              )
-                            : _c("div", [_vm._v("Not Boosted")])
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "content" }, [
-                      _c("div", { staticClass: "columns is-mobile" }, [
-                        _c("div", { staticClass: "column" }, [
-                          _c(
-                            "div",
-                            { staticStyle: { "text-align": "center" } },
-                            [
-                              _vm._v(
-                                "\n                                        Party Invites\n                                        "
-                              ),
-                              _c("br"),
-                              _vm._v(
-                                "\n                                        0 / " +
-                                  _vm._s(raid.party_size) +
-                                  "\n                                    "
-                              )
-                            ]
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "column" }, [
-                          _c(
-                            "div",
-                            { staticStyle: { "text-align": "center" } },
-                            [
-                              raid.status
-                                ? _c("div", [_vm._v("Before Hatch:")])
-                                : _c("div", [_c("b", [_vm._v("Time Left:")])]),
-                              _vm._v(
-                                "\n                                        28:33\n                                    "
-                              )
-                            ]
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "column" }, [
-                          _c(
-                            "div",
-                            { staticStyle: { "text-align": "center" } },
-                            [
-                              _vm.user !== ""
-                                ? _c(
-                                    "a",
-                                    {
-                                      staticClass:
-                                        "button is-info is-narrow is-rounded",
-                                      attrs: {
-                                        href: "/raids/" + raid.id + "/edit"
-                                      }
-                                    },
-                                    [_vm._v("Edit")]
-                                  )
-                                : _vm._e(),
-                              _vm._v(" "),
-                              _c(
-                                "button",
+                                "a",
                                 {
                                   staticClass:
-                                    "button is-success is-narrow is-rounded"
+                                    "button is-info is-narrow is-rounded",
+                                  attrs: { href: "/raids/" + raid.id + "/edit" }
                                 },
-                                [_vm._v("Join")]
+                                [_vm._v("Edit")]
                               )
-                            ]
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _c(
+                            "button",
+                            {
+                              staticClass:
+                                "button is-success is-narrow is-rounded"
+                            },
+                            [_vm._v("Join")]
                           )
                         ])
                       ])
                     ])
                   ])
                 ])
-              ]
-            )
+              ])
+            ])
           ])
         })
       ],
@@ -18893,6 +18932,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_RaidsFilters__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/RaidsFilters */ "./resources/js/components/RaidsFilters.vue");
 /* harmony import */ var _components_customSlider__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/customSlider */ "./resources/js/components/customSlider.vue");
 /* harmony import */ var _components_ExampleComponent__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/ExampleComponent */ "./resources/js/components/ExampleComponent.vue");
+/* harmony import */ var _core_Form__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./core/Form */ "./resources/js/core/Form.js");
+/* harmony import */ var _components_RaidCreate__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/RaidCreate */ "./resources/js/components/RaidCreate.vue");
+
+
 
 
 
@@ -18904,27 +18947,31 @@ var app = new Vue({
     raids: _components_Raids__WEBPACK_IMPORTED_MODULE_1__["default"],
     filters: _components_RaidsFilters__WEBPACK_IMPORTED_MODULE_2__["default"],
     customslider: _components_customSlider__WEBPACK_IMPORTED_MODULE_3__["default"],
-    example: _components_ExampleComponent__WEBPACK_IMPORTED_MODULE_4__["default"]
+    example: _components_ExampleComponent__WEBPACK_IMPORTED_MODULE_4__["default"],
+    raid: _components_RaidCreate__WEBPACK_IMPORTED_MODULE_6__["default"]
   }
 });
-new Vue({
-  el: '#form',
-  data: {
-    form: new Form({
-      name: '',
-      tier: '',
-      time_left: '',
-      invites: '',
-      status: '',
-      weather_boosted: ''
-    })
-  },
-  methods: {
-    onSubmit: function onSubmit() {
-      this.form.submit('post', '/route');
+/*new Vue ({
+    el: '#form',
+
+    data: {
+        form: new Form({
+            name: '',
+            tier: '',
+            time_left: '',
+            invites: '',
+            status: '',
+            weather_boosted: ''
+        })
+    },
+
+    methods: {
+        onSubmit() {
+            this.form.submit('post', '/raids/create');
+        }
     }
-  }
-});
+});*/
+
 /*
 
 var intervalTimer;
@@ -19118,6 +19165,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_template_id_299e239e___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_template_id_299e239e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/RaidCreate.vue":
+/*!************************************************!*\
+  !*** ./resources/js/components/RaidCreate.vue ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _RaidCreate_vue_vue_type_template_id_cca79a5e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./RaidCreate.vue?vue&type=template&id=cca79a5e& */ "./resources/js/components/RaidCreate.vue?vue&type=template&id=cca79a5e&");
+/* harmony import */ var _RaidCreate_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./RaidCreate.vue?vue&type=script&lang=js& */ "./resources/js/components/RaidCreate.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _RaidCreate_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _RaidCreate_vue_vue_type_template_id_cca79a5e___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _RaidCreate_vue_vue_type_template_id_cca79a5e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/RaidCreate.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/RaidCreate.vue?vue&type=script&lang=js&":
+/*!*************************************************************************!*\
+  !*** ./resources/js/components/RaidCreate.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_RaidCreate_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./RaidCreate.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/RaidCreate.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_RaidCreate_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/RaidCreate.vue?vue&type=template&id=cca79a5e&":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/components/RaidCreate.vue?vue&type=template&id=cca79a5e& ***!
+  \*******************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RaidCreate_vue_vue_type_template_id_cca79a5e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./RaidCreate.vue?vue&type=template&id=cca79a5e& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/RaidCreate.vue?vue&type=template&id=cca79a5e&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RaidCreate_vue_vue_type_template_id_cca79a5e___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RaidCreate_vue_vue_type_template_id_cca79a5e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -19327,6 +19443,241 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_customSlider_vue_vue_type_template_id_30404306___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/core/Errors.js":
+/*!*************************************!*\
+  !*** ./resources/js/core/Errors.js ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var Errors = /*#__PURE__*/function () {
+  /**
+   * Create a new Errors instance.
+   */
+  function Errors() {
+    _classCallCheck(this, Errors);
+
+    this.errors = {};
+  }
+  /**
+   * Retrive the error message for a field.
+   *
+   * @param {string} field
+   */
+
+
+  _createClass(Errors, [{
+    key: "get",
+    value: function get(field) {
+      if (this.errors[field]) {
+        return this.errors[field][0];
+      }
+    }
+    /**
+     * Record the new errors.
+     *
+     * @param {object} errors
+     */
+
+  }, {
+    key: "record",
+    value: function record(errors) {
+      this.errors = errors;
+    }
+  }, {
+    key: "clear",
+    value: function clear(field) {
+      if (field) {
+        delete this.errors[field];
+        return;
+      }
+
+      this.errors = {};
+    }
+    /**
+     * Determine if an errors exists for the given field.
+     *
+     * @parm {string} field
+     */
+
+  }, {
+    key: "has",
+    value: function has(field) {
+      return this.errors.hasOwnProperty(field);
+    }
+    /**
+     * Determine if we have any errors
+     */
+
+  }, {
+    key: "any",
+    value: function any() {
+      return Object.keys(this.errors).length > 0;
+    }
+  }]);
+
+  return Errors;
+}();
+
+/* harmony default export */ __webpack_exports__["default"] = (Errors);
+
+/***/ }),
+
+/***/ "./resources/js/core/Form.js":
+/*!***********************************!*\
+  !*** ./resources/js/core/Form.js ***!
+  \***********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Errors__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Errors */ "./resources/js/core/Errors.js");
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+
+
+var Form = /*#__PURE__*/function () {
+  /**
+   * Create a new Form Instance.
+   *
+   * @param {object} data
+   */
+  function Form(data) {
+    _classCallCheck(this, Form);
+
+    this.originalData = data;
+
+    for (var field in data) {
+      this[field] = data[field];
+    }
+
+    this.errors = new _Errors__WEBPACK_IMPORTED_MODULE_0__["default"]();
+  }
+  /**
+   * Fetch all the relevant data for the form.
+   */
+
+
+  _createClass(Form, [{
+    key: "data",
+    value: function data() {
+      var data = {};
+
+      for (var propertry in this.originalData) {
+        data[propertry] = this[propertry];
+      }
+      /*        let data = Object.assign({}, this);
+              delete data.originalData;
+              delete data.errors;*/
+
+
+      return data;
+    }
+    /**
+     * Submit form for a post request.
+     *
+     * @param {string} url
+     */
+
+  }, {
+    key: "post",
+    value: function post(url) {
+      var _this = this;
+
+      return new Promise(function (resolove, reject) {
+        axios.post(url, _this.data()).then(function (response) {
+          _this.onSuccess(response.data);
+
+          resolove(response.data);
+        })["catch"](function (error) {
+          _this.onFail(error.response.data);
+
+          reject(error.response.data);
+        });
+      });
+    }
+    /**
+     * Submit the form.
+     *
+     * @param {string} requestType
+     * @param {string} url
+     */
+
+  }, {
+    key: "submit",
+    value: function submit(requestType, url) {
+      var _this2 = this;
+
+      return new Promise(function (resolve, reject) {
+        axios[requestType](url, _this2.data()).then(function (response) {
+          _this2.onSuccess(response.data);
+
+          resolve(response.data);
+        })["catch"](function (error) {
+          _this2.onFail(error.response.data);
+
+          reject(error.response.data);
+        });
+      });
+    }
+    /**
+     * Handle a successful form submission.
+     *
+     * @param {object} data
+     */
+
+  }, {
+    key: "onSuccess",
+    value: function onSuccess(data) {
+      alert(data.message);
+      this.reset();
+    }
+    /**
+     * Handle a failed form submission.
+     *
+     * @param {object} errors
+     */
+
+  }, {
+    key: "onFail",
+    value: function onFail(errors) {
+      this.errors.record(errors);
+    }
+    /**
+     * Reset the form fields.
+     */
+
+  }, {
+    key: "reset",
+    value: function reset() {
+      for (var field in this.originalData) {
+        this[field] = '';
+      }
+
+      this.errors.clear();
+    }
+  }]);
+
+  return Form;
+}();
+
+/* harmony default export */ __webpack_exports__["default"] = (Form);
 
 /***/ }),
 

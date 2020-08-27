@@ -19,5 +19,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 //Route::get('findRaid', 'RaidsController@test');
-Route::get('raids', 'RaidController@index2');
+Route::get('raids', 'RaidsController@index');
 Route::get('raids/findRaid', 'RaidsController@searchByName');
+Route::post('raids/create', 'RaidsController@store');

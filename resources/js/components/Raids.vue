@@ -19,11 +19,11 @@
             </div>
 
             <div class="column is-one-third" v-for="raid in raids">
-                <div class="card" style="margin-left: 15px; margin-right: 5px;">
+                <div class="card">
                     <div class="card">
                         <div class="card-image">
                             <figure class="image is-2by2">
-                                <img alt="Placeholder image" :src="'/images/' + raid.icon_name + '.jpg'" />
+                                <img alt="Placeholder image" :src="'/images/icon_' + raid.name.toLowerCase() + '.jpg'" />
                             </figure>
                         </div>
                         <div class="card-content">

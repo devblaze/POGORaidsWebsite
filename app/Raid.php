@@ -35,8 +35,12 @@ class Raid extends Model
         return route('raid_show', $this);
     }
 
-    public function user(): BelongsTo
+    public function trainer(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Trainer::class);
+    }
+
+    public function party(): HasMany {
+        return $this->hasMany(Party::class);
     }
 }
