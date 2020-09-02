@@ -161,6 +161,7 @@
                         <div class="field">
                             <input id="weatherBoost" type="checkbox" name="weatherBoost" class="switch is-rounded is-outlined is-success">
                             <label for="weatherBoost">Weather Boosted</label>
+                            {{ Auth::user()->trainer()->value('id') }}
                         </div>
                     </div>
                 </div>
@@ -168,11 +169,11 @@
                 <div class="columns">
                     <div class="column">
                         <div class="control">
+                            <input id="trainer_id" name="trainer_id" type="text" value="{{ Auth::user()->trainer()->value('id') }}">
                             <button type="submit" class="button is-large is-fullwidth is-success">Start Raid</button>
                         </div>
                     </div>
                 </div>
-                <input id="trainer_id" name="trainer_id" type="hidden" value="{{ Auth::user()->trainer()->value('id') }}">
             </form>
 
         </div>

@@ -2,11 +2,9 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use \Illuminate\Database\Eloquent\Relations\HasOne;
 
 class User extends Authenticatable
 {
@@ -39,8 +37,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function trainer(): BelongsTo
+    /**
+     * A user can have only one trainer. (For now, can be changed to have many trainers.)
+     *
+     * @return HasOne
+     */
+    public function trainer(): HasOne
     {
-        return $this->belongsTo(Trainer::class);
+        return $this->hasOne(Trainer::class);
     }
 }

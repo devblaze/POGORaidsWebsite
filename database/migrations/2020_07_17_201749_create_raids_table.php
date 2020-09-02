@@ -20,7 +20,7 @@ class CreateRaidsTable extends Migration
             $table->string('name')->nullable();
             $table->integer('level')->nullable();
             $table->tinyInteger('party_size');
-            $table->boolean('status');
+            $table->boolean('hatched');
             $table->boolean('weather_boost');
             $table->timestamp('end_time');
             $table->timestamps();

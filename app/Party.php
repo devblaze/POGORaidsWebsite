@@ -9,6 +9,11 @@ class Party extends Model
 {
     protected $guarded = [];
 
+    /**
+     * A party belongs only to one raid.
+     *
+     * @return BelongsTo
+     */
     public function raid(): BelongsTo {
         return $this->belongsTo(Raid::class);
     }

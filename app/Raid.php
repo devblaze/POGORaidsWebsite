@@ -9,8 +9,14 @@ use Illuminate\Database\Eloquent\Builder;
 
 class Raid extends Model
 {
-    protected $fillable = ['trainer_id', 'name', 'level', 'party_size', 'status', 'weather_boost', 'finish_time', 'icon_name'];
+    protected $fillable = ['trainer_id', 'name', 'level', 'party_size', 'hatched', 'weather_boost', 'finish_time'];
 
+    /**
+     * A quick search that send back a list of all raids depending on their name.
+     *
+     * @param String $name
+     * @return Builder
+     */
     public static function searchByName(String $name): Builder
     {
 //        return static::query()->where('name','LIKE','%'.$name.'%');
@@ -35,11 +41,21 @@ class Raid extends Model
         return route('raid_show', $this);
     }
 
+    /**
+     * A raid belongs to only one trainer. (It was created by one trainer.)
+     *
+     * @return BelongsTo
+     */
     public function trainer(): BelongsTo
     {
         return $this->belongsTo(Trainer::class);
     }
 
+    /**
+     * Needs more thinking for a better solution.
+     *
+     * @return HasMany
+     */
     public function party(): HasMany {
         return $this->hasMany(Party::class);
     }

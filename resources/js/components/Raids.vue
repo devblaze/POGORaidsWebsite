@@ -49,9 +49,9 @@
 
                                     <div class="column">
                                         <div style="text-align: center;">
-                                            <div v-if="raid.status">Before Hatch:</div>
-                                            <div v-else="raid.status"><b>Time Left:</b></div>
-                                            28:33
+                                            <div v-if="raid.hatched"><b>Time Left:</b></div>
+                                            <div v-else="raid.hatched">Before Hatch:</div>
+                                            {{ countDown }}
                                         </div>
                                     </div>
                                     <div class="column">
@@ -84,6 +84,7 @@ export default {
 
     data() {
         return {
+            countDown: 100,
             isLoading: false,
             isFullPage: true,
             search: '',
@@ -93,10 +94,21 @@ export default {
 
     created(){
         this.fillRaids();
+        this.countDownTimer()
     },
 
     methods: {
+        countDownTimer() {
+            if(this.countDown > 0) {
+                setTimeout(() => {
+                    this.countDown -= 1
+                    this.countDownTimer()
+                },1000)
+            }
+        },
+
         fillRaids() {
+            this.isLoading = true
             axios.get('api/raids')
                 .then((data) => {
                     this.raids = data.data
@@ -105,9 +117,9 @@ export default {
         },
 
         find() {
+            this.loading = true;
             setTimeout(() => {
                 let query = this.search;
-                this.loading = true;
                 axios.get('api/raids/findRaid?q=' + query)
                     .then((data) => {
                         this.raids = data.data

@@ -2085,6 +2085,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
+      countDown: 100,
       isLoading: false,
       isFullPage: true,
       search: '',
@@ -2093,25 +2094,38 @@ __webpack_require__.r(__webpack_exports__);
   },
   created: function created() {
     this.fillRaids();
+    this.countDownTimer();
   },
   methods: {
-    fillRaids: function fillRaids() {
+    countDownTimer: function countDownTimer() {
       var _this = this;
 
+      if (this.countDown > 0) {
+        setTimeout(function () {
+          _this.countDown -= 1;
+
+          _this.countDownTimer();
+        }, 1000);
+      }
+    },
+    fillRaids: function fillRaids() {
+      var _this2 = this;
+
+      this.isLoading = true;
       axios.get('api/raids').then(function (data) {
-        _this.raids = data.data;
-        _this.isLoading = false;
+        _this2.raids = data.data;
+        _this2.isLoading = false;
       });
     },
     find: function find() {
-      var _this2 = this;
+      var _this3 = this;
 
+      this.loading = true;
       setTimeout(function () {
-        var query = _this2.search;
-        _this2.loading = true;
+        var query = _this3.search;
         axios.get('api/raids/findRaid?q=' + query).then(function (data) {
-          _this2.raids = data.data;
-          _this2.loading = false;
+          _this3.raids = data.data;
+          _this3.loading = false;
         })["catch"](function () {
           console.log('Something went wrong while searching for raids!');
         });
@@ -3414,8 +3428,14 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function () {}
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div")
+}
 var staticRenderFns = []
+render._withStripped = true
 
 
 
@@ -3562,11 +3582,13 @@ var render = function() {
                       _vm._v(" "),
                       _c("div", { staticClass: "column" }, [
                         _c("div", { staticStyle: { "text-align": "center" } }, [
-                          raid.status
-                            ? _c("div", [_vm._v("Before Hatch:")])
-                            : _c("div", [_c("b", [_vm._v("Time Left:")])]),
+                          raid.hatched
+                            ? _c("div", [_c("b", [_vm._v("Time Left:")])])
+                            : _c("div", [_vm._v("Before Hatch:")]),
                           _vm._v(
-                            "\n                                        28:33\n                                    "
+                            "\n                                        " +
+                              _vm._s(_vm.countDown) +
+                              "\n                                    "
                           )
                         ])
                       ]),
