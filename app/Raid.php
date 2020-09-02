@@ -9,8 +9,14 @@ use Illuminate\Database\Eloquent\Builder;
 
 class Raid extends Model
 {
-    protected $fillable = ['trainer_id', 'name', 'level', 'party_size', 'hatched', 'weather_boost', 'finish_time'];
+    protected $fillable = ['trainer_id', 'name', 'tier', 'invites', 'hatched', 'weather_boost', 'seconds'];
 
+
+/*    public function calculateTime(seconds){
+//        $end_time = datetime(minutes) + created_at;
+//        trim $end_time -> (minutes * 60) + seconds;
+//
+    }*/
     /**
      * A quick search that send back a list of all raids depending on their name.
      *

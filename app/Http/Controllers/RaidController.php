@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Raid;
+use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
 //use Illuminate\View\View;
 use Illuminate\Contracts\Support\Renderable;
+use Illuminate\Validation\ValidationException;
 
 class RaidController extends Controller
 {
@@ -27,7 +29,12 @@ class RaidController extends Controller
 
     public function store(){
         // Persist the new item
-        Raid::create($this->validateRaid());
+        $test = [
+            'trainer_id' => auth()->user()->trainer->id,
+            'weather_boost' => (bool)\request()->get('weather_boost'),
+            'hatched' => (bool)\request()->get('hatched'),
+        ] + $this->validateRaid();
+        Raid::create($test);
         return redirect(route('raid_index'));
     }
 
@@ -48,15 +55,22 @@ class RaidController extends Controller
     }
 
     /**
+     * Validate the raid field.
+     *
      * @return array
+     * @throws \Illuminate\Validation\ValidationException
      */
     protected function validateRaid(): array
     {
-        return request()->validate([
-/*            'username' => ['required', 'min:3'],
-            'trainer_id' => ['required', 'min:12', 'max:12'],*/
-            'trainer_id' => ['required'],
-            'name' => ['required', 'min:3', 'max:12']
-        ]);
+        return \request()->validate([
+            'name' => ['required', 'min:3', 'max:20'],
+            'tier' => ['required', 'between:1,5'],
+            'invites' => ['required', 'between:1,20'],
+            'minutes' => ['required', 'min:2', 'max:2'],
+        ],
+            [
+                'name.required' => 'You must select a Pokemon.'
+            ]
+        );
     }
 }

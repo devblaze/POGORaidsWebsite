@@ -30,7 +30,7 @@
                             <div class="media">
                                 <div class="media-content">
                                     <p class="title">{{ raid.name }}</p>
-                                    <p class="subtitle">Raid Tier: {{ raid.level }}</p>
+                                    <p class="subtitle">Raid Tier: {{ raid.tier }}</p>
                                 </div>
                                 <div style="margin-top: 5%; display: flex; align-items: center; justify-content: center; padding-right: 14px;">
                                     <div v-if="raid.weather_boost" style="color: green; font-weight: bold;">Weather Boosted</div>
@@ -43,7 +43,7 @@
                                         <div style="text-align: center;">
                                             Party Invites
                                             <br/>
-                                            0 / {{ raid.party_size }}
+                                            0 / {{ raid.invites }}
                                         </div>
                                     </div>
 
@@ -51,7 +51,8 @@
                                         <div style="text-align: center;">
                                             <div v-if="raid.hatched"><b>Time Left:</b></div>
                                             <div v-else="raid.hatched">Before Hatch:</div>
-                                            {{ countDown }}
+                                            {{ countDown }} raid.end_time - raid.start_time -> 02-09-2020 00:00 - nowTime()
+                                            {{ minutes = Math.floor(countDown / 60) }}:{{ seconds = countDown - minutes * 60}}
                                         </div>
                                     </div>
                                     <div class="column">
@@ -84,7 +85,8 @@ export default {
 
     data() {
         return {
-            countDown: 100,
+            countDown: 1800,
+            countDownYay: 0,
             isLoading: false,
             isFullPage: true,
             search: '',
@@ -93,11 +95,22 @@ export default {
     },
 
     created(){
-        this.fillRaids();
+        this.fillRaids(),
         this.countDownTimer()
     },
 
     methods: {
+/*        timer(min) {
+
+            if(this.countDownYay > 0) {
+                setTimeout(() => {
+                    // min -= 1,
+                    this.countDownYay -= 1,
+                    this.timer()
+                },1000)
+            }
+        },*/
+
         countDownTimer() {
             if(this.countDown > 0) {
                 setTimeout(() => {

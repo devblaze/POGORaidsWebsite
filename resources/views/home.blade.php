@@ -3,7 +3,7 @@
 @section('content')
     <h1>This is the Home Page</h1>
     <br/>
-    {{ auth()->user()->trainer }}
+    {{ auth()->user()->trainer->id }}
     {{--            @if (session('status'))
                     <div role="alert">
                         {{ session('status') }}

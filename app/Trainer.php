@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Trainer extends Model
 {
-    protected $guarded = [];
+    protected $fillable = ['id', 'user_id', 'code', 'name', 'level', 'pokedex', 'team'];
+//    protected $guarded = [];
 
     /**
      * A trainer belongs/must have one and only user.

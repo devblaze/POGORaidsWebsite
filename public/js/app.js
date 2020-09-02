@@ -2077,6 +2077,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2085,7 +2086,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      countDown: 100,
+      countDown: 1800,
+      countDownYay: 0,
       isLoading: false,
       isFullPage: true,
       search: '',
@@ -2093,10 +2095,19 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   created: function created() {
-    this.fillRaids();
-    this.countDownTimer();
+    this.fillRaids(), this.countDownTimer();
   },
   methods: {
+    /*        timer(min) {
+    
+                if(this.countDownYay > 0) {
+                    setTimeout(() => {
+                        // min -= 1,
+                        this.countDownYay -= 1,
+                        this.timer()
+                    },1000)
+                }
+            },*/
     countDownTimer: function countDownTimer() {
       var _this = this;
 
@@ -3532,7 +3543,7 @@ var render = function() {
                       ]),
                       _vm._v(" "),
                       _c("p", { staticClass: "subtitle" }, [
-                        _vm._v("Raid Tier: " + _vm._s(raid.level))
+                        _vm._v("Raid Tier: " + _vm._s(raid.tier))
                       ])
                     ]),
                     _vm._v(" "),
@@ -3574,7 +3585,7 @@ var render = function() {
                           _c("br"),
                           _vm._v(
                             "\n                                        0 / " +
-                              _vm._s(raid.party_size) +
+                              _vm._s(raid.invites) +
                               "\n                                    "
                           )
                         ])
@@ -3588,6 +3599,14 @@ var render = function() {
                           _vm._v(
                             "\n                                        " +
                               _vm._s(_vm.countDown) +
+                              " raid.end_time - raid.start_time -> 02-09-2020 00:00 - nowTime()\n                                        " +
+                              _vm._s(
+                                (_vm.minutes = Math.floor(_vm.countDown / 60))
+                              ) +
+                              ":" +
+                              _vm._s(
+                                (_vm.seconds = _vm.countDown - _vm.minutes * 60)
+                              ) +
                               "\n                                    "
                           )
                         ])

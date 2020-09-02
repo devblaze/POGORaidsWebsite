@@ -18,8 +18,8 @@ class CreateRaidsTable extends Migration
             $table->unsignedBigInteger('trainer_id');
             $table->unsignedBigInteger('pokemon_id')->nullable();
             $table->string('name')->nullable();
-            $table->integer('level')->nullable();
-            $table->tinyInteger('party_size');
+            $table->integer('tier');
+            $table->tinyInteger('invites');
             $table->boolean('hatched');
             $table->boolean('weather_boost');
             $table->timestamp('end_time');

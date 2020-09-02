@@ -54,7 +54,7 @@
                                     <div class="control">
                                         <div class="select @error('name') is-danger @enderror">
                                             <select id="name" name="name">
-                                                <option selected>Select..</option>
+                                                <option selected value="">Select..</option>
                                                 <option>HEATRAN</option>
                                                 <option>ALOLAN RAICHU</option>
                                                 <option>MACHAMP</option>
@@ -76,7 +76,7 @@
                                         </div>
                                         @error('name')
                                         <p class="help is-danger">
-                                            This field can't be empty or zero
+                                            {{ $message }}
                                         </p>
                                         @enderror
                                     </div>
@@ -96,7 +96,13 @@
                             <div class="column is-half" style="display: flex; justify-content: center;">
                                 {{--                        Line right half--}}
                                 {{--                            <input step="1" min="1" max="5" value="1" type="range">--}}
-                                <customslider></customslider>
+                                <customslider name="tier2"></customslider>
+                                <input type="range" min="1" max="5" value="1" name="tier">
+                                @error('tier')
+                                <p class="help is-danger">
+                                    {{ $message }}
+                                </p>
+                                @enderror
                             </div>
                         </div>
                     </div>
@@ -117,7 +123,7 @@
                                     </div>
                                     @error('minutes')
                                     <p class="help is-danger">
-                                        This field can't be empty or zero
+                                        {{ $message }}
                                     </p>
                                     @enderror
                                 </div>
@@ -141,7 +147,7 @@
                                     </div>
                                     @error('invites')
                                     <p class="help is-danger">
-                                        This field can't be empty or zero
+                                        {{ $message }}
                                     </p>
                                     @enderror
                                 </div>
@@ -159,9 +165,13 @@
                     </div>
                     <div class="column is-half">
                         <div class="field">
-                            <input id="weatherBoost" type="checkbox" name="weatherBoost" class="switch is-rounded is-outlined is-success">
-                            <label for="weatherBoost">Weather Boosted</label>
-                            {{ Auth::user()->trainer()->value('id') }}
+                            <input id="weather_boost" type="checkbox" name="weather_boost" class="switch is-rounded is-outlined is-success">
+                            <label for="weather_boost">Weather Boosted</label>
+                            @error('weather_boost')
+                            <p class="help is-danger">
+                                {{ $message }}
+                            </p>
+                            @enderror
                         </div>
                     </div>
                 </div>
@@ -169,7 +179,13 @@
                 <div class="columns">
                     <div class="column">
                         <div class="control">
-                            <input id="trainer_id" name="trainer_id" type="text" value="{{ Auth::user()->trainer()->value('id') }}">
+{{--                            <input id="trainer_id" name="trainer_id" type="hidden" value="{{ Auth::user()->trainer()->value('id') }}">--}}
+                            <input id="trainer_id" name="trainer_id" type="hidden" value="{{ auth()->user()->trainer->id }}">
+                            @error('trainer_id')
+                            <p class="help is-danger">
+                                {{ $message }}
+                            </p>
+                            @enderror
                             <button type="submit" class="button is-large is-fullwidth is-success">Start Raid</button>
                         </div>
                     </div>

@@ -18,9 +18,9 @@ class CreateTrainersTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('code');
             $table->string('name');
-            $table->string('level');
-            $table->integer('pokedex');
-            $table->string('team');
+            $table->string('level')->nullable();
+            $table->integer('pokedex')->nullable();
+            $table->string('team')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')
