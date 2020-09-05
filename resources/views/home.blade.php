@@ -3,7 +3,9 @@
 @section('content')
     <h1>This is the Home Page</h1>
     <br/>
+    @auth()
     {{ auth()->user()->trainer->id }}
+    @endauth
     {{--            @if (session('status'))
                     <div role="alert">
                         {{ session('status') }}

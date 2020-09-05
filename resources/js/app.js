@@ -3,8 +3,8 @@ import raids from './components/Raids';
 import filters from './components/RaidsFilters';
 import customslider from './components/customSlider';
 import example from './components/ExampleComponent';
-import Form from './core/Form';
 import raid from './components/RaidCreate';
+import countdown from "./components/RaidCountdown";
 
 let app = new Vue ({
     el: '#app',
@@ -14,7 +14,8 @@ let app = new Vue ({
         filters,
         customslider,
         example,
-        raid
+        raid,
+        countdown
     }
 });
 

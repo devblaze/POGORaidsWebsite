@@ -51,18 +51,25 @@
                                         <div style="text-align: center;">
                                             <div v-if="raid.hatched"><b>Time Left:</b></div>
                                             <div v-else="raid.hatched">Before Hatch:</div>
-                                            {{ countDown }} raid.end_time - raid.start_time -> 02-09-2020 00:00 - nowTime()
-                                            {{ minutes = Math.floor(countDown / 60) }}:{{ seconds = countDown - minutes * 60}}
+                                            <countdown :seconds="raid.seconds"></countdown>
+
+                                            <!--                                            <input type="text" :value="test(raid.seconds)">-->
+<!--                                            {{ test(raid.seconds) }}-->
+                                            <!--raid.end_time - raid.start_time -> 02-09-2020 00:00 - nowTime()-->
+<!--                                            {{ minutes = Math.floor(countDown / 60) }}:{{ seconds = countDown - minutes * 60}}-->
                                         </div>
                                     </div>
-                                    <div class="column">
+                                    <div class="column" v-if="user">
                                         <div style="text-align: center;">
                                             <!--                                        <a class="button is-info is-narrow is-rounded">
                                                                                         <router-link :to="{ name: 'raidEdit', params: { id: raid.id }}">Edit</router-link>
                                                                                     </a>-->
-                                            <a class="button is-info is-narrow is-rounded" :href="'/raids/' + raid.id + '/edit'" v-if="user !== ''">Edit</a>
+                                            <a class="button is-info is-narrow is-rounded" :href="'/raids/' + raid.id + '/edit'" v-if="user">Edit</a>
                                             <button class="button is-success is-narrow is-rounded">Join</button>
                                         </div>
+                                    </div>
+                                    <div class="column" v-else="user">
+                                        <p>Login in order to Join!</p>
                                     </div>
                                 </div>
                             </div>
@@ -77,15 +84,28 @@
 <script>
 import VueRouter from "vue-router";
 import routes from "../routes";
+import countdown from "./RaidCountdown";
 
 export default {
     props: {
         user: String
     },
 
+    components: {
+        countdown
+    },
+
     data() {
         return {
-            countDown: 1800,
+/*            countDown: 1800,
+            countDownTimer() {
+                if (this.countDown > 0) {
+                    setTimeout(() => {
+                        this.countDown -= 1
+                        this.countDownTimer()
+                    }, 1000)
+                }
+            },*/
             countDownYay: 0,
             isLoading: false,
             isFullPage: true,
@@ -94,22 +114,30 @@ export default {
         }
     },
 
-    created(){
-        this.fillRaids(),
-        this.countDownTimer()
+    created() {
+        this.fillRaids()
+        // this.countDownTimer()
     },
 
     methods: {
-/*        timer(min) {
-
-            if(this.countDownYay > 0) {
+/*        test(mytest){
+            if (mytest > 0){
                 setTimeout(() => {
-                    // min -= 1,
-                    this.countDownYay -= 1,
-                    this.timer()
-                },1000)
+                    let testing = this.minus(mytest)
+
+                })
+                let testing = this.timer(mytest)
+                return testing
             }
-        },*/
+        },
+
+        timer(raidSeconds) {
+            setTimeout(() => {
+                raidSeconds -= 1
+                this.raidsSeconds
+                this.timer()
+            }, 1000)
+        },
 
         countDownTimer() {
             if(this.countDown > 0) {
@@ -118,7 +146,7 @@ export default {
                     this.countDownTimer()
                 },1000)
             }
-        },
+        },*/
 
         fillRaids() {
             this.isLoading = true

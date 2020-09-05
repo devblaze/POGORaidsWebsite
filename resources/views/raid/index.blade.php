@@ -5,6 +5,7 @@
         <example>
             <header>
                 test adf
+                <countdown></countdown>
             </header>
         </example>
 

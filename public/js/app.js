@@ -1960,6 +1960,65 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/RaidCountdown.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/RaidCountdown.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    seconds: Number
+  },
+  data: function data() {
+    return {
+      countDown: this.seconds,
+      countDownTimer: function countDownTimer() {
+        var _this = this;
+
+        if (this.countDown > 0) {
+          setTimeout(function () {
+            _this.countDown -= 1;
+
+            _this.countDownTimer();
+          }, 1000);
+        }
+      }
+    };
+  },
+  created: function created() {
+    this.countDownTimer(); // window.setInterval(autoIncrementTimer, 1000)
+  },
+  computed: {
+    timer: function timer() {
+      var minutes = Math.floor(this.countDown / 60);
+      var sec = this.countDown - minutes * 60;
+
+      if (minutes < 10) {
+        minutes = "0" + minutes;
+      }
+
+      if (sec < 10) {
+        sec = "0" + sec;
+      }
+
+      return minutes + ":" + sec;
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/RaidCreate.vue?vue&type=script&lang=js&":
 /*!*********************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/RaidCreate.vue?vue&type=script&lang=js& ***!
@@ -2002,6 +2061,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
 /* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../routes */ "./resources/js/routes.js");
+/* harmony import */ var _RaidCountdown__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./RaidCountdown */ "./resources/js/components/RaidCountdown.vue");
 //
 //
 //
@@ -2078,15 +2138,34 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     user: String
   },
+  components: {
+    countdown: _RaidCountdown__WEBPACK_IMPORTED_MODULE_2__["default"]
+  },
   data: function data() {
     return {
-      countDown: 1800,
+      /*            countDown: 1800,
+                  countDownTimer() {
+                      if (this.countDown > 0) {
+                          setTimeout(() => {
+                              this.countDown -= 1
+                              this.countDownTimer()
+                          }, 1000)
+                      }
+                  },*/
       countDownYay: 0,
       isLoading: false,
       isFullPage: true,
@@ -2095,48 +2174,54 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   created: function created() {
-    this.fillRaids(), this.countDownTimer();
+    this.fillRaids(); // this.countDownTimer()
   },
   methods: {
-    /*        timer(min) {
-    
-                if(this.countDownYay > 0) {
+    /*        test(mytest){
+                if (mytest > 0){
                     setTimeout(() => {
-                        // min -= 1,
-                        this.countDownYay -= 1,
-                        this.timer()
+                        let testing = this.minus(mytest)
+    
+                    })
+                    let testing = this.timer(mytest)
+                    return testing
+                }
+            },
+    
+            timer(raidSeconds) {
+                setTimeout(() => {
+                    raidSeconds -= 1
+                    this.raidsSeconds
+                    this.timer()
+                }, 1000)
+            },
+    
+            countDownTimer() {
+                if(this.countDown > 0) {
+                    setTimeout(() => {
+                        this.countDown -= 1
+                        this.countDownTimer()
                     },1000)
                 }
             },*/
-    countDownTimer: function countDownTimer() {
-      var _this = this;
-
-      if (this.countDown > 0) {
-        setTimeout(function () {
-          _this.countDown -= 1;
-
-          _this.countDownTimer();
-        }, 1000);
-      }
-    },
     fillRaids: function fillRaids() {
-      var _this2 = this;
+      var _this = this;
 
       this.isLoading = true;
       axios.get('api/raids').then(function (data) {
-        _this2.raids = data.data;
-        _this2.isLoading = false;
+        _this.raids = data.data;
+        _this.isLoading = false;
       });
     },
     find: function find() {
-      var _this3 = this;
+      var _this2 = this;
 
       this.loading = true;
       setTimeout(function () {
-        var query = _this3.search;
+        var query = _this2.search;
         axios.get('api/raids/findRaid?q=' + query).then(function (data) {
-          _this3.raids = data.data;
-          _this3.loading = false;
+          _this2.raids = data.data;
+          _this2.loading = false;
         })["catch"](function () {
           console.log('Something went wrong while searching for raids!');
         });
@@ -3428,6 +3513,30 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/RaidCountdown.vue?vue&type=template&id=96a53428&":
+/*!****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/RaidCountdown.vue?vue&type=template&id=96a53428& ***!
+  \****************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [_vm._v("\n        " + _vm._s(_vm.timer) + "\n    ")])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/RaidCreate.vue?vue&type=template&id=cca79a5e&":
 /*!*************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/RaidCreate.vue?vue&type=template&id=cca79a5e& ***!
@@ -3580,62 +3689,68 @@ var render = function() {
                       _c("div", { staticClass: "column" }, [
                         _c("div", { staticStyle: { "text-align": "center" } }, [
                           _vm._v(
-                            "\n                                        Party Invites\n                                        "
+                            "\n                                            Party Invites\n                                            "
                           ),
                           _c("br"),
                           _vm._v(
-                            "\n                                        0 / " +
+                            "\n                                            0 / " +
                               _vm._s(raid.invites) +
-                              "\n                                    "
+                              "\n                                        "
                           )
                         ])
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "column" }, [
-                        _c("div", { staticStyle: { "text-align": "center" } }, [
-                          raid.hatched
-                            ? _c("div", [_c("b", [_vm._v("Time Left:")])])
-                            : _c("div", [_vm._v("Before Hatch:")]),
-                          _vm._v(
-                            "\n                                        " +
-                              _vm._s(_vm.countDown) +
-                              " raid.end_time - raid.start_time -> 02-09-2020 00:00 - nowTime()\n                                        " +
-                              _vm._s(
-                                (_vm.minutes = Math.floor(_vm.countDown / 60))
-                              ) +
-                              ":" +
-                              _vm._s(
-                                (_vm.seconds = _vm.countDown - _vm.minutes * 60)
-                              ) +
-                              "\n                                    "
-                          )
-                        ])
+                        _c(
+                          "div",
+                          { staticStyle: { "text-align": "center" } },
+                          [
+                            raid.hatched
+                              ? _c("div", [_c("b", [_vm._v("Time Left:")])])
+                              : _c("div", [_vm._v("Before Hatch:")]),
+                            _vm._v(" "),
+                            _c("countdown", {
+                              attrs: { seconds: raid.seconds }
+                            })
+                          ],
+                          1
+                        )
                       ]),
                       _vm._v(" "),
-                      _c("div", { staticClass: "column" }, [
-                        _c("div", { staticStyle: { "text-align": "center" } }, [
-                          _vm.user !== ""
-                            ? _c(
-                                "a",
-                                {
-                                  staticClass:
-                                    "button is-info is-narrow is-rounded",
-                                  attrs: { href: "/raids/" + raid.id + "/edit" }
-                                },
-                                [_vm._v("Edit")]
-                              )
-                            : _vm._e(),
-                          _vm._v(" "),
-                          _c(
-                            "button",
-                            {
-                              staticClass:
-                                "button is-success is-narrow is-rounded"
-                            },
-                            [_vm._v("Join")]
-                          )
-                        ])
-                      ])
+                      _vm.user
+                        ? _c("div", { staticClass: "column" }, [
+                            _c(
+                              "div",
+                              { staticStyle: { "text-align": "center" } },
+                              [
+                                _vm.user
+                                  ? _c(
+                                      "a",
+                                      {
+                                        staticClass:
+                                          "button is-info is-narrow is-rounded",
+                                        attrs: {
+                                          href: "/raids/" + raid.id + "/edit"
+                                        }
+                                      },
+                                      [_vm._v("Edit")]
+                                    )
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass:
+                                      "button is-success is-narrow is-rounded"
+                                  },
+                                  [_vm._v("Join")]
+                                )
+                              ]
+                            )
+                          ])
+                        : _c("div", { staticClass: "column" }, [
+                            _c("p", [_vm._v("Login in order to Join!")])
+                          ])
                     ])
                   ])
                 ])
@@ -18973,8 +19088,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_RaidsFilters__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/RaidsFilters */ "./resources/js/components/RaidsFilters.vue");
 /* harmony import */ var _components_customSlider__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/customSlider */ "./resources/js/components/customSlider.vue");
 /* harmony import */ var _components_ExampleComponent__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/ExampleComponent */ "./resources/js/components/ExampleComponent.vue");
-/* harmony import */ var _core_Form__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./core/Form */ "./resources/js/core/Form.js");
-/* harmony import */ var _components_RaidCreate__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/RaidCreate */ "./resources/js/components/RaidCreate.vue");
+/* harmony import */ var _components_RaidCreate__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/RaidCreate */ "./resources/js/components/RaidCreate.vue");
+/* harmony import */ var _components_RaidCountdown__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/RaidCountdown */ "./resources/js/components/RaidCountdown.vue");
 
 
 
@@ -18989,7 +19104,8 @@ var app = new Vue({
     filters: _components_RaidsFilters__WEBPACK_IMPORTED_MODULE_2__["default"],
     customslider: _components_customSlider__WEBPACK_IMPORTED_MODULE_3__["default"],
     example: _components_ExampleComponent__WEBPACK_IMPORTED_MODULE_4__["default"],
-    raid: _components_RaidCreate__WEBPACK_IMPORTED_MODULE_6__["default"]
+    raid: _components_RaidCreate__WEBPACK_IMPORTED_MODULE_5__["default"],
+    countdown: _components_RaidCountdown__WEBPACK_IMPORTED_MODULE_6__["default"]
   }
 });
 /*new Vue ({
@@ -19206,6 +19322,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_template_id_299e239e___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_template_id_299e239e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/RaidCountdown.vue":
+/*!***************************************************!*\
+  !*** ./resources/js/components/RaidCountdown.vue ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _RaidCountdown_vue_vue_type_template_id_96a53428___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./RaidCountdown.vue?vue&type=template&id=96a53428& */ "./resources/js/components/RaidCountdown.vue?vue&type=template&id=96a53428&");
+/* harmony import */ var _RaidCountdown_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./RaidCountdown.vue?vue&type=script&lang=js& */ "./resources/js/components/RaidCountdown.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _RaidCountdown_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _RaidCountdown_vue_vue_type_template_id_96a53428___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _RaidCountdown_vue_vue_type_template_id_96a53428___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/RaidCountdown.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/RaidCountdown.vue?vue&type=script&lang=js&":
+/*!****************************************************************************!*\
+  !*** ./resources/js/components/RaidCountdown.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_RaidCountdown_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./RaidCountdown.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/RaidCountdown.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_RaidCountdown_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/RaidCountdown.vue?vue&type=template&id=96a53428&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/RaidCountdown.vue?vue&type=template&id=96a53428& ***!
+  \**********************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RaidCountdown_vue_vue_type_template_id_96a53428___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./RaidCountdown.vue?vue&type=template&id=96a53428& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/RaidCountdown.vue?vue&type=template&id=96a53428&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RaidCountdown_vue_vue_type_template_id_96a53428___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RaidCountdown_vue_vue_type_template_id_96a53428___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -19484,241 +19669,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_customSlider_vue_vue_type_template_id_30404306___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
-
-/***/ }),
-
-/***/ "./resources/js/core/Errors.js":
-/*!*************************************!*\
-  !*** ./resources/js/core/Errors.js ***!
-  \*************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-var Errors = /*#__PURE__*/function () {
-  /**
-   * Create a new Errors instance.
-   */
-  function Errors() {
-    _classCallCheck(this, Errors);
-
-    this.errors = {};
-  }
-  /**
-   * Retrive the error message for a field.
-   *
-   * @param {string} field
-   */
-
-
-  _createClass(Errors, [{
-    key: "get",
-    value: function get(field) {
-      if (this.errors[field]) {
-        return this.errors[field][0];
-      }
-    }
-    /**
-     * Record the new errors.
-     *
-     * @param {object} errors
-     */
-
-  }, {
-    key: "record",
-    value: function record(errors) {
-      this.errors = errors;
-    }
-  }, {
-    key: "clear",
-    value: function clear(field) {
-      if (field) {
-        delete this.errors[field];
-        return;
-      }
-
-      this.errors = {};
-    }
-    /**
-     * Determine if an errors exists for the given field.
-     *
-     * @parm {string} field
-     */
-
-  }, {
-    key: "has",
-    value: function has(field) {
-      return this.errors.hasOwnProperty(field);
-    }
-    /**
-     * Determine if we have any errors
-     */
-
-  }, {
-    key: "any",
-    value: function any() {
-      return Object.keys(this.errors).length > 0;
-    }
-  }]);
-
-  return Errors;
-}();
-
-/* harmony default export */ __webpack_exports__["default"] = (Errors);
-
-/***/ }),
-
-/***/ "./resources/js/core/Form.js":
-/*!***********************************!*\
-  !*** ./resources/js/core/Form.js ***!
-  \***********************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Errors__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Errors */ "./resources/js/core/Errors.js");
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-
-
-var Form = /*#__PURE__*/function () {
-  /**
-   * Create a new Form Instance.
-   *
-   * @param {object} data
-   */
-  function Form(data) {
-    _classCallCheck(this, Form);
-
-    this.originalData = data;
-
-    for (var field in data) {
-      this[field] = data[field];
-    }
-
-    this.errors = new _Errors__WEBPACK_IMPORTED_MODULE_0__["default"]();
-  }
-  /**
-   * Fetch all the relevant data for the form.
-   */
-
-
-  _createClass(Form, [{
-    key: "data",
-    value: function data() {
-      var data = {};
-
-      for (var propertry in this.originalData) {
-        data[propertry] = this[propertry];
-      }
-      /*        let data = Object.assign({}, this);
-              delete data.originalData;
-              delete data.errors;*/
-
-
-      return data;
-    }
-    /**
-     * Submit form for a post request.
-     *
-     * @param {string} url
-     */
-
-  }, {
-    key: "post",
-    value: function post(url) {
-      var _this = this;
-
-      return new Promise(function (resolove, reject) {
-        axios.post(url, _this.data()).then(function (response) {
-          _this.onSuccess(response.data);
-
-          resolove(response.data);
-        })["catch"](function (error) {
-          _this.onFail(error.response.data);
-
-          reject(error.response.data);
-        });
-      });
-    }
-    /**
-     * Submit the form.
-     *
-     * @param {string} requestType
-     * @param {string} url
-     */
-
-  }, {
-    key: "submit",
-    value: function submit(requestType, url) {
-      var _this2 = this;
-
-      return new Promise(function (resolve, reject) {
-        axios[requestType](url, _this2.data()).then(function (response) {
-          _this2.onSuccess(response.data);
-
-          resolve(response.data);
-        })["catch"](function (error) {
-          _this2.onFail(error.response.data);
-
-          reject(error.response.data);
-        });
-      });
-    }
-    /**
-     * Handle a successful form submission.
-     *
-     * @param {object} data
-     */
-
-  }, {
-    key: "onSuccess",
-    value: function onSuccess(data) {
-      alert(data.message);
-      this.reset();
-    }
-    /**
-     * Handle a failed form submission.
-     *
-     * @param {object} errors
-     */
-
-  }, {
-    key: "onFail",
-    value: function onFail(errors) {
-      this.errors.record(errors);
-    }
-    /**
-     * Reset the form fields.
-     */
-
-  }, {
-    key: "reset",
-    value: function reset() {
-      for (var field in this.originalData) {
-        this[field] = '';
-      }
-
-      this.errors.clear();
-    }
-  }]);
-
-  return Form;
-}();
-
-/* harmony default export */ __webpack_exports__["default"] = (Form);
 
 /***/ }),
 

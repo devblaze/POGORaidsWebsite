@@ -3,42 +3,40 @@
 namespace App\Http\Controllers;
 
 use App\Raid;
-use Illuminate\Auth\Events\Validated;
-use Illuminate\Http\Request;
-//use Illuminate\View\View;
-use Illuminate\Contracts\Support\Renderable;
+use Illuminate\View\View;
 use Illuminate\Validation\ValidationException;
 
 class RaidController extends Controller
 {
-    public function index(): Renderable {
+    public function index(): View {
         // Shows a list of all items
         $raids = Raid::latest()->get();
         return view('raid.index', ['raids' => $raids]);
     }
 
-    public function show(Raid $raid): Renderable {
+    public function show(Raid $raid): View {
         // Shows one item of that list
         return view('raid.show', ['raid' => $raid]);
     }
 
-    public function create(): Renderable {
+    public function create(): View {
         // Shows a view to create a new item
         return view('raid.create');
     }
 
     public function store(){
         // Persist the new item
-        $test = [
-            'trainer_id' => auth()->user()->trainer->id,
-            'weather_boost' => (bool)\request()->get('weather_boost'),
-            'hatched' => (bool)\request()->get('hatched'),
-        ] + $this->validateRaid();
-        Raid::create($test);
+        Raid::create($this->validateRaid() + [
+                'trainer_id' => auth()->user()->trainer->id,
+                'weather_boost' => (bool)\request()->get('weather_boost'),
+                'hatched' => (bool)\request()->get('hatched'),
+                'seconds' => \request()->get('minutes') * 60,
+            ]);
         return redirect(route('raid_index'));
+//        return ddd($this->validateRaid());
     }
 
-    public function edit(Raid $raid): Renderable{
+    public function edit(Raid $raid): View{
         // Edit one item from the list
         return view('raid.edit', compact('raid'));
     }
@@ -49,16 +47,15 @@ class RaidController extends Controller
         return redirect($raid->path());
     }
 
-    public function destroy(Raid $raid): Renderable{
+    public function destroy(Raid $raid): View{
         // Delete the item
         return view('raid.index');
     }
 
     /**
-     * Validate the raid field.
+     * Validate the raid fields.
      *
      * @return array
-     * @throws \Illuminate\Validation\ValidationException
      */
     protected function validateRaid(): array
     {
