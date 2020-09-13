@@ -49,9 +49,12 @@
 
                                     <div class="column">
                                         <div style="text-align: center;">
-                                            <div v-if="raid.hatched"><b>Time Left:</b></div>
-                                            <div v-else="raid.hatched">Before Hatch:</div>
-                                            <countdown :seconds="raid.seconds"></countdown>
+                                            <div v-if="raid.hatched">Before Hatch:</div>
+                                            <div v-else="raid.hatched"><b>Time Left:</b></div>
+                                            <raid-countdown :id="raid.id"></raid-countdown>
+<!--                                            {{ raid.end_time.replace(/-/g, " ") }}
+                                            {{ now = Math.trunc((new Date()).getTime() / 1000) }}
+                                            <countdown end="09/13/2020, 02:00:00"></countdown>-->
 
                                             <!--                                            <input type="text" :value="test(raid.seconds)">-->
 <!--                                            {{ test(raid.seconds) }}-->
@@ -84,70 +87,32 @@
 <script>
 import VueRouter from "vue-router";
 import routes from "../routes";
-import countdown from "./RaidCountdown";
+import countdown from "./Countdown";
+import RaidCountdown from "./RaidCountdown";
 
 export default {
     props: {
         user: String
     },
-
     components: {
+        RaidCountdown,
         countdown
     },
-
     data() {
         return {
-/*            countDown: 1800,
-            countDownTimer() {
-                if (this.countDown > 0) {
-                    setTimeout(() => {
-                        this.countDown -= 1
-                        this.countDownTimer()
-                    }, 1000)
-                }
-            },*/
-            countDownYay: 0,
             isLoading: false,
             isFullPage: true,
             search: '',
             raids: {}
         }
     },
-
     created() {
         this.fillRaids()
-        // this.countDownTimer()
     },
-
     methods: {
-/*        test(mytest){
-            if (mytest > 0){
-                setTimeout(() => {
-                    let testing = this.minus(mytest)
-
-                })
-                let testing = this.timer(mytest)
-                return testing
-            }
-        },
-
-        timer(raidSeconds) {
-            setTimeout(() => {
-                raidSeconds -= 1
-                this.raidsSeconds
-                this.timer()
-            }, 1000)
-        },
-
-        countDownTimer() {
-            if(this.countDown > 0) {
-                setTimeout(() => {
-                    this.countDown -= 1
-                    this.countDownTimer()
-                },1000)
-            }
-        },*/
-
+        /**
+         * Get the raids for the first time with API call.
+         */
         fillRaids() {
             this.isLoading = true
             axios.get('api/raids')
@@ -157,6 +122,9 @@ export default {
                 });
         },
 
+        /**
+         * Search for the raid/s that match the user input.
+         */
         find() {
             this.loading = true;
             setTimeout(() => {
@@ -172,13 +140,6 @@ export default {
             }, 1000)
         }
     },
-    /*        openLoading() {
-            this.isLoading = true
-            setTimeout(() => {
-                this.isLoading = false
-            }, 10 * 1000)
-        },*/
-
     router: new VueRouter(routes)
 }
 </script>

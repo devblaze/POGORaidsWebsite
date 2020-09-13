@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Trainer;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class TrainerController extends Controller
 {
@@ -12,21 +14,53 @@ class TrainerController extends Controller
         $this->middleware('auth');
     }
 
-    public function create(): Renderable {
-        return view('raid.create');
+    public function index() {
+        return view('trainer.index');
     }
 
-    public function store(){
-        Raid::create($this->validateTrainer());
-        return redirect(route('raid_index'));
+    public function show() {
+        return 0;
+    }
+
+    public function create(): View
+    {
+        return view('trainer.create');
+    }
+
+    public function store()
+    {
+        Trainer::create($this->validateTrainer() + [
+                'user_id' => auth()->user()->id
+            ]);
+        return redirect(route('home'));
+
+    }
+
+    public function edit() {
+
+    }
+
+    public function update() {
+
+    }
+
+    public function destroy() {
     }
 
     protected function validateTrainer(): array
     {
-        return request()->validate([
-            'username' => ['required', 'min:3'],
-            'trainer_id' => ['required', 'min:12', 'max:12'],
-        ]);
+        return \request()->validate([
+            'name' => ['unique:trainers,name', 'required', 'min:1', 'max:15'],
+            'code' => ['unique:trainers,code', 'required', 'min:12', 'max:12'],
+            'level' => ['required', 'between:1,40'],
+            'team' => ['required', 'different:Select..'],
+            'pokedex' => ['nullable', 'between:1,645'],
+        ],
+            [
+                'name.required' => 'You must enter your trainer Name.',
+                'code.required' => 'You must enter your trainer Code.',
+                'team.required' => 'You must select your trainer Team.'
+            ]
+        );
     }
-
 }

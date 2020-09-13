@@ -159,8 +159,13 @@
                 <div class="columns" style="padding-right: 10%; padding-left: 10%;">
                     <div class="column is-half">
                         <div class="field">
-                            <input id="status" type="checkbox" name="status" class="switch is-rounded is-outlined is-success">
-                            <label for="status">Before Hatch</label>
+                            <input id="hatched" type="checkbox" name="hatched" class="switch is-rounded is-outlined is-success">
+                            <label for="hatched">Before Hatch</label>
+                            @error('hatched')
+                            <p class="help is-danger">
+                                {{ $message }}
+                            </p>
+                            @enderror
                         </div>
                     </div>
                     <div class="column is-half">

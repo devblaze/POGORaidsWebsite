@@ -3,53 +3,97 @@
 namespace App\Http\Controllers;
 
 use App\Raid;
+use Exception;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Routing\Redirector;
 use Illuminate\View\View;
-use Illuminate\Validation\ValidationException;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class RaidController extends Controller
 {
-    public function index(): View {
-        // Shows a list of all items
-        $raids = Raid::latest()->get();
-        return view('raid.index', ['raids' => $raids]);
+    /**
+     * Used for testing purposes only.
+     */
+    public function test(): string
+    {
+        return Raid::calculateTimeLeft(52);
+//        return ddd($this->validateRaid());
     }
 
-    public function show(Raid $raid): View {
-        // Shows one item of that list
+    /**
+     * Shows a list of all items
+     */
+    public function index(): View
+    {
+//        $raids = Raid::latest()->get();
+        return view('raid.index');
+    }
+
+    /**
+     * Shows one item of that list
+     *
+     * @param Raid $raid
+     * @return View
+     */
+    public function show(Raid $raid): View
+    {
         return view('raid.show', ['raid' => $raid]);
     }
 
-    public function create(): View {
-        // Shows a view to create a new item
+    /**
+     * Shows a view to create a new item
+     */
+    public function create(): View
+    {
         return view('raid.create');
     }
 
-    public function store(){
-        // Persist the new item
+    /**
+     * Persist the new item
+     */
+    public function store() {
         Raid::create($this->validateRaid() + [
                 'trainer_id' => auth()->user()->trainer->id,
                 'weather_boost' => (bool)\request()->get('weather_boost'),
                 'hatched' => (bool)\request()->get('hatched'),
                 'seconds' => \request()->get('minutes') * 60,
+                'end_time' => Raid::finishDate(\request()->get('minutes'), (bool)\request()->get('hatched'))
             ]);
         return redirect(route('raid_index'));
-//        return ddd($this->validateRaid());
     }
 
-    public function edit(Raid $raid): View{
-        // Edit one item from the list
+    /**
+     * Edit one item from the list
+     *
+     * @param Raid $raid
+     * @return View
+     */
+    public function edit(Raid $raid): View
+    {
         return view('raid.edit', compact('raid'));
     }
 
-    public function update(Raid $raid){
-        // Persist the edited item
+    /**
+     * Persist the edited item
+     *
+     * @param Raid $raid
+     * @return Application|RedirectResponse|Redirector
+     */
+    public function update(Raid $raid) {
         $raid->update($this->validateRaid());
         return redirect($raid->path());
     }
 
-    public function destroy(Raid $raid): View{
-        // Delete the item
-        return view('raid.index');
+    /**
+     * Delete the an item from the list
+     *
+     * @param Raid $raid
+     * @return Exception|string
+     */
+    public function destroy(Raid $raid)
+    {
+        return $raid->safeDelete($raid);
     }
 
     /**

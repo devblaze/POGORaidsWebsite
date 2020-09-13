@@ -38,7 +38,7 @@ class User extends Authenticatable
     ];
 
     /**
-     * A user can have only one trainer. (For now, can be changed to have many trainers.)
+     * A user can have only one trainer. (For now, can be changed to have many trainers (accounts) later.)
      *
      * @return HasOne
      */
