@@ -12,14 +12,21 @@ class Raid extends Model
 {
     protected $fillable = ['trainer_id', 'name', 'tier', 'invites', 'hatched', 'weather_boost', 'end_time', 'seconds'];
 
-    public static function safeDelete(Raid $raid)
+    /**
+     * Delete a raid after checking it exists otherwise return 'false'.
+     *
+     * @param int $id
+     * @return bool
+     */
+    public static function safeDelete(int $id): bool
     {
-        try {
-            $raid->delete();
-            return "Success!";
-        } catch (\Exception $ex) {
-            return $ex;
+        $raid = static::find($id);
+        if ($raid !== null){
+            return $raid->delete();
+        } else {
+            return false;
         }
+//        return ddd(static::findOrFail($id)->delete());
     }
 
     /**

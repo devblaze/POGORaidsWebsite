@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Trainer;
-use Illuminate\Contracts\Support\Renderable;
-use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class TrainerController extends Controller

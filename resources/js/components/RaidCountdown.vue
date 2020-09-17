@@ -55,15 +55,17 @@ export default {
          * @param {int} id
          */
         getSeconds(id) {
-            axios
-                .get('api/raids/seconds?id=' + id)
-                .then((response) => {
-                    this.seconds = response.data
-                    // this.countDownTimer()
-                })
-                .catch(() => {
-                    console.log('Something went wrong while fetching the seconds from Raid: ' + id);
-                })
+            setTimeout(() => {
+                axios
+                    .get('api/raids/seconds?id=' + id)
+                    .then((response) => {
+                        this.seconds = response.data
+                        // this.countDownTimer()
+                    })
+                    .catch(() => {
+                        console.log('Something went wrong while fetching the seconds from Raid: ' + id);
+                    })
+            }, 1000)
         }
     },
     computed: {

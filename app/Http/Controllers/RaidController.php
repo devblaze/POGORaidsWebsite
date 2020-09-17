@@ -9,6 +9,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Redirector;
 use Illuminate\View\View;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use PHPUnit\Framework\RiskyTestError;
 
 class RaidController extends Controller
 {
@@ -22,7 +23,9 @@ class RaidController extends Controller
     }
 
     /**
-     * Shows a list of all items
+     * Return just the view index.
+     *
+     * @return View
      */
     public function index(): View
     {
@@ -31,7 +34,7 @@ class RaidController extends Controller
     }
 
     /**
-     * Shows one item of that list
+     * Shows info about the selected raid.
      *
      * @param Raid $raid
      * @return View
@@ -42,7 +45,9 @@ class RaidController extends Controller
     }
 
     /**
-     * Shows a view to create a new item
+     * Returns a view to create a new raid.
+     *
+     * @return View
      */
     public function create(): View
     {
@@ -50,7 +55,9 @@ class RaidController extends Controller
     }
 
     /**
-     * Persist the new item
+     * Create the new raid in the DB after validation.
+     *
+     * @return redirect
      */
     public function store() {
         Raid::create($this->validateRaid() + [
@@ -64,7 +71,7 @@ class RaidController extends Controller
     }
 
     /**
-     * Edit one item from the list
+     * Show view to edit one of raids selected.
      *
      * @param Raid $raid
      * @return View
@@ -75,7 +82,7 @@ class RaidController extends Controller
     }
 
     /**
-     * Persist the edited item
+     * Update a raid from the DB after validation.
      *
      * @param Raid $raid
      * @return Application|RedirectResponse|Redirector
@@ -86,18 +93,18 @@ class RaidController extends Controller
     }
 
     /**
-     * Delete the an item from the list
+     * Delete a raid from the DB with ID = x.
      *
-     * @param Raid $raid
+     * @param int $id
      * @return Exception|string
      */
-    public function destroy(Raid $raid)
+    public function destroy(int $id)
     {
-        return $raid->safeDelete($raid);
+        return Raid::safeDelete($id);
     }
 
     /**
-     * Validate the raid fields.
+     * Validate the raid fields from the user.
      *
      * @return array
      */

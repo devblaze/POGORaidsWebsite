@@ -18,6 +18,9 @@ class CreateRaidsTable extends Migration
             $table->unsignedBigInteger('trainer_id');
 
             $table->unsignedBigInteger('pokemon_id')->nullable();
+            /**
+             * The 'name' and 'tier' column can be merged into one 'pokemon_id' which will have all the relevant information.
+             */
             $table->string('name')->nullable();
             $table->integer('tier');
 

@@ -21,6 +21,7 @@ class CreateTrainersTable extends Migration
             $table->string('level')->nullable();
             $table->integer('pokedex')->nullable();
             $table->string('team')->nullable();
+            $table->timestamp('verified_at')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')

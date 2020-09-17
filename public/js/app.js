@@ -2139,11 +2139,13 @@ var interval = null;
     getSeconds: function getSeconds(id) {
       var _this2 = this;
 
-      axios.get('api/raids/seconds?id=' + id).then(function (response) {
-        _this2.seconds = response.data; // this.countDownTimer()
-      })["catch"](function () {
-        console.log('Something went wrong while fetching the seconds from Raid: ' + id);
-      });
+      setTimeout(function () {
+        axios.get('api/raids/seconds?id=' + id).then(function (response) {
+          _this2.seconds = response.data; // this.countDownTimer()
+        })["catch"](function () {
+          console.log('Something went wrong while fetching the seconds from Raid: ' + id);
+        });
+      }, 1000);
     }
   },
   computed: {

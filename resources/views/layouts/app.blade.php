@@ -15,45 +15,38 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-{{--    <link rel="stylesheet" href="https://use.fontawesome.com/eee00f29d4.css">--}}
-    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+{{--        <link rel="stylesheet" href="https://use.fontawesome.com/eee00f29d4.css">--}}
 </head>
 <body>
 @include('layouts.navbar')
 @yield('modal')
+@yield('admin')
 {{--<div class="container" style="margin-left: 5px; margin-right: 5px; margin-top: 5px;">--}}
 <div class="container" style="max-width: 85%; padding-top: 25px" id="app">
     <div class="columns">
         @yield('content')
     </div>
 </div>
-{{--            @if (session('status'))
-                <div role="alert">
-                    {{ session('status') }}
-                </div>
-            @endif
+{{--@if (session('status'))
+    <div role="alert">
+        {{ session('status') }}
+    </div>
+@endif
+{{ __('You are logged in!') }}
+{{ auth()->user()->id }}
+Code: {{ auth()->user()->trainer()->pluck('code') }}
+Code: {{ auth()->user()->trainer()->value('name') }}
+Check: {{ auth()->user()->trainer->isEmpty() }}
+<br/>
+<br/>
+@if( auth()->user()->trainer->isEmpty())
+    It's empty
+@else
+    It's not empty
+@endif--}}
 
-            {{ __('You are logged in!') }}
-                <br/>
-
-                {{ auth()->user()->id }}
-                <br/>
-                <br/>
-                Code: {{ auth()->user()->trainer()->pluck('code') }}
-                <br/>
-                <br/>
-                Code: {{ auth()->user()->trainer()->value('name') }}
-                <br/>
-                <br/>
-                Check: {{ auth()->user()->trainer->isEmpty() }}
-                <br/>
-                <br/>
-            @if( auth()->user()->trainer->isEmpty())
-                    It's empty
-                @else
-                    It's not empty
-                @endif--}}
 <!-- Scripts -->
 <script src="{{ asset('js/app.js') }}" defer></script>
+<script src="https://kit.fontawesome.com/a5dfb946df.js" crossorigin="anonymous"></script>
 </body>
 </html>
