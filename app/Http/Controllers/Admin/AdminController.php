@@ -2,6 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\AccessLevel;
+use App\Pokemon;
+use App\Raid;
+use App\Trainer;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Response;
@@ -21,13 +26,7 @@ class AdminController extends Controller
      */
     public function index(): View
     {
-        if (auth()->user()->access_level !== 1){
-            return view('admin.unauthorized');
-        } else {
-            return view('admin.index');
-        }
-//        return ddd(auth()->user()->access_level);
-//        return view('admin.index');
+        return view('admin.index');
     }
 
     /**
@@ -94,5 +93,40 @@ class AdminController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function users(): View
+    {
+        $users = User::paginate(20);
+        return view('admin.users', ['users' => $users]);
+    }
+    public function usersEdit(User $user): View
+    {
+        return view('admin.userEdit', compact('user'));
+    }
+
+    public function accessLevels(): View
+    {
+        $levels = AccessLevel::paginate(20);
+        return view('admin.accesslevels', ['levels' => $levels]);
+    }
+    public function trainers(): View
+    {
+        $trainers = Trainer::paginate(20);
+        return view('admin.trainers', ['trainers' => $trainers]);
+    }
+    public function raids(): View
+    {
+        $raids = Raid::paginate(20);
+        return view('admin.raids', ['raids' => $raids]);
+    }
+    public function pokemon(): View
+    {
+        $pokemons = Pokemon::paginate(20);
+        return view('admin.pokemon', ['pokemons' => $pokemons]);
+    }
+
+    public function unauthorized() {
+        return \view('admin.unauthorized');
     }
 }

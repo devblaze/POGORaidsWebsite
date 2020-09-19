@@ -30,7 +30,7 @@ class RegisterController extends Controller
      * @var string
      */
 //    protected $redirectTo = RouteServiceProvider::HOME;
-    protected $redirectTo = '/trainer';
+    protected $redirectTo = '/trainer/create';
 
     /**
      * Create a new controller instance.
@@ -61,10 +61,15 @@ class RegisterController extends Controller
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
-     * @return \App\User
+     * @return User
      */
-    protected function create(array $data)
+    protected function create(array $data): User
     {
+/*        if (Auth::User()->access->label === "admin") {
+            return User::create([
+                'username' => $data['username']
+            ]);
+        }*/
         return User::create([
             'username' => $data['username'],
             'email' => $data['email'],

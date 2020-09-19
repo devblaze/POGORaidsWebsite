@@ -33,8 +33,15 @@ Route::get('/trainer/create', 'TrainerController@create')->name('trainer_create'
 /**
  * Admin controller routes.
  */
+Route::get('/admin/unauthorized', 'Admin\AdminController@unauthorized')->name('admin_unauthorized');
 Route::middleware( 'access')->group(static function () {
     Route::get('/admin', 'Admin\AdminController@index')->name('admin');
+    Route::get('/admin/users', 'Admin\AdminController@users')->name('admin_users');
+    Route::get('/admin/users/{user}/edit', 'Admin\AdminController@usersEdit')->name('admin_users_edit');
+    Route::get('/admin/accesslevels', 'Admin\AdminController@accessLevels')->name('admin_accesslevels');
+    Route::get('/admin/trainers', 'Admin\AdminController@trainers')->name('admin_trainers');
+    Route::get('/admin/raids', 'Admin\AdminController@raids')->name('admin_raids');
+    Route::get('/admin/pokemon', 'Admin\AdminController@pokemon')->name('admin_pokemon');
 });
 
 /**

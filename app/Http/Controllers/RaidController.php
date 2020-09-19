@@ -7,9 +7,8 @@ use Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Redirector;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use PHPUnit\Framework\RiskyTestError;
 
 class RaidController extends Controller
 {
@@ -59,12 +58,14 @@ class RaidController extends Controller
      *
      * @return redirect
      */
-    public function store() {
+    public function store(): redirect
+    {
         Raid::create($this->validateRaid() + [
                 'trainer_id' => auth()->user()->trainer->id,
+                'pokemon_id' => '1',
                 'weather_boost' => (bool)\request()->get('weather_boost'),
                 'hatched' => (bool)\request()->get('hatched'),
-                'seconds' => \request()->get('minutes') * 60,
+//                'seconds' => \request()->get('minutes') * 60,
                 'end_time' => Raid::finishDate(\request()->get('minutes'), (bool)\request()->get('hatched'))
             ]);
         return redirect(route('raid_index'));

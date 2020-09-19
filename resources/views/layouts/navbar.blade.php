@@ -53,6 +53,12 @@
                                 </a>
 
                                 <div class="navbar-dropdown">
+                                    @if(Auth::user()->AccessLevel->label !== "user")
+                                        <a class="navbar-item" href="{{ route('admin') }}">
+                                            <i class="fas fa-toolbox">&nbsp;</i>Admin Panel
+                                        </a>
+                                        <hr class="navbar-divider">
+                                    @endif
                                     <a class="navbar-item" href="{{ route('trainer_create') }}">
                                         <i class="fas fa-user-plus">&nbsp;</i>Add Trainer
                                     </a>
@@ -60,7 +66,7 @@
                                         <i class="fas fa-user-edit">&nbsp;</i>Edit Trainer
                                     </a>
                                     <a class="navbar-item">
-                                        <i class="fas fa-user-clock">&nbsp;</i>Trainer History
+                                        <i class="fas fa-user-clock">&nbsp;</i>History
                                     </a>
                                     <hr class="navbar-divider">
                                     <a class="navbar-item">

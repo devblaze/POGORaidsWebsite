@@ -13,16 +13,17 @@ class CreateRaidsTable extends Migration
      */
     public function up(): void
     {
+        Schema::disableForeignKeyConstraints();
         Schema::create('raids', static function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('trainer_id');
+            $table->unsignedBigInteger('pokemon_id');
 
-            $table->unsignedBigInteger('pokemon_id')->nullable();
             /**
              * The 'name' and 'tier' column can be merged into one 'pokemon_id' which will have all the relevant information.
              */
             $table->string('name')->nullable();
-            $table->integer('tier');
+            $table->integer('tier')->nullable();
 
             $table->tinyInteger('invites');
             $table->boolean('hatched');
@@ -34,7 +35,6 @@ class CreateRaidsTable extends Migration
                 ->references('id')
                 ->on('trainers')
                 ->onDelete('cascade');
-
             $table->foreign('pokemon_id')
                 ->references('id')
                 ->on('pokemon')
@@ -44,6 +44,7 @@ class CreateRaidsTable extends Migration
                 ->references('id')
                 ->on('party');*/
         });
+        Schema::enableForeignKeyConstraints();
     }
 
     /**
@@ -53,6 +54,8 @@ class CreateRaidsTable extends Migration
      */
     public function down(): void
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('raids');
+        Schema::enableForeignKeyConstraints();
     }
 }

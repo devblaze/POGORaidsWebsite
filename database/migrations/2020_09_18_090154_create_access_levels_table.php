@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAccessTable extends Migration
+class CreateAccessLevelsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,15 @@ class CreateAccessTable extends Migration
      */
     public function up()
     {
-        Schema::create('access', function (Blueprint $table) {
+        Schema::create('access_levels', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('label');
+            $table->boolean('can_modify_users')->default(0);
+            $table->boolean('can_modify_users_access')->default(0);
+            $table->boolean('can_modify_trainers')->default(0);
+            $table->boolean('can_modify_raids')->default(0);
+            $table->boolean('can_modify_pokemons')->default(0);
             $table->timestamps();
         });
     }
@@ -28,6 +33,6 @@ class CreateAccessTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('access');
+        Schema::dropIfExists('access_levels');
     }
 }

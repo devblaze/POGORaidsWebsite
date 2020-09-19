@@ -4,22 +4,13 @@
     <div class="container">
         <div class="columns">
             @include('admin.menu')
-            <div class="column is-9">
-                <nav class="breadcrumb" aria-label="breadcrumbs">
-                    <ul>
-                        <li><a href="../">Admin</a></li>
-                        <li class="is-active"><a href="#" aria-current="page">Dashboard</a></li>
-                    </ul>
-                </nav>
                 <section class="hero is-info welcome is-small">
                     <div class="hero-body">
                         <div class="container">
                             <h1 class="title">
-                                Hello, {{ auth()->user()->username }}.
+                                Hello, <b>{{ auth()->user()->AccessLevel->name }}</b> {{ auth()->user()->username }}.
                             </h1>
                             <h2 class="subtitle">
-                                You have access level {{ auth()->user()->access_level }}.
-                                <br/>
                                 I hope you are having a great day!
                             </h2>
                         </div>
@@ -29,35 +20,41 @@
                     <div class="tile is-ancestor has-text-centered">
                         <div class="tile is-parent">
                             <article class="tile is-child box">
-                                <p class="title">{{ App\User::count() + 1 }}</p>
+                                <p class="title">{{ App\User::count() }}</p>
                                 <p class="subtitle">Users</p>
                             </article>
                         </div>
                         <div class="tile is-parent">
                             <article class="tile is-child box">
-                                <p class="title">{{ App\Trainer::count() + 1 }}</p>
+                                <p class="title">{{ App\Trainer::count() }}</p>
                                 <p class="subtitle">Trainers</p>
                             </article>
                         </div>
                         <div class="tile is-parent">
                             <article class="tile is-child box">
-                                <p class="title">{{ App\Raid::count() + 1 }}</p>
+                                <p class="title">{{ App\Raid::count()}}</p>
                                 <p class="subtitle">Raids</p>
+                            </article>
+                        </div>
+                        <div class="tile is-parent">
+                            <article class="tile is-child box">
+                                <p class="title">{{ App\Pokemon::count()}}</p>
+                                <p class="subtitle">Pokemon's</p>
                             </article>
                         </div>
                     </div>
                 </section>
                 <div class="columns">
-                    <div class="column is-6">
+                    <div class="column is-">
                         <div class="card events-card">
                             <header class="card-header">
                                 <p class="card-header-title">
                                     Raids Created
                                 </p>
                                 <a href="#" class="card-header-icon" aria-label="more options">
-                  <span class="icon">
-                    <i class="fa fa-angle-down" aria-hidden="true"></i>
-                  </span>
+                                  <span class="icon">
+                                    <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                  </span>
                                 </a>
                             </header>
                             <div class="card-table">

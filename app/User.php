@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use \Illuminate\Database\Eloquent\Relations\HasOne;
@@ -45,5 +46,15 @@ class User extends Authenticatable
     public function trainer(): HasOne
     {
         return $this->hasOne(Trainer::class);
+    }
+
+    /**
+     * A user belongs to an access level. (Since it has the foreign key we use 'BelongsTo')
+     *
+     * @return BelongsTo
+     */
+    public function accessLevel(): BelongsTo
+    {
+        return $this->BelongsTo(AccessLevel::class);
     }
 }

@@ -11,8 +11,9 @@ class CreateUsersTable extends Migration
      *
      * @return void
      */
-    public function up(): void
+    public function up()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::create('users', static function (Blueprint $table) {
             $table->id();
             $table->string('username')->unique();
@@ -21,12 +22,14 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
-            $table->unsignedBigInteger('access_level')->nullable();
-
-/*            $table->foreign('access_level')
+//            $table->BigInteger('access_level_id')->unsigned();
+            $table->unsignedBigInteger('access_level_id')->default(1);
+            $table->foreign('access_level_id')
                 ->references('id')
-                ->on('access');*/
+                ->on('access_levels');
         });
+        Schema::enableForeignKeyConstraints();
+
     }
 
     /**
@@ -34,8 +37,10 @@ class CreateUsersTable extends Migration
      *
      * @return void
      */
-    public function down(): void
+    public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('users');
+        Schema::enableForeignKeyConstraints();
     }
 }
