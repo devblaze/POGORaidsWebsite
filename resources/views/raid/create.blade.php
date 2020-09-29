@@ -52,29 +52,30 @@
                             <div class="column is-half">
                                 <div style="text-align: center;">
                                     <div class="control">
-                                        <div class="select @error('name') is-danger @enderror">
-                                            <select id="name" name="name">
+                                        <div class="select @error('pokemon_id') is-danger @enderror">
+
+                                            <select id="pokemon_id" name="pokemon_id">
                                                 <option selected value="">Select..</option>
-                                                <option>HEATRAN</option>
-                                                <option>ALOLAN RAICHU</option>
-                                                <option>MACHAMP</option>
-                                                <option>ONIX</option>
-                                                <option>ALOLAN MAROWAK</option>
-                                                <option>RHYDON</option>
-                                                <option>VAPOREON</option>
-                                                <option>DONPHAN</option>
-                                                <option>SANDSHREW</option>
-                                                <option>KINGLER</option>
-                                                <option>MAROWAK</option>
-                                                <option>GLIGAR</option>
-                                                <option>WAILMER</option>
-                                                <option>PRINPLUP</option>
-                                                <option>SHINX</option>
-                                                <option>OSHAWOTT</option>
-                                                <option>TIMBURR</option>
+                                                @foreach($pokemons as $pokemon)
+                                                    @if($pokemon->tier == 5)
+                                                        <option value="{{ $pokemon->id }}">{{ $pokemon->name }} - Tier 5</option>
+                                                    @endif
+                                                    @if($pokemon->tier == 4)
+                                                        <option value="{{ $pokemon->id }}">{{ $pokemon->name }} - Tier 4</option>
+                                                    @endif
+                                                    @if($pokemon->tier == 3)
+                                                        <option value="{{ $pokemon->id }}">{{ $pokemon->name }} - Tier 3</option>
+                                                    @endif
+                                                    @if($pokemon->tier == 2)
+                                                        <option value="{{ $pokemon->id }}">{{ $pokemon->name }} - Tier 2</option>
+                                                    @endif
+                                                    @if($pokemon->tier == 1)
+                                                        <option value="{{ $pokemon->id }}">{{ $pokemon->name }} - Tier 1</option>
+                                                    @endif
+                                                @endforeach
                                             </select>
                                         </div>
-                                        @error('name')
+                                        @error('pokemon_id')
                                         <p class="help is-danger">
                                             {{ $message }}
                                         </p>
@@ -184,7 +185,7 @@
                 <div class="columns">
                     <div class="column">
                         <div class="control">
-{{--                            <input id="trainer_id" name="trainer_id" type="hidden" value="{{ Auth::user()->trainer()->value('id') }}">--}}
+                            {{--                            <input id="trainer_id" name="trainer_id" type="hidden" value="{{ Auth::user()->trainer()->value('id') }}">--}}
                             <input id="trainer_id" name="trainer_id" type="hidden" value="{{ auth()->user()->trainer->id }}">
                             @error('trainer_id')
                             <p class="help is-danger">

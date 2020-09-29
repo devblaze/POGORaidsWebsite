@@ -100,9 +100,18 @@ class AdminController extends Controller
         $users = User::paginate(20);
         return view('admin.users', ['users' => $users]);
     }
-    public function usersEdit(User $user): View
+    public function userEdit(User $user): View
     {
         return view('admin.userEdit', compact('user'));
+    }
+    public function userUpdate(User $user)
+    {
+        $user->where('id', $user->id)->update([
+            'username' => \request()->get('username'),
+            'email' => \request()->get('email'),
+            'access_level_id' => \request()->get('accessLevel')
+        ]);
+        return redirect(route('admin_test'));
     }
 
     public function accessLevels(): View
@@ -128,5 +137,20 @@ class AdminController extends Controller
 
     public function unauthorized() {
         return \view('admin.unauthorized');
+    }
+
+    /**
+     * Users field validator.
+     *
+     * @return array
+     */
+    protected function validateUser(): array
+    {
+        return \request()->validate([
+            'username' => ['min:3'],
+            'email' => ['email'],
+            'password' => ['required'],
+            'access_level_id' => ['required']
+        ]);
     }
 }

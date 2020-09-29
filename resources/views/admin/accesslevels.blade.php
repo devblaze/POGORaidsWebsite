@@ -33,7 +33,7 @@
                     <td>
                         <center>
                         <div class="field">
-                            <input class="is-checkradio" id="exampleCheckboxDefault" type="checkbox" name="exampleCheckboxDefault" checked="checked">
+                            <input class="is-checkradio" id="modifyUsers" type="checkbox" name="modifyUsers" ">
                             <label for="exampleCheckboxDefault"></label>
                         </div>
                         </center>
@@ -41,7 +41,7 @@
                     <td>
                         <center>
                             <div class="field">
-                                <input class="is-checkradio" id="exampleCheckboxDefault" type="checkbox" name="exampleCheckboxDefault" checked="checked">
+                                <input class="is-checkradio" id="modifyUsersAccess" type="checkbox" name="modifyUsersAccess">
                                 <label for="exampleCheckboxDefault"></label>
                             </div>
                         </center>
@@ -49,7 +49,7 @@
                     <td>
                         <center>
                             <div class="field">
-                                <input class="is-checkradio" id="exampleCheckboxDefault" type="checkbox" name="exampleCheckboxDefault" checked="checked">
+                                <input class="is-checkradio" id="modifyTrainers" type="checkbox" name="modifyTrainers">
                                 <label for="exampleCheckboxDefault"></label>
                             </div>
                         </center>
@@ -57,7 +57,7 @@
                     <td>
                         <center>
                             <div class="field">
-                                <input class="is-checkradio" id="exampleCheckboxDefault" type="checkbox" name="exampleCheckboxDefault" checked="checked">
+                                <input class="is-checkradio" id="modifyRaids" type="checkbox" name="modifyRaids">
                                 <label for="exampleCheckboxDefault"></label>
                             </div>
                         </center>
@@ -65,7 +65,7 @@
                     <td>
                         <center>
                             <div class="field">
-                                <input class="is-checkradio" id="exampleCheckboxDefault" type="checkbox" name="exampleCheckboxDefault" checked="checked">
+                                <input class="is-checkradio" id="modifyPokemons" type="checkbox" name="modifyPokemons" checked="">
                                 <label for="exampleCheckboxDefault"></label>
                             </div>
                         </center>
@@ -84,11 +84,36 @@
                         <th>{{ $level->id }}</th>
                         <td>{{ $level->name }}</td>
                         <td>{{ $level->label }}</td>
-                        <td>{{ $level->can_modify_users ? 'True' : 'False' }}</td>
-                        <td>{{ $level->can_modify_users_access ? 'True' : 'False' }}</td>
-                        <td>{{ $level->can_modify_trainers ? 'True' : 'False' }}</td>
-                        <td>{{ $level->can_modify_raids ? 'True' : 'False' }}</td>
-                        <td>{{ $level->can_modify_pokemons ? 'True' : 'False' }}</td>
+                        <td>
+                            <div class="field">
+                                <input class="is-checkradio" id="modifyPokemons" type="checkbox" name="modifyPokemons" {{ $level->can_modify_users ? 'checked="checked"' : ''}}>
+                                <label for="exampleCheckboxDefault"></label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="field">
+                                <input class="is-checkradio" id="modifyPokemons" type="checkbox" name="modifyPokemons" {{ $level->can_modify_users_access ? 'checked="checked"' : ''}}>
+                                <label for="exampleCheckboxDefault"></label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="field">
+                                <input class="is-checkradio" id="modifyPokemons" type="checkbox" name="modifyPokemons" {{ $level->can_modify_trainers ? 'checked="checked"' : ''}}>
+                                <label for="exampleCheckboxDefault"></label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="field">
+                                <input class="is-checkradio" id="modifyPokemons" type="checkbox" name="modifyPokemons" {{ $level->can_modify_raids ? 'checked="checked"' : ''}}>
+                                <label for="exampleCheckboxDefault"></label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="field">
+                                <input class="is-checkradio" id="modifyPokemons" type="checkbox" name="modifyPokemons" {{ $level->can_modify_pokemons ? 'checked="checked"' : ''}}>
+                                <label for="exampleCheckboxDefault"></label>
+                            </div>
+                        </td>
                         <td>
                             <a href="{{ route('admin') }}">
                                 <i class="fas fa-save" title="Save Changes">&nbsp;</i>

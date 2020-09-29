@@ -22,3 +22,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('raids', 'RaidsController@index');
 Route::get('raids/findRaid', 'RaidsController@searchByName');
 Route::get('raids/seconds', 'RaidsController@getRaidSeconds');
+Route::get('pokemon', 'RaidsController@getPokemon');

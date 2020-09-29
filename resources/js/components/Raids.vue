@@ -103,13 +103,27 @@ export default {
             isLoading: false,
             isFullPage: true,
             search: '',
-            raids: {}
+            raids: {},
+            pokemon: {}
         }
     },
     created() {
+        this.getPokemon(),
         this.fillRaids()
+        console.log(this.pokemon)
     },
     methods: {
+        /**
+         * Get the raids for the first time with API call.
+         */
+/*        getPokemon() {
+            axios.get('api/pokemon')
+                .then((data) => {
+                    this.pokemons = data.data
+                    console.log(data.data)
+                });
+        },*/
+
         /**
          * Get the raids for the first time with API call.
          */

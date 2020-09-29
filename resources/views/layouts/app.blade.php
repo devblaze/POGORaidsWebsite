@@ -16,6 +16,10 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 {{--        <link rel="stylesheet" href="https://use.fontawesome.com/eee00f29d4.css">--}}
+
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://kit.fontawesome.com/a5dfb946df.js" crossorigin="anonymous" defer></script>
 </head>
 <body>
 @include('layouts.navbar')
@@ -45,8 +49,5 @@ Check: {{ auth()->user()->trainer->isEmpty() }}
     It's not empty
 @endif--}}
 
-<!-- Scripts -->
-<script src="{{ asset('js/app.js') }}" defer></script>
-<script src="https://kit.fontawesome.com/a5dfb946df.js" crossorigin="anonymous"></script>
 </body>
 </html>

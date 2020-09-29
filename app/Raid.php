@@ -7,10 +7,11 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Raid extends Model
 {
-    protected $fillable = ['trainer_id', 'name', 'tier', 'invites', 'hatched', 'weather_boost', 'end_time', 'seconds'];
+    protected $fillable = ['pokemon_id', 'trainer_id', 'name', 'tier', 'invites', 'hatched', 'weather_boost', 'end_time', 'seconds'];
 
     /**
      * Delete a raid after checking it exists otherwise return 'false'.
@@ -107,11 +108,22 @@ class Raid extends Model
     }
 
     /**
+     * A raid has one only 1 Pokemon. (It represents one pokemon.)
+     *
+     * @return BelongsTo
+     */
+    public function pokemon(): BelongsTo
+    {
+        return $this->belongsTo(Pokemon::class);
+    }
+
+    /**
      * Needs more thinking for a better solution.
      *
      * @return HasMany
      */
-    public function party(): HasMany {
+    public function party(): HasMany
+    {
         return $this->hasMany(Party::class);
     }
 }

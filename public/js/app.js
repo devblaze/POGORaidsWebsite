@@ -2340,23 +2340,36 @@ __webpack_require__.r(__webpack_exports__);
       isLoading: false,
       isFullPage: true,
       search: '',
-      raids: {}
+      raids: {},
+      pokemon: {}
     };
   },
   created: function created() {
-    this.fillRaids();
+    this.getPokemon(), this.fillRaids();
+    console.log(this.pokemon);
   },
   methods: {
     /**
      * Get the raids for the first time with API call.
      */
-    fillRaids: function fillRaids() {
+    getPokemon: function getPokemon() {
       var _this = this;
+
+      axios.get('api/pokemon').then(function (data) {
+        _this.pokemons = data.data;
+      });
+    },
+
+    /**
+     * Get the raids for the first time with API call.
+     */
+    fillRaids: function fillRaids() {
+      var _this2 = this;
 
       this.isLoading = true;
       axios.get('api/raids').then(function (data) {
-        _this.raids = data.data;
-        _this.isLoading = false;
+        _this2.raids = data.data;
+        _this2.isLoading = false;
       });
     },
 
@@ -2364,14 +2377,14 @@ __webpack_require__.r(__webpack_exports__);
      * Search for the raid/s that match the user input.
      */
     find: function find() {
-      var _this2 = this;
+      var _this3 = this;
 
       this.loading = true;
       setTimeout(function () {
-        var query = _this2.search;
+        var query = _this3.search;
         axios.get('api/raids/findRaid?q=' + query).then(function (data) {
-          _this2.raids = data.data;
-          _this2.loading = false;
+          _this3.raids = data.data;
+          _this3.loading = false;
         })["catch"](function () {
           console.log('Something went wrong while searching for raids!');
         });

@@ -36,7 +36,13 @@
                         </td>
                         <td>
                             <div class="control">
-                                <input class="input is-hovered" type="text" placeholder="Access Level">
+                                <div class="select">
+                                    <select name="accessLevel">
+                                        @foreach(App\AccessLevel::all() as $accessLevel)
+                                            <option value="{{ $accessLevel->id }}">{{ $accessLevel->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
                             </div>
                         </td>
                         <td>
@@ -62,9 +68,6 @@
                             </a>
                             <a href="{{ route('admin') }}">
                                 <i class="fas fa-ban" title="Ban User">&nbsp;</i>
-                            </a>
-                            <a href="{{ route('admin') }}">
-                                <i class="fas fa-user-alt-slash" title="Delete User">&nbsp;</i>
                             </a>
                         </td>
                     </tr>

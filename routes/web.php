@@ -37,7 +37,8 @@ Route::get('/admin/unauthorized', 'Admin\AdminController@unauthorized')->name('a
 Route::middleware( 'access')->group(static function () {
     Route::get('/admin', 'Admin\AdminController@index')->name('admin');
     Route::get('/admin/users', 'Admin\AdminController@users')->name('admin_users');
-    Route::get('/admin/users/{user}/edit', 'Admin\AdminController@usersEdit')->name('admin_users_edit');
+    Route::post('/admin/users/update', 'Admin\AdminController@userUpdate')->name('admin_user_update');
+    Route::get('/admin/users/{user}/edit', 'Admin\AdminController@userEdit');
     Route::get('/admin/accesslevels', 'Admin\AdminController@accessLevels')->name('admin_accesslevels');
     Route::get('/admin/trainers', 'Admin\AdminController@trainers')->name('admin_trainers');
     Route::get('/admin/raids', 'Admin\AdminController@raids')->name('admin_raids');

@@ -20,29 +20,43 @@
                 <tbody>
                 <tr>
                     <td colspan="2">
+                        <div class="select">
+                            <select name="accessLevel">
+                                @foreach(App\User::all() as $user)
+                                    <option value="{{ $user->id }}">{{ $user->username }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </td>
+                    <td>
                         <div class="control">
                             <input class="input is-hovered" type="text" placeholder="Name">
                         </div>
                     </td>
                     <td>
                         <div class="control">
-                            <input class="input is-hovered" type="text" placeholder="Label">
+                            <input class="input is-hovered" type="text" placeholder="Code">
                         </div>
                     </td>
                     <td>
                         <div class="control">
-                            <input class="input is-hovered" type="text" placeholder="Password">
+                            <input class="input is-hovered" type="text" placeholder="Level">
                         </div>
                     </td>
                     <td>
                         <div class="control">
-                            <input class="input is-hovered" type="text" placeholder="Access Level">
+                            <input class="input is-hovered" type="text" placeholder="Team">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="control">
+                            <input class="input is-hovered" type="text" placeholder="Pokedex">
                         </div>
                     </td>
                     <td>
                         <button class="button is-success">
                             <span class="icon is-small">
-                              <i class="fas fa-users"></i>
+                              <i class="fas fa-user-plus"></i>
                             </span>
                             <span>Create</span>
                         </button>
@@ -58,11 +72,14 @@
                         <td>{{ $trainer->team}}</td>
                         <td>{{ $trainer->pokedex }}</td>
                         <td>
-                            <a href="{{ route('admin') }}">
-                                <i class="fas fa-save" title="Edit Trainer">&nbsp;</i>
+                            <a href="/admin/users/{{ $user->id }}/edit">
+                                <i class="fas fa-user-cog" title="Edit User">&nbsp;</i>
                             </a>
                             <a href="{{ route('admin') }}">
-                                <i class="fas fa-times" title="Delete Trainer">&nbsp;</i>
+                                <i class="fas fa-ban" title="Ban User">&nbsp;</i>
+                            </a>
+                            <a href="{{ route('admin') }}">
+                                <i class="fas fa-user-alt-slash" title="Delete User">&nbsp;</i>
                             </a>
                         </td>
                     </tr>

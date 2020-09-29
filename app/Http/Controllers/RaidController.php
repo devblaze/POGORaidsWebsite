@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Raid;
+use App\Pokemon;
 use Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Redirector;
-use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 
 class RaidController extends Controller
@@ -50,19 +50,20 @@ class RaidController extends Controller
      */
     public function create(): View
     {
-        return view('raid.create');
+        $pokemon_data = Pokemon::all();
+//        return view('raid.create');
+        return view('raid.create', ['pokemons' => $pokemon_data]);
     }
 
     /**
      * Create the new raid in the DB after validation.
      *
-     * @return redirect
      */
-    public function store(): redirect
+    public function store()
     {
         Raid::create($this->validateRaid() + [
                 'trainer_id' => auth()->user()->trainer->id,
-                'pokemon_id' => '1',
+                'pokemon_id' => \request()->get('pokemon_id'),
                 'weather_boost' => (bool)\request()->get('weather_boost'),
                 'hatched' => (bool)\request()->get('hatched'),
 //                'seconds' => \request()->get('minutes') * 60,
@@ -94,7 +95,7 @@ class RaidController extends Controller
     }
 
     /**
-     * Delete a raid from the DB with ID = x.
+     * Delete a raid from the DB with a specific ID.
      *
      * @param int $id
      * @return Exception|string
@@ -112,7 +113,6 @@ class RaidController extends Controller
     protected function validateRaid(): array
     {
         return \request()->validate([
-            'name' => ['required', 'min:3', 'max:20'],
             'tier' => ['required', 'between:1,5'],
             'invites' => ['required', 'between:1,20'],
             'minutes' => ['required', 'min:2', 'max:2'],

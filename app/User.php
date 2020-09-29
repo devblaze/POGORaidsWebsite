@@ -38,6 +38,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+/*    public function path(){
+        return route('admin_users', $this);
+    }*/
+
     /**
      * A user can have only one trainer. (For now, can be changed to have many trainers (accounts) later.)
      *

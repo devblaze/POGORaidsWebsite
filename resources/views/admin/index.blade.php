@@ -49,7 +49,7 @@
                         <div class="card events-card">
                             <header class="card-header">
                                 <p class="card-header-title">
-                                    Raids Created
+                                    Events Log
                                 </p>
                                 <a href="#" class="card-header-icon" aria-label="more options">
                                   <span class="icon">
@@ -57,14 +57,15 @@
                                   </span>
                                 </a>
                             </header>
-                            <div class="card-table">
+                            <div class="card-table is-2">
                                 <div class="content">
                                     <table class="table is-fullwidth is-striped">
                                         <thead>
                                         <tr>
                                             <td></td>
-                                            <th>Pokemon</th>
-                                            <th>Trainer</th>
+                                            <th>Type</th>
+                                            <th>Action</th>
+                                            <th>User</th>
                                             <th>Date</th>
                                             <th>Time</th>
                                             <td></td>
@@ -73,19 +74,30 @@
                                         <tbody>
                                         <tr>
                                             <td width="5%"><i class="fas fa-bell"></i></td>
-                                            <td>Rayquaza</td>
+                                            <td>Raid</td>
+                                            <td>Created</td>
                                             <td>{{ auth()->user()->username }}</td>
                                             <td>17/09/2020</td>
                                             <td>16:24</td>
                                             <td class="level-right"><a class="button is-small is-primary" href="#">Details</a></td>
                                         </tr>
                                         <tr>
+                                            <td width="5%"><i class="fas fa-bell"></i></td>
+                                            <td>User</td>
+                                            <td>Banned</td>
+                                            <td>{{ App\User::find(2)->username }}</td>
+                                            <td>16/09/2020</td>
+                                            <td>18:30</td>
+                                            <td class="level-right"><a class="button is-small is-primary" href="#">Details</a></td>
+                                        </tr>
+                                        <tr>
                                             <td width="5%"><i class="fa fa-bell-o"></i></td>
-                                            <td>Lorum</td>
-                                            <td>Lorum</td>
-                                            <td>Lorum</td>
-                                            <td>Lorum</td>
-                                            <td class="level-right"><a class="button is-small is-primary" href="#">Action</a></td>
+                                            <td>Trainer</td>
+                                            <td>Created</td>
+                                            <td>{{ App\User::find(3)->username }}</td>
+                                            <td>14/09/2020</td>
+                                            <td>12:16</td>
+                                            <td class="level-right"><a class="button is-small is-primary" href="#">Details</a></td>
                                         </tr>
                                         </tbody>
                                     </table>

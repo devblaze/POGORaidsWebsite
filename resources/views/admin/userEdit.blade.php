@@ -4,7 +4,7 @@
     <div class="container">
         <div class="columns">
             @include('admin.menu')
-            <form method="POST" target="{{ route('home') }}">
+            <form method="POST" target="{{ route('admin_user_update') }}">
                 @csrf
                 <table class="table">
                     <thead>
@@ -28,7 +28,7 @@
                     <tr>
                         <td>Password:</td>
                         <td>
-                            <input class="input" type="password" name="password" placeholder="Password" value="******">
+                            <input class="input" type="password" name="password" placeholder="Password">
                         </td>
                     </tr>
                     <tr>
@@ -36,8 +36,11 @@
                         <td>
                             <div class="select">
                                 <select name="accessLevel">
+                                    <option value="{{ $user->AccessLevel->id }}" selected>{{ $user->AccessLevel->name }}</option>
                                     @foreach(App\AccessLevel::all() as $accessLevel)
+                                        @if($accessLevel->id !== $user->AccessLevel->id)
                                         <option value="{{ $accessLevel->id }}">{{ $accessLevel->name }}</option>
+                                        @endif
                                     @endforeach
                                 </select>
                             </div>
