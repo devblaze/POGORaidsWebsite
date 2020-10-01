@@ -18,8 +18,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-//Route::get('findRaid', 'RaidsController@test');
-Route::get('raids', 'RaidsController@index');
-Route::get('raids/findRaid', 'RaidsController@searchByName');
-Route::get('raids/seconds', 'RaidsController@getRaidSeconds');
-Route::get('pokemon', 'RaidsController@getPokemon');
+//Route::get('findRaid', 'ApiController@test');
+Route::get('raids', 'ApiController@index');
+Route::get('raids/findRaid', 'ApiController@searchByName');
+Route::get('raids/seconds', 'ApiController@getRaidSeconds');
+Route::get('pokemon', 'ApiController@getPokemon');

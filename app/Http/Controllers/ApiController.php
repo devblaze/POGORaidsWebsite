@@ -5,15 +5,16 @@ namespace App\Http\Controllers;
 use App\Raid;
 use App\Pokemon;
 
-class RaidsController extends Controller
+class ApiController extends Controller
 {
     /**
      * Get a list of the all raids first the latest.
      *
      */
-    public function index()
+    public function index(): \Illuminate\Database\Eloquent\Collection
     {
-        return Raid::latest()->get();
+        return Raid::activeRaids();
+//        return Raid::latest()->get();
     }
 
     /**
@@ -24,7 +25,7 @@ class RaidsController extends Controller
     {
         $request = \Request::get('q');
         if ($request !== null){
-            return Raid::searchByName($request)->get();
+            return Pokemon::searchByName($request);
         } else {
             return Raid::latest()->get();
         }
@@ -47,6 +48,6 @@ class RaidsController extends Controller
      */
     public function getPokemon()
     {
-        return Pokemon::all();
+        return Pokemon::get(['dex_id', 'name', 'tier', 'min_cp', 'max_cp', 'boosted_min_cp', 'boosted_max_cp']);
     }
 }

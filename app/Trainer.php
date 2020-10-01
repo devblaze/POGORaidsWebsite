@@ -9,14 +9,14 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Trainer extends Model
 {
     /**
-     * If you don't want to check for the fields you can use: protected $guarded = [];
+     * If you don't want to check for the fields you can use: { protected $guarded = []; }
      *
      * @var string[]
      */
     protected $fillable = ['id', 'user_id', 'code', 'name', 'level', 'pokedex', 'team'];
 
     /**
-     * A trainer belongs/must have one and only user.
+     * A trainer belongs/must have one and only user. (Since it has the foreign key we use 'BelongsTo')
      *
      * @return BelongsTo
      */

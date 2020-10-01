@@ -1,8 +1,7 @@
 <template>
     <div>
         <!--        {{ minutes < 10 ? ("0" + minutes) : minutes }}:{{ seconds < 10 ? ("0" + seconds) : seconds }}-->
-        {{ timer }} / {{ id }}
-
+        {{ timer }}
     </div>
 </template>
 
@@ -27,7 +26,7 @@ export default {
     },
     methods: {
         /**
-         * The count down timer for seconds.
+         * The seconds count down timer.
          */
         countDownTimer() {
             interval = setInterval(() => {

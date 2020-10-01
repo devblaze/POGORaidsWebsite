@@ -24,6 +24,12 @@ Route::get('/raids', 'RaidController@index')->name('raid_index');
 Route::get('/test/{raid}', 'RaidController@destroy');
 
 /**
+ * Pokemon controller routes.
+ */
+Route::get('/pokemon', 'PokemonController@index')->name('pokemon_index');
+Route::get('/pokemon/create', 'PokemonController@create')->name('pokemon_create');
+
+/**
  * Trainer controller routes.
  */
 Route::get('/trainer', 'TrainerController@index')->name('trainer');

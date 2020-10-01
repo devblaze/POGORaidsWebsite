@@ -113,13 +113,13 @@ class RaidController extends Controller
     protected function validateRaid(): array
     {
         return \request()->validate([
-            'tier' => ['required', 'between:1,5'],
+//            'name' => ['required'],
             'invites' => ['required', 'between:1,20'],
             'minutes' => ['required', 'min:2', 'max:2'],
-        ],
+        ]/*,
             [
                 'name.required' => 'You must select a Pokemon.'
-            ]
+            ]*/
         );
     }
 }

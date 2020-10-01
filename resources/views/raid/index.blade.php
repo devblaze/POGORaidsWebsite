@@ -4,7 +4,7 @@
     <div class="column is-one-fifth">
         <example>
             <header>
-                test adf
+                Example filter
             </header>
         </example>
 
@@ -110,6 +110,6 @@
     @guest
         <raids user=""></raids>
     @else
-        <raids user="{{ Auth::user()->id }}"></raids>
+        <raids user="{{ Auth::user()->id }}" trainer="{{ Auth::user()->trainer->id }}"></raids>
     @endguest
 @endsection

@@ -43,6 +43,7 @@
             <hr>
             <form method="POST" action="{{ route('raid_create') }}">
                 @csrf
+
                 <div class="columns">
                     <div class="column is-full">
                         <div class="columns">
@@ -87,16 +88,15 @@
                     </div>
                 </div>
 
+{{--
                 <div class="columns">
                     <div class="column is-full">
                         <div class="columns">
                             <div class="column is-half" style="display: flex; justify-content: center; align-items: center;">
-                                {{--                        Line left half--}}
                                 <label class="label">Raid Tier:</label>
                             </div>
                             <div class="column is-half" style="display: flex; justify-content: center;">
-                                {{--                        Line right half--}}
-                                {{--                            <input step="1" min="1" max="5" value="1" type="range">--}}
+                                <input step="1" min="1" max="5" value="1" type="range">
                                 <customslider name="tier2"></customslider>
                                 <input type="range" min="1" max="5" value="1" name="tier">
                                 @error('tier')
@@ -108,6 +108,7 @@
                         </div>
                     </div>
                 </div>
+--}}
 
                 <div class="columns">
                     <div class="column is-full">
@@ -137,11 +138,9 @@
                     <div class="column is-full">
                         <div class="columns">
                             <div class="column is-half" style="display: flex;justify-content: center;align-items: center;">
-                                {{--                        Line left half--}}
                                 <label class="label">Available Invites:</label>
                             </div>
                             <div class="column is-half" style="display: flex; justify-content: center;">
-                                {{--                        Line right half--}}
                                 <div class="control">
                                     <div class="control">
                                         <input id="invites" name="invites" class="input @error('invites') is-danger @enderror" type="text" value="5" placeholder="Max Value is 20">
@@ -157,7 +156,7 @@
                     </div>
                 </div>
 
-                <div class="columns" style="padding-right: 10%; padding-left: 10%;">
+                <div class="columns" style="padding: 5%">
                     <div class="column is-half">
                         <div class="field">
                             <input id="hatched" type="checkbox" name="hatched" class="switch is-rounded is-outlined is-success">
@@ -172,7 +171,7 @@
                     <div class="column is-half">
                         <div class="field">
                             <input id="weather_boost" type="checkbox" name="weather_boost" class="switch is-rounded is-outlined is-success">
-                            <label for="weather_boost">Weather Boosted</label>
+                            <label for="weather_boost">Weather Boosted </label>
                             @error('weather_boost')
                             <p class="help is-danger">
                                 {{ $message }}
@@ -181,7 +180,7 @@
                         </div>
                     </div>
                 </div>
-                <br/>
+
                 <div class="columns">
                     <div class="column">
                         <div class="control">

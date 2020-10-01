@@ -2086,7 +2086,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 var interval = null;
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
@@ -2106,7 +2105,7 @@ var interval = null;
   },
   methods: {
     /**
-     * The count down timer for seconds.
+     * The seconds count down timer.
      */
     countDownTimer: function countDownTimer() {
       var _this = this;
@@ -2315,21 +2314,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
-    user: String
+    user: String,
+    trainer: String
   },
   components: {
     RaidCountdown: _RaidCountdown__WEBPACK_IMPORTED_MODULE_3__["default"],
@@ -2345,18 +2337,18 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   created: function created() {
-    this.getPokemon(), this.fillRaids();
-    console.log(this.pokemon);
+    this.getPokemon();
+    this.fillRaids();
   },
   methods: {
     /**
-     * Get the raids for the first time with API call.
+     * Get all the pokemon's available in order to get the name and tier of the raid.
      */
     getPokemon: function getPokemon() {
       var _this = this;
 
       axios.get('api/pokemon').then(function (data) {
-        _this.pokemons = data.data;
+        _this.pokemon = data.data;
       });
     },
 
@@ -2388,7 +2380,7 @@ __webpack_require__.r(__webpack_exports__);
         })["catch"](function () {
           console.log('Something went wrong while searching for raids!');
         });
-      }, 1000);
+      }, 2000);
     }
   },
   router: new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"](_routes__WEBPACK_IMPORTED_MODULE_1__["default"])
@@ -3797,9 +3789,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _vm._v("\n    " + _vm._s(_vm.timer) + " / " + _vm._s(_vm.id) + "\n\n")
-  ])
+  return _c("div", [_vm._v("\n    " + _vm._s(_vm.timer) + "\n")])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -3909,7 +3899,10 @@ var render = function() {
                     _c("img", {
                       attrs: {
                         alt: "Placeholder image",
-                        src: "/images/icon_" + raid.name.toLowerCase() + ".jpg"
+                        src:
+                          "/images/icon_" +
+                          _vm.pokemon[raid.pokemon_id - 1].name.toLowerCase() +
+                          ".jpg"
                       }
                     })
                   ])
@@ -3919,11 +3912,14 @@ var render = function() {
                   _c("div", { staticClass: "media" }, [
                     _c("div", { staticClass: "media-content" }, [
                       _c("p", { staticClass: "title" }, [
-                        _vm._v(_vm._s(raid.name))
+                        _vm._v(_vm._s(_vm.pokemon[raid.pokemon_id - 1].name))
                       ]),
                       _vm._v(" "),
                       _c("p", { staticClass: "subtitle" }, [
-                        _vm._v("Raid Tier: " + _vm._s(raid.tier))
+                        _vm._v(
+                          "Raid Tier: " +
+                            _vm._s(_vm.pokemon[raid.pokemon_id - 1].tier)
+                        )
                       ])
                     ]),
                     _vm._v(" "),
@@ -3960,13 +3956,13 @@ var render = function() {
                       _c("div", { staticClass: "column" }, [
                         _c("div", { staticStyle: { "text-align": "center" } }, [
                           _vm._v(
-                            "\n                                            Party Invites\n                                            "
+                            "\n                                        Party Invites\n                                        "
                           ),
                           _c("br"),
                           _vm._v(
-                            "\n                                            0 / " +
+                            "\n                                        0 / " +
                               _vm._s(raid.invites) +
-                              "\n                                        "
+                              "\n                                    "
                           )
                         ])
                       ]),
@@ -3992,7 +3988,7 @@ var render = function() {
                               "div",
                               { staticStyle: { "text-align": "center" } },
                               [
-                                _vm.user
+                                _vm.trainer == raid.trainer_id
                                   ? _c(
                                       "a",
                                       {
@@ -4004,16 +4000,14 @@ var render = function() {
                                       },
                                       [_vm._v("Edit")]
                                     )
-                                  : _vm._e(),
-                                _vm._v(" "),
-                                _c(
-                                  "button",
-                                  {
-                                    staticClass:
-                                      "button is-success is-narrow is-rounded"
-                                  },
-                                  [_vm._v("Join")]
-                                )
+                                  : _c(
+                                      "button",
+                                      {
+                                        staticClass:
+                                          "button is-success is-narrow is-rounded"
+                                      },
+                                      [_vm._v("Join")]
+                                    )
                               ]
                             )
                           ])

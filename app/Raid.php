@@ -3,6 +3,7 @@
 namespace App;
 
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
@@ -12,6 +13,16 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Raid extends Model
 {
     protected $fillable = ['pokemon_id', 'trainer_id', 'name', 'tier', 'invites', 'hatched', 'weather_boost', 'end_time', 'seconds'];
+
+
+    /**
+     * Return all raids that are not done.
+     *
+     */
+    public static function activeRaids(): Collection
+    {
+        return self::query()->whereRaw("end_time > '" . Carbon::now() . "'")->get();
+    }
 
     /**
      * Delete a raid after checking it exists otherwise return 'false'.
@@ -67,54 +78,28 @@ class Raid extends Model
         }
     }
 
-    /**
-     * Search that sends back a list of all raids depending on their name.
-     *
-     * @param String $name
-     * @return Builder
-     */
-    public static function searchByName(String $name): Builder
-    {
-//        return static::query()->where('name','LIKE','%'.$name.'%');
-        return self::query()->whereRaw("UPPER(name) LIKE '%". strtoupper($name) ."%'")->latest();
-
-        /*        return raid()->where(function ($query){
-                    $query->where('name','LIKE',"%$name%");
-                });*/
-
-        /*        if ($search = \Request::get('q')){
-                    $raids = raid()->where(static function ($query) use ($search){
-                        $query->where('name','LIKE',"%$search%");
-                    })->paginate(6);
-                } else {
-                    $raids = raid()->latest()->paginate(6);
-                }
-
-                return $raids;*/
-    }
-
     public function path(){
         return route('raid_show', $this);
     }
 
     /**
-     * A raid belongs to only one trainer. (It was created by one trainer.)
+     * A raid belongs to only one trainer. (It was created by one trainer.) (Since it has the foreign key we use 'BelongsTo')
      *
      * @return BelongsTo
      */
     public function trainer(): BelongsTo
     {
-        return $this->belongsTo(Trainer::class);
+        return $this->belongsTo(Trainer::class, 'trainer_id');
     }
 
     /**
-     * A raid has one only 1 Pokemon. (It represents one pokemon.)
+     * A raid has one only 1 Pokemon. (It represents one pokemon.) (Since it has the foreign key we use 'BelongsTo')
      *
      * @return BelongsTo
      */
     public function pokemon(): BelongsTo
     {
-        return $this->belongsTo(Pokemon::class);
+        return $this->belongsTo(Pokemon::class, 'pokemon_id');
     }
 
     /**

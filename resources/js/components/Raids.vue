@@ -23,14 +23,15 @@
                     <div class="card">
                         <div class="card-image">
                             <figure class="image is-2by2">
-                                <img alt="Placeholder image" :src="'/images/icon_' + raid.name.toLowerCase() + '.jpg'" />
+                                <img alt="Placeholder image" :src="'/images/icon_' + pokemon[raid.pokemon_id - 1].name.toLowerCase() + '.jpg'" />
                             </figure>
                         </div>
                         <div class="card-content">
                             <div class="media">
                                 <div class="media-content">
-                                    <p class="title">{{ raid.name }}</p>
-                                    <p class="subtitle">Raid Tier: {{ raid.tier }}</p>
+                                    <!--                                    <p class="title">{{ raid.name }}</p>-->
+                                    <p class="title">{{ pokemon[raid.pokemon_id - 1].name }}</p>
+                                    <p class="subtitle">Raid Tier: {{ pokemon[raid.pokemon_id - 1].tier }}</p>
                                 </div>
                                 <div style="margin-top: 5%; display: flex; align-items: center; justify-content: center; padding-right: 14px;">
                                     <div v-if="raid.weather_boost" style="color: green; font-weight: bold;">Weather Boosted</div>
@@ -52,23 +53,12 @@
                                             <div v-if="raid.hatched">Before Hatch:</div>
                                             <div v-else="raid.hatched"><b>Time Left:</b></div>
                                             <raid-countdown :id="raid.id"></raid-countdown>
-<!--                                            {{ raid.end_time.replace(/-/g, " ") }}
-                                            {{ now = Math.trunc((new Date()).getTime() / 1000) }}
-                                            <countdown end="09/13/2020, 02:00:00"></countdown>-->
-
-                                            <!--                                            <input type="text" :value="test(raid.seconds)">-->
-<!--                                            {{ test(raid.seconds) }}-->
-                                            <!--raid.end_time - raid.start_time -> 02-09-2020 00:00 - nowTime()-->
-<!--                                            {{ minutes = Math.floor(countDown / 60) }}:{{ seconds = countDown - minutes * 60}}-->
                                         </div>
                                     </div>
                                     <div class="column" v-if="user">
                                         <div style="text-align: center;">
-                                            <!--                                        <a class="button is-info is-narrow is-rounded">
-                                                                                        <router-link :to="{ name: 'raidEdit', params: { id: raid.id }}">Edit</router-link>
-                                                                                    </a>-->
-                                            <a class="button is-info is-narrow is-rounded" :href="'/raids/' + raid.id + '/edit'" v-if="user">Edit</a>
-                                            <button class="button is-success is-narrow is-rounded">Join</button>
+                                            <a class="button is-info is-narrow is-rounded" :href="'/raids/' + raid.id + '/edit'" v-if="trainer == raid.trainer_id">Edit</a>
+                                            <button class="button is-success is-narrow is-rounded" v-else="trainer == raid.trainer_id">Join</button>
                                         </div>
                                     </div>
                                     <div class="column" v-else="user">
@@ -79,7 +69,9 @@
                         </div>
                     </div>
                 </div>
+
             </div>
+
         </div>
     </div>
 </template>
@@ -92,7 +84,8 @@ import RaidCountdown from "./RaidCountdown";
 
 export default {
     props: {
-        user: String
+        user: String,
+        trainer: String,
     },
     components: {
         RaidCountdown,
@@ -108,21 +101,19 @@ export default {
         }
     },
     created() {
-        this.getPokemon(),
+        this.getPokemon()
         this.fillRaids()
-        console.log(this.pokemon)
     },
     methods: {
         /**
-         * Get the raids for the first time with API call.
+         * Get all the pokemon's available in order to get the name and tier of the raid.
          */
-/*        getPokemon() {
+        getPokemon() {
             axios.get('api/pokemon')
                 .then((data) => {
-                    this.pokemons = data.data
-                    console.log(data.data)
+                    this.pokemon = data.data
                 });
-        },*/
+        },
 
         /**
          * Get the raids for the first time with API call.
@@ -151,7 +142,7 @@ export default {
                     .catch(() => {
                         console.log('Something went wrong while searching for raids!')
                     });
-            }, 1000)
+            }, 2000)
         }
     },
     router: new VueRouter(routes)
