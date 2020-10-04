@@ -14,13 +14,14 @@ class Raid extends Model
 {
     protected $fillable = ['pokemon_id', 'trainer_id', 'name', 'tier', 'invites', 'hatched', 'weather_boost', 'end_time', 'seconds'];
 
-
     /**
-     * Return all raids that are not done.
+     * Return all raids that are not over.
      *
+     * @return Collection
      */
     public static function activeRaids(): Collection
     {
+//        return self::where('end_time', '>', Carbon::now());
         return self::query()->whereRaw("end_time > '" . Carbon::now() . "'")->get();
     }
 
@@ -78,7 +79,13 @@ class Raid extends Model
         }
     }
 
-    public function path(){
+    /**
+     * Returns a specific raid.
+     *
+     * @return string
+     */
+    public function path()
+    {
         return route('raid_show', $this);
     }
 

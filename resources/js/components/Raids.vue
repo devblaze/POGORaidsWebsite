@@ -23,13 +23,12 @@
                     <div class="card">
                         <div class="card-image">
                             <figure class="image is-2by2">
-                                <img alt="Placeholder image" :src="'/images/icon_' + pokemon[raid.pokemon_id - 1].name.toLowerCase() + '.jpg'" />
+                                <img alt="Placeholder image" :src="'images/icon_' + pokemon[raid.pokemon_id - 1].name.toLowerCase() + '.jpg'" />
                             </figure>
                         </div>
                         <div class="card-content">
                             <div class="media">
                                 <div class="media-content">
-                                    <!--                                    <p class="title">{{ raid.name }}</p>-->
                                     <p class="title">{{ pokemon[raid.pokemon_id - 1].name }}</p>
                                     <p class="subtitle">Raid Tier: {{ pokemon[raid.pokemon_id - 1].tier }}</p>
                                 </div>

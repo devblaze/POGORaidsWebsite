@@ -2097,8 +2097,12 @@ var interval = null;
     };
   },
   created: function created() {
+    var _this = this;
+
     this.getSeconds(this.id);
-    this.countDownTimer(); // window.setInterval(autoIncrementTimer(), 1000)
+    setTimeout(function () {
+      _this.countDownTimer();
+    }, 1000); // window.setInterval(autoIncrementTimer(), 1000)
   },
   watch: {
     id: 'getSeconds'
@@ -2108,11 +2112,11 @@ var interval = null;
      * The seconds count down timer.
      */
     countDownTimer: function countDownTimer() {
-      var _this = this;
+      var _this2 = this;
 
       interval = setInterval(function () {
-        if (_this.seconds > 0) {
-          _this.seconds--;
+        if (_this2.seconds > 0) {
+          _this2.seconds--;
         } else {
           clearInterval(interval);
         }
@@ -2136,11 +2140,11 @@ var interval = null;
      * @param {int} id
      */
     getSeconds: function getSeconds(id) {
-      var _this2 = this;
+      var _this3 = this;
 
       setTimeout(function () {
         axios.get('api/raids/seconds?id=' + id).then(function (response) {
-          _this2.seconds = response.data; // this.countDownTimer()
+          _this3.seconds = response.data; // this.countDownTimer()
         })["catch"](function () {
           console.log('Something went wrong while fetching the seconds from Raid: ' + id);
         });
@@ -2236,7 +2240,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../routes */ "./resources/js/routes.js");
 /* harmony import */ var _Countdown__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Countdown */ "./resources/js/components/Countdown.vue");
 /* harmony import */ var _RaidCountdown__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./RaidCountdown */ "./resources/js/components/RaidCountdown.vue");
-//
 //
 //
 //
@@ -3900,7 +3903,7 @@ var render = function() {
                       attrs: {
                         alt: "Placeholder image",
                         src:
-                          "/images/icon_" +
+                          "images/icon_" +
                           _vm.pokemon[raid.pokemon_id - 1].name.toLowerCase() +
                           ".jpg"
                       }

@@ -16,6 +16,26 @@ class Trainer extends Model
     protected $fillable = ['id', 'user_id', 'code', 'name', 'level', 'pokedex', 'team'];
 
     /**
+     * Return the ID of a trainer based on their name.
+     *
+     * @param String $name
+     * @return int
+     */
+    public static function getId(String $name): int
+    {
+        return self::where('name', $name)->value('id');
+    }
+    /**
+     * Returns a specific Trainer.
+     *
+     * @return string
+     */
+    public function path()
+    {
+        return route('trainer_show', $this);
+    }
+
+    /**
      * A trainer belongs/must have one and only user. (Since it has the foreign key we use 'BelongsTo')
      *
      * @return BelongsTo

@@ -18,9 +18,10 @@ class CheckAccessLevel
      */
     public function handle(Request $request, Closure $next)
     {
-        if ($request->user()->access_level >= 0){
+        return $next($request);
+/*        if ($request->user()->access_level >= 0){
             return $next($request);
         }
-        return redirect(route('admin_unauthorized'));
+        return redirect(route('admin_unauthorized'));*/
     }
 }

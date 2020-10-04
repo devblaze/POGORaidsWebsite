@@ -1,17 +1,17 @@
-<nav class="navbar" role="navigation" aria-label="main navigation">
+<nav class="navbar" role="navigation" aria-label="dropdown navigation">
     <div class="navbar-brand">
         <a class="navbar-item" href="/">
-            <img src="" width="112" height="28">
+            <img src="/images/logo.png" width="112" height="28">
         </a>
 
-        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
         </a>
     </div>
 
-    <div id="navbarBasicExample" class="navbar-menu">
+    <div id="navMenu" class="navbar-menu">
         <div class="navbar-start">
             <a class="navbar-item" href="{{ route('home') }}">Home</a>
             <a class="navbar-item" href="{{ route('raid_index') }}"><i class="fas fa-dragon">&nbsp;</i>Raids</a>
@@ -53,16 +53,18 @@
                                 </a>
 
                                 <div class="navbar-dropdown">
-                                    @if(Auth::user()->AccessLevel->label !== "user")
+                                    @if(Auth::user()->AccessLevel->id === 2)
                                         <a class="navbar-item" href="{{ route('admin') }}">
                                             <i class="fas fa-toolbox">&nbsp;</i>Admin Panel
                                         </a>
                                         <hr class="navbar-divider">
                                     @endif
-                                    <a class="navbar-item" href="{{ route('trainer_create') }}">
-                                        <i class="fas fa-user-plus">&nbsp;</i>Add Trainer
-                                    </a>
-                                    <a class="navbar-item">
+                                    @if(Auth::user()->trainer === null)
+                                        <a class="navbar-item" href="{{ route('trainer_create') }}">
+                                            <i class="fas fa-user-plus">&nbsp;</i>Add Trainer
+                                        </a>
+                                    @endif
+                                    <a class="navbar-item" href="{{ route('trainer_edit', auth()->user()->trainer->name) }}">
                                         <i class="fas fa-user-edit">&nbsp;</i>Edit Trainer
                                     </a>
                                     <a class="navbar-item">
@@ -70,10 +72,10 @@
                                     </a>
                                     <hr class="navbar-divider">
                                     <a class="navbar-item">
-                                        <i class="fas fa-trophy">&nbsp;</i>VIP&nbsp;<font color="green">(Active)</font>
+                                        <i class="fas fa-trophy">&nbsp;</i>VIP&nbsp;<span style="color: green; ">(Active)</span>
                                     </a>
                                     <hr class="navbar-divider">
-                                    <a class="navbar-item">
+                                    <a class="navbar-item" href="{{ route('bug_report') }}">
                                         <i class="fas fa-bug" aria-hidden="true">&nbsp;</i>Report a bug
                                     </a>
                                     <hr class="navbar-divider">
@@ -94,3 +96,31 @@
         </div>
     </div>
 </nav>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+        // Get all "navbar-burger" elements
+        const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+        // Check if there are any navbar burgers
+        if ($navbarBurgers.length > 0) {
+
+            // Add a click event on each of them
+            $navbarBurgers.forEach( el => {
+                el.addEventListener('click', () => {
+
+                    // Get the target from the "data-target" attribute
+                    const target = el.dataset.target;
+                    const $target = document.getElementById(target);
+
+                    // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+                    el.classList.toggle('is-active');
+                    $target.classList.toggle('is-active');
+
+                });
+            });
+        }
+
+    });
+</script>

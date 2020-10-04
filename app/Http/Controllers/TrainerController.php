@@ -7,13 +7,11 @@ use Illuminate\View\View;
 
 class TrainerController extends Controller
 {
-    public function __construct()
+    public function index(): View
     {
-        $this->middleware('auth');
-    }
+        $trainer = Trainer::find(auth()->user()->id);
+        return view('trainer.index', ['trainer' => $trainer]);
 
-    public function index() {
-        return view('trainer.index');
     }
 
     public function show() {
@@ -34,15 +32,41 @@ class TrainerController extends Controller
 
     }
 
-    public function edit() {
-
+    public function edit(String $name): View
+    {
+        $trainer = Trainer::find(Trainer::getId($name));
+        if (auth()->user()->id === $trainer->user_id)
+        {
+            return view('trainer.edit', compact('trainer'));
+        }
+        return view('admin.unauthorized');
     }
 
-    public function update() {
-
+    public function update()
+    {
+        $trainer = Trainer::find(Trainer::getId(\request('name')));
+        $trainer->update(\request()->validate([
+                'name' => ['required', 'min:1', 'max:15'],
+                'code' => ['required', 'min:12', 'max:12'],
+                'level' => ['required', 'between:1,40'],
+                'team' => ['required'],
+                'pokedex' => ['nullable', 'between:1,645'],
+            ],
+                [
+                    'name.required' => 'You must enter your trainer Name.',
+                    'code.required' => 'You must enter your trainer Code.',
+                    'team.required' => 'You must select your trainer Team.'
+                ]
+            ) + [
+            'user_id' => auth()->user()->id
+            ]);
+        return redirect(route('trainer'));
+//        return redirect('/trainer/' . auth()->user()->trainer->name);
     }
 
-    public function destroy() {
+    public function destroy()
+    {
+        //
     }
 
     protected function validateTrainer(): array

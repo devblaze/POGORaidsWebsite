@@ -18,7 +18,9 @@ export default {
     },
     created() {
         this.getSeconds(this.id)
-        this.countDownTimer()
+        setTimeout(() => {
+            this.countDownTimer()
+        }, 1000)
         // window.setInterval(autoIncrementTimer(), 1000)
     },
     watch: {

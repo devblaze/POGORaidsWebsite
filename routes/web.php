@@ -23,18 +23,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/raids', 'RaidController@index')->name('raid_index');
 Route::get('/test/{raid}', 'RaidController@destroy');
 
-/**
- * Pokemon controller routes.
- */
-Route::get('/pokemon', 'PokemonController@index')->name('pokemon_index');
-Route::get('/pokemon/create', 'PokemonController@create')->name('pokemon_create');
-
-/**
- * Trainer controller routes.
- */
-Route::get('/trainer', 'TrainerController@index')->name('trainer');
-Route::post('/trainer/create', 'TrainerController@store')->name('trainer_store');
-Route::get('/trainer/create', 'TrainerController@create')->name('trainer_create');
 
 /**
  * Admin controller routes.
@@ -56,10 +44,36 @@ Route::middleware( 'access')->group(static function () {
  */
 Auth::routes();
 Route::middleware('auth')->group(static function () {
+    /**
+     * Raid Controller Routes
+     */
     Route::post('/raids/create', 'RaidController@store')->name('raid_store');
     Route::get('/raids/create', 'RaidController@create')->name('raid_create');
     Route::get('/raids/{raid}', 'RaidController@show')->name('raid_show');
     Route::get('/raids/{raid}/edit', 'RaidController@edit')->name('raid_edit');
 //    Route::get('/raids/{raid}/edit', 'RaidController@edit')->name('raid_edit')->where('any', '.*');
     Route::post('/raids/update', 'RaidController@update')->name('raid_update');
+
+    /**
+     * Bug Report controller Routes
+     */
+    Route::get('/bugReport', 'BugReportController@index')->name('bug_report');
+    Route::post('/bugReport/create', 'BugReportController@store')->name('bug_report_store');
+    Route::get('/bugReport/create', 'BugReportController@create')->name('bug_report_create');
+
+    /**
+     * Pokemon controller routes.
+     */
+    Route::get('/pokemon', 'PokemonController@index')->name('pokemon_index');
+    Route::get('/pokemon/create', 'PokemonController@create')->name('pokemon_create');
+
+    /**
+     * Trainer controller routes.
+     */
+    Route::get('/trainer', 'TrainerController@index')->name('trainer');
+    Route::post('/trainer/create', 'TrainerController@store')->name('trainer_store');
+    Route::get('/trainer/create', 'TrainerController@create')->name('trainer_create');
+//    Route::get('/trainer/{trainer}', 'TrainerController@show')->name('trainer_show');
+    Route::get('/trainer/{trainer}/edit', 'TrainerController@edit')->name('trainer_edit');
+    Route::post('/trainer/update', 'TrainerController@update')->name('trainer_update');
 });

@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Collection;
@@ -12,6 +13,7 @@ class Pokemon extends Model
 
     /**
      * Search that sends back a list of all raids depending on their name.
+     * (Need to throw warning when the pokemon that the user is searching for does not exist.)
      *
      * @param String $name
      * @return Collection
@@ -19,7 +21,7 @@ class Pokemon extends Model
     public static function searchByName(String $name): Collection
     {
         $id = self::query()->whereRaw("UPPER(name) LIKE '%" . strtoupper($name) . "%'")->value('id');
-        return self::find($id)->raid()->latest()->get();
+        return self::find($id)->raid()->where('end_time', '>', Carbon::now())->get();
 
         //        return static::query()->where('name','LIKE','%'.$name.'%');
 //        return self::query()->whereRaw("UPPER(name) LIKE '%". strtoupper($name) ."%'")->latest();

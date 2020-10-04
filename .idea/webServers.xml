@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="e867b98d-d1d8-4392-8207-717f9c9eb69a" name="HomeServer" url="http://192.168.1.1/">
+        <fileTransfer mountedRoot="Z:\POGORaidsWebsite" accessType="MOUNT" port="0" />
+      </webServer>
+    </option>
+  </component>
+</project>
