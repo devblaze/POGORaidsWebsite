@@ -22,10 +22,10 @@
 
                                 <select id="type" name="type">
                                     <option selected value="">Select..</option>
-                                    <option>Raid Related</option>
-                                    <option>Party Related</option>
-                                    <option>Can't Access Account</option>
-                                    <option>Can't Create Trainer</option>
+                                    <option>Raid Problem</option>
+                                    <option>Party Problem</option>
+                                    <option>Trainer Problem</option>
+                                    <option>Account Problem</option>
                                     <option>Other</option>
                                 </select>
                             </div>
@@ -57,7 +57,7 @@
                         </div>
                     </div>
                 </div>
-
+                <hr>
                 <div class="columns">
                     <div class="column">
                         <div class="control">
@@ -67,8 +67,9 @@
                                 {{ $message }}
                             </p>
                             @enderror
-                            <button type="submit" class="button is-large is-fullwidth is-success">Start Raid</button>
-                            <a class="subtitle hoverable" href="{{ route('bug_report') }}">Check your bug status</a>
+                            <button type="submit" class="button is-large is-fullwidth is-primary">Submit Bug Report</button>
+                            <br/>
+                            <a class="subtitle" href="{{ route('bug_report') }}">Check your bug reports status</a>
                         </div>
                     </div>
                 </div>

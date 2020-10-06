@@ -51,7 +51,6 @@ class RaidController extends Controller
     public function create(): View
     {
         $pokemon_data = Pokemon::all();
-//        return view('raid.create');
         return view('raid.create', ['pokemons' => $pokemon_data]);
     }
 

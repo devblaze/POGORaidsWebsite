@@ -5,7 +5,7 @@
         </p>
         <ul class="menu-list">
             <li><a class="{{ (request()->is('admin')) ? 'is-active': '' }}" href="/admin">Dashboard</a></li>
-            <li><a class="{{ (request()->is('#')) ? 'is-active': '' }}" href="#">Bug Reports</a></li>
+            <li><a class="{{ (request()->is('admin/bugreports')) ? 'is-active': '' }}" href="{{ route('admin_bug_reports') }}">Bug Reports</a></li>
         </ul>
         <p class="menu-label">
             Administration

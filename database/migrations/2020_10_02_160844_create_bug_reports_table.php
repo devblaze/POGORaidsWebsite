@@ -18,6 +18,7 @@ class CreateBugReportsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('type');
             $table->string('desc');
+            $table->string('status')->default('Waiting for Approval...');
             $table->timestamps();
 
             $table->foreign('user_id')

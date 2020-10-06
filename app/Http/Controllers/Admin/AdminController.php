@@ -2,21 +2,20 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\AccessLevel;
-use App\Pokemon;
-use App\Raid;
-use App\Trainer;
+use App\BugReport;
 use App\User;
-use Illuminate\Http\Request;
+use App\AccessLevel;
+use App\Trainer;
+use App\Raid;
+use App\Pokemon;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Response;
 use Illuminate\View\View;
 
 class AdminController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('access');
     }
 
     /**
@@ -27,72 +26,6 @@ class AdminController extends Controller
     public function index(): View
     {
         return view('admin.index');
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 
     public function users(): View
@@ -135,8 +68,14 @@ class AdminController extends Controller
         return view('admin.pokemon', ['pokemons' => $pokemons]);
     }
 
+    public function bugreports()
+    {
+        $bug_reports = BugReport::paginate(20);
+        return view('admin.bugreports', ['bugreports' => $bug_reports]);
+    }
+
     public function unauthorized() {
-        return \view('admin.unauthorized');
+        return view('admin.unauthorized');
     }
 
     /**

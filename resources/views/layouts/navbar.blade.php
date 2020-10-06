@@ -15,7 +15,19 @@
         <div class="navbar-start">
             <a class="navbar-item" href="{{ route('home') }}">Home</a>
             <a class="navbar-item" href="{{ route('raid_index') }}"><i class="fas fa-dragon">&nbsp;</i>Raids</a>
-            <a class="navbar-item" href="{{ route('raid_create') }}"><i class="fas fa-plus-circle">&nbsp;</i>Create Raid</a>
+            @auth
+                @if(Auth::user()->AccessLevel->id === 2)
+                    <div class="navbar-item has-dropdown is-hoverable">
+                        <a class="navbar-link"><i class="fas fa-plus-circle">&nbsp;</i>Create</a>
+                        <div class="navbar-dropdown">
+                            <a class="navbar-item" href="{{ route('raid_create') }}"><i class="fas fa-plus">&nbsp;</i>Create Raid</a>
+                            <a class="navbar-item" href="{{ route('pokemon_create') }}"><i class="fas fa-plus">&nbsp;</i>Add Pokemon</a>
+                        </div>
+                    </div>
+                @else
+                    <a class="navbar-item" href="{{ route('raid_create') }}"><i class="fas fa-plus">&nbsp;</i>Create Raid</a>
+                @endif
+            @endauth
         </div>
 
         <div class="navbar-end">
@@ -75,7 +87,7 @@
                                         <i class="fas fa-trophy">&nbsp;</i>VIP&nbsp;<span style="color: green; ">(Active)</span>
                                     </a>
                                     <hr class="navbar-divider">
-                                    <a class="navbar-item" href="{{ route('bug_report') }}">
+                                    <a class="navbar-item" href="{{ route('bug_report_create') }}">
                                         <i class="fas fa-bug" aria-hidden="true">&nbsp;</i>Report a bug
                                     </a>
                                     <hr class="navbar-divider">

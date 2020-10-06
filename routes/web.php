@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
  */
 Route::get('/', 'HomeController@root')->name('root');
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/unauthorized', 'HomeController@unauthorized')->name('unauthorized');
 
 /**
  * Raid controller routes.
@@ -27,8 +28,7 @@ Route::get('/test/{raid}', 'RaidController@destroy');
 /**
  * Admin controller routes.
  */
-Route::get('/admin/unauthorized', 'Admin\AdminController@unauthorized')->name('admin_unauthorized');
-Route::middleware( 'access')->group(static function () {
+Route::middleware( 'auth')->group(static function () {
     Route::get('/admin', 'Admin\AdminController@index')->name('admin');
     Route::get('/admin/users', 'Admin\AdminController@users')->name('admin_users');
     Route::post('/admin/users/update', 'Admin\AdminController@userUpdate')->name('admin_user_update');
@@ -37,6 +37,7 @@ Route::middleware( 'access')->group(static function () {
     Route::get('/admin/trainers', 'Admin\AdminController@trainers')->name('admin_trainers');
     Route::get('/admin/raids', 'Admin\AdminController@raids')->name('admin_raids');
     Route::get('/admin/pokemon', 'Admin\AdminController@pokemon')->name('admin_pokemon');
+    Route::get('/admin/bugreports', 'Admin\AdminController@bugreports')->name('admin_bug_reports');
 });
 
 /**

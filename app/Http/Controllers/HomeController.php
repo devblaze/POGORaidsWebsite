@@ -15,8 +15,14 @@ class HomeController extends Controller
     {
         return view('welcome');
     }
+
     public function index(): View
     {
         return view('home');
+    }
+
+    public function unauthorized(): View
+    {
+        return view('unauthorized');
     }
 }

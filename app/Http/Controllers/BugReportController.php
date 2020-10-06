@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
+use App\BugReport;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -9,7 +11,8 @@ class BugReportController extends Controller
 {
     public function index(): View
     {
-        return view('bug.report');
+        $bugs = BugReport::where('user_id', Auth::user()->id)->get();
+        return view('bug.index', ['bugs' => $bugs]);
     }
 
     public function create(): View
@@ -20,7 +23,7 @@ class BugReportController extends Controller
     public function store()
     {
         BugReport::create($this->validateBugReport());
-        return redirect(route('home'));
+        return redirect(route('bug_report'));
     }
 
     /**

@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use \Illuminate\Http\Request;
-use Illuminate\View\View;
+use Auth;
 
 
 class CheckAccessLevel
@@ -18,10 +18,15 @@ class CheckAccessLevel
      */
     public function handle(Request $request, Closure $next)
     {
-        return $next($request);
-/*        if ($request->user()->access_level >= 0){
+        $level = Auth::user()->AccessLevel->label;
+        if (ucwords($level) === "Admin" || strtolower($level) === "admin" || strtoupper($level) === "ADMIN") {
             return $next($request);
         }
-        return redirect(route('admin_unauthorized'));*/
+
+        (bool)$access = Auth::user()->AccessLevel->can_modify_users;
+        if ($access){
+            return $next($request);
+        }
+        return redirect(route('unauthorized'));
     }
 }
