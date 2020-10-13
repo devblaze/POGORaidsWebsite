@@ -1,11 +1,11 @@
 ## POGORaids
 
 POGORaids is a project made to help the users of the famous mobile game Pokemon GO,
-it will help them coordinate and communicate faster and with ease their raid battles.
+it will help them coordinate also communicate faster and with ease, their raid battles.
 
 ## Installation
 
-Use the migration install the database.
+Use the migration to install the database.
 
 ```bash
 php artisan migrate
