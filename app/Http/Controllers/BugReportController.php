@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Auth;
-use App\BugReport;
+use App\Models\BugReport;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
 class BugReportController extends Controller

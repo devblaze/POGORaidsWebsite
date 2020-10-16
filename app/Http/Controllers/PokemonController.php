@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pokemon;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -34,7 +35,8 @@ class PokemonController extends Controller
 
     public function store()
     {
-        //
+        Pokemon::create($this->validatePokemon());
+        return redirect(route('raid_index'));
     }
 
     public function edit()
@@ -52,5 +54,17 @@ class PokemonController extends Controller
         //
     }
 
-
+    public function validatePokemon(): array
+    {
+        return \request()->validate([
+            'dex_id' => ['required', 'min:1', 'max:600'],
+            'name' => ['required'],
+            'tier' => ['required', 'between:1,6'],
+            'min_cp' => ['required'],
+            'max_cp' => ['required'],
+            'boosted_min_cp' => ['required'],
+            'boosted_max_cp' => ['required'],
+            'pokemon_image' => ['image', 'mines:jpg,png', 'max:2048']
+        ]);
+    }
 }

@@ -91,19 +91,20 @@
 {{--
                 <div class="columns">
                     <div class="column is-full">
-                        <div class="columns">
-                            <div class="column is-half" style="display: flex; justify-content: center; align-items: center;">
-                                <label class="label">Raid Tier:</label>
-                            </div>
-                            <div class="column is-half" style="display: flex; justify-content: center;">
-                                <input step="1" min="1" max="5" value="1" type="range">
-                                <customslider name="tier2"></customslider>
-                                <input type="range" min="1" max="5" value="1" name="tier">
-                                @error('tier')
-                                <p class="help is-danger">
-                                    {{ $message }}
-                                </p>
-                                @enderror
+                        <div class="columns is-centered">
+                            <div class="control">
+                                <label class="radio">
+                                    <figure class="image is-64x64">
+                                        <img src="/images/small_zapdos.png">
+                                    </figure>
+                                    <input type="radio" name="answer">
+                                </label>
+                                <label class="radio">
+                                    <figure class="image is-64x64">
+                                        <img src="/images/small_onix.png">
+                                    </figure>
+                                    <input type="radio" name="answer">
+                                </label>
                             </div>
                         </div>
                     </div>

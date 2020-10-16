@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Raid;
-use App\Pokemon;
+use App\Models\Party;
+use App\Models\Raid;
+use App\Models\Pokemon;
 use Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
@@ -50,7 +51,8 @@ class RaidController extends Controller
      */
     public function create(): View
     {
-        $pokemon_data = Pokemon::all();
+//        PokemonController::index();
+        $pokemon_data = Pokemon::orderBy('tier', 'desc')->get();
         return view('raid.create', ['pokemons' => $pokemon_data]);
     }
 
@@ -60,6 +62,7 @@ class RaidController extends Controller
      */
     public function store()
     {
+//        Party::create();
         Raid::create($this->validateRaid() + [
                 'trainer_id' => auth()->user()->trainer->id,
                 'pokemon_id' => \request()->get('pokemon_id'),

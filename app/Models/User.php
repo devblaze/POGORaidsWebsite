@@ -1,11 +1,12 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
-use App\AccessLevel;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use \Illuminate\Database\Eloquent\Relations\HasOne;
 
 class User extends Authenticatable
@@ -57,5 +58,19 @@ class User extends Authenticatable
     public function accessLevel(): BelongsTo
     {
         return $this->BelongsTo(AccessLevel::class);
+    }
+
+    /**
+     * Check if the user is Admin.
+     *
+     * @return String
+     */
+    public function isAdmin(): String
+    {
+        if ($this->AccessLevel->label === "admin")
+        {
+            return $this->AccessLevel->label;
+        }
+        return "false";
     }
 }

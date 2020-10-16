@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Trainer;
+use App\Models\Trainer;
 use Illuminate\View\View;
 
 class TrainerController extends Controller

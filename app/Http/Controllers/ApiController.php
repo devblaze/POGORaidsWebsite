@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Raid;
-use App\Pokemon;
+use App\Models\Raid;
+use App\Models\Pokemon;
 
 class ApiController extends Controller
 {

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\AccessLevel;
+use App\Models\AccessLevel;
 use Illuminate\Http\Request;
 
 class AccessLevelController extends Controller

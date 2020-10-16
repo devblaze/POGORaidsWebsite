@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,17 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 /**
- * Home Routes
+ * Home Routes.
  */
-Route::get('/', 'HomeController@root')->name('root');
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/unauthorized', 'HomeController@unauthorized')->name('unauthorized');
+Route::get('/', [HomeController::class, 'root'])->name('root');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/unauthorized', [HomeController::class, 'unauthorized'])->name('unauthorized');
 
 /**
  * Raid controller routes.
  */
 Route::get('/raids', 'RaidController@index')->name('raid_index');
-Route::get('/test/{raid}', 'RaidController@destroy');
+//Route::get('/test/{raid}', 'RaidController@destroy');
 
 
 /**
@@ -46,7 +47,13 @@ Route::middleware( 'auth')->group(static function () {
 Auth::routes();
 Route::middleware('auth')->group(static function () {
     /**
-     * Raid Controller Routes
+     * User Controller Routes.
+     */
+    Route::get('/user/{user}/edit', 'UserController@edit')->name('user_edit');
+    Route::post('/user/update', 'UserController@update')->name('user_update');
+
+    /**
+     * Raid Controller Routes.
      */
     Route::post('/raids/create', 'RaidController@store')->name('raid_store');
     Route::get('/raids/create', 'RaidController@create')->name('raid_create');
@@ -56,7 +63,7 @@ Route::middleware('auth')->group(static function () {
     Route::post('/raids/update', 'RaidController@update')->name('raid_update');
 
     /**
-     * Bug Report controller Routes
+     * Bug Report controller Routes.
      */
     Route::get('/bugReport', 'BugReportController@index')->name('bug_report');
     Route::post('/bugReport/create', 'BugReportController@store')->name('bug_report_store');
@@ -66,6 +73,7 @@ Route::middleware('auth')->group(static function () {
      * Pokemon controller routes.
      */
     Route::get('/pokemon', 'PokemonController@index')->name('pokemon_index');
+    Route::post('/pokemon/create', 'PokemonController@store')->name('pokemon_store');
     Route::get('/pokemon/create', 'PokemonController@create')->name('pokemon_create');
 
     /**

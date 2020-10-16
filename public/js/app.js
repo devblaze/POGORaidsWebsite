@@ -3905,7 +3905,7 @@ var render = function() {
                         src:
                           "images/icon_" +
                           _vm.pokemon[raid.pokemon_id - 1].name.toLowerCase() +
-                          ".jpg"
+                          ".png"
                       }
                     })
                   ])

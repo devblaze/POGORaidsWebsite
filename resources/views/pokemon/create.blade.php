@@ -9,7 +9,7 @@
 
             <h1 class="title">Add New Pokemon</h1>
             <hr>
-            <form method="POST" action="{{ route('raid_create') }}">
+            <form method="POST" action="{{ route('pokemon_create') }}">
                 @csrf
 
                 <div class="columns">
@@ -21,9 +21,9 @@
                             <div class="column is-half" style="display: flex; justify-content: center;">
                                 <div class="control">
                                     <div class="control">
-                                        <input id="minutes" name="minutes" class="input @error('minutes') is-danger @enderror" type="text" placeholder="Minutes">
+                                        <input id="dex_id" name="dex_id" class="input @error('dex_id') is-danger @enderror" type="text" placeholder="Max 600">
                                     </div>
-                                    @error('minutes')
+                                    @error('dex_id')
                                     <p class="help is-danger">
                                         {{ $message }}
                                     </p>
@@ -43,9 +43,9 @@
                             <div class="column is-half" style="display: flex; justify-content: center;">
                                 <div class="control">
                                     <div class="control">
-                                        <input id="minutes" name="minutes" class="input @error('minutes') is-danger @enderror" type="text" placeholder="Minutes">
+                                        <input id="name" name="name" class="input @error('name') is-danger @enderror" type="text" placeholder="Pokemon Name">
                                     </div>
-                                    @error('minutes')
+                                    @error('name')
                                     <p class="help is-danger">
                                         {{ $message }}
                                     </p>
@@ -65,9 +65,9 @@
                             <div class="column is-half">
                                 <div style="text-align: center;">
                                     <div class="control">
-                                        <div class="select @error('pokemon_id') is-danger @enderror">
+                                        <div class="select @error('tier') is-danger @enderror">
 
-                                            <select id="pokemon_id" name="pokemon_id">
+                                            <select id="tier" name="tier">
                                                 <option selected value="">Select..</option>
                                                 <option value="1">Tier 1</option>
                                                 <option value="2">Tier 2</option>
@@ -77,7 +77,7 @@
                                                 <option value="6">Mega Evolution</option>
                                             </select>
                                         </div>
-                                        @error('pokemon_id')
+                                        @error('tier')
                                         <p class="help is-danger">
                                             {{ $message }}
                                         </p>
@@ -89,28 +89,6 @@
                     </div>
                 </div>
 
-{{--                <div class="columns">
-                    <div class="column is-full">
-                        <div class="columns">
-                            <div class="column is-half" style="display: flex; justify-content: center; align-items: center;">
-                                --}}{{--                        Line left half--}}{{--
-                                <label class="label">Pokemon Tier:</label>
-                            </div>
-                            <div class="column is-half" style="display: flex; justify-content: center;">
-                                --}}{{--                        Line right half--}}{{--
-                                --}}{{--                            <input step="1" min="1" max="5" value="1" type="range">--}}{{--
-                                <customslider name="tier2"></customslider>
-                                <input type="range" min="1" max="5" value="1" name="tier">
-                                @error('tier')
-                                <p class="help is-danger">
-                                    {{ $message }}
-                                </p>
-                                @enderror
-                            </div>
-                        </div>
-                    </div>
-                </div>--}}
-
                 <div class="columns">
                     <div class="column is-full">
                         <div class="columns">
@@ -120,9 +98,9 @@
                             <div class="column is-half" style="display: flex; justify-content: center;">
                                 <div class="control">
                                     <div class="control">
-                                        <input id="minutes" name="minutes" class="input @error('minutes') is-danger @enderror" type="text" placeholder="Minutes">
+                                        <input id="min_cp" name="min_cp" class="input @error('min_cp') is-danger @enderror" type="text" placeholder="Minimum CP">
                                     </div>
-                                    @error('minutes')
+                                    @error('min_cp')
                                     <p class="help is-danger">
                                         {{ $message }}
                                     </p>
@@ -142,9 +120,9 @@
                             <div class="column is-half" style="display: flex; justify-content: center;">
                                 <div class="control">
                                     <div class="control">
-                                        <input id="minutes" name="minutes" class="input @error('minutes') is-danger @enderror" type="text" placeholder="Minutes">
+                                        <input id="max_cp" name="max_cp" class="input @error('max_cp') is-danger @enderror" type="text" placeholder="Maximum CP">
                                     </div>
-                                    @error('minutes')
+                                    @error('max_cp')
                                     <p class="help is-danger">
                                         {{ $message }}
                                     </p>
@@ -164,9 +142,9 @@
                             <div class="column is-half" style="display: flex; justify-content: center;">
                                 <div class="control">
                                     <div class="control">
-                                        <input id="minutes" name="minutes" class="input @error('minutes') is-danger @enderror" type="text" placeholder="Minutes">
+                                        <input id="boosted_min_cp" name="boosted_min_cp" class="input @error('boosted_min_cp') is-danger @enderror" type="text" placeholder="Boosted Minimum CP">
                                     </div>
-                                    @error('minutes')
+                                    @error('boosted_min_cp')
                                     <p class="help is-danger">
                                         {{ $message }}
                                     </p>
@@ -186,9 +164,9 @@
                             <div class="column is-half" style="display: flex; justify-content: center;">
                                 <div class="control">
                                     <div class="control">
-                                        <input id="minutes" name="minutes" class="input @error('minutes') is-danger @enderror" type="text" placeholder="Minutes">
+                                        <input id="boosted_max_cp" name="boosted_max_cp" class="input @error('boosted_max_cp') is-danger @enderror" type="text" placeholder="Boosted Maximum CP">
                                     </div>
-                                    @error('minutes')
+                                    @error('boosted_max_cp')
                                     <p class="help is-danger">
                                         {{ $message }}
                                     </p>
@@ -199,18 +177,26 @@
                     </div>
                 </div>
 
+                <div class="columns">
+                    <div class="column is-full">
+                        <div class="file has-name is-right">
+                            <label class="file-label">
+                                <input class="file-input" type="file" name="pokemon_image" id="pokemon_image">
+                                <span class="file-cta">
+                                  <span class="file-icon"><i class="fas fa-upload"></i></span>
+                                  <span class="file-label">Choose a file…</span>
+                                </span>
+                                <span class="file-name">icon_{Pokemon Name}.png</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
                 <br/>
                 <div class="columns">
                     <div class="column">
                         <div class="control">
-                            {{--                            <input id="trainer_id" name="trainer_id" type="hidden" value="{{ Auth::user()->trainer()->value('id') }}">--}}
-                            <input id="trainer_id" name="trainer_id" type="hidden" value="{{ auth()->user()->trainer->id }}">
-                            @error('trainer_id')
-                            <p class="help is-danger">
-                                {{ $message }}
-                            </p>
-                            @enderror
-                            <button type="submit" class="button is-large is-fullwidth is-success">Start Raid</button>
+                            <button type="submit" class="button is-large is-fullwidth is-info">+ Add Pokemon</button>
                         </div>
                     </div>
                 </div>

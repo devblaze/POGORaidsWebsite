@@ -15,7 +15,7 @@
         <div class="navbar-start">
             <a class="navbar-item" href="{{ route('home') }}">Home</a>
             <a class="navbar-item" href="{{ route('raid_index') }}"><i class="fas fa-dragon">&nbsp;</i>Raids</a>
-            @auth
+            @auth()
                 @if(Auth::user()->AccessLevel->id === 2)
                     <div class="navbar-item has-dropdown is-hoverable">
                         <a class="navbar-link"><i class="fas fa-plus-circle">&nbsp;</i>Create</a>
@@ -71,6 +71,13 @@
                                         </a>
                                         <hr class="navbar-divider">
                                     @endif
+                                        <a class="navbar-item" href="{{ route('user_edit', auth()->user()->username) }}">
+                                            <i class="fas fa-cog" aria-hidden="true">&nbsp;</i>Settings
+                                        </a>
+                                        <a class="navbar-item">
+                                            <i class="fas fa-trophy">&nbsp;</i>VIP&nbsp;<span style="color: green; ">(Active)</span>
+                                        </a>
+                                        <hr class="navbar-divider">
                                     @if(Auth::user()->trainer === null)
                                         <a class="navbar-item" href="{{ route('trainer_create') }}">
                                             <i class="fas fa-user-plus">&nbsp;</i>Add Trainer
@@ -81,10 +88,6 @@
                                     </a>
                                     <a class="navbar-item">
                                         <i class="fas fa-user-clock">&nbsp;</i>History
-                                    </a>
-                                    <hr class="navbar-divider">
-                                    <a class="navbar-item">
-                                        <i class="fas fa-trophy">&nbsp;</i>VIP&nbsp;<span style="color: green; ">(Active)</span>
                                     </a>
                                     <hr class="navbar-divider">
                                     <a class="navbar-item" href="{{ route('bug_report_create') }}">

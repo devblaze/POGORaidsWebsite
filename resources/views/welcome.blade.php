@@ -38,26 +38,33 @@
             </div>
 
             <header class="timeline-header">
-                <span class="tag is-warning">August</span>
+                <span class="tag is-success">August</span>
             </header>
-            <div class="timeline-item is-warning">
-                <div class="timeline-marker is-warning"></div>
+            <div class="timeline-item is-success">
+                <div class="timeline-marker is-success"></div>
                 <div class="timeline-content">
                     <p class="heading">August 2020</p>
                     <p>Access level controls and more optimization.</p>
                 </div>
             </div>
-            <div class="timeline-item is-danger">
-                <div class="timeline-marker is-danger"></div>
+            <div class="timeline-item is-success">
+                <div class="timeline-marker is-success"></div>
                 <div class="timeline-content">
                     <p class="heading">August 2020</p>
                     <p>Delayed - Further development is needed.</p>
                 </div>
             </div>
 
-            <header class="timeline-header">
-                <span class="tag is-danger">October</span>
+            <header class="timeline-header is-success">
+                <span class="tag is-warning">October</span>
             </header>
+            <div class="timeline-item is-warning">
+                <div class="timeline-marker is-warning"></div>
+                <div class="timeline-content">
+                    <p class="heading">October 2020</p>
+                    <p>Party and chat functions remake.</p>
+                </div>
+            </div>
             <div class="timeline-item">
                 <div class="timeline-marker"></div>
                 <div class="timeline-content">
@@ -66,7 +73,7 @@
                 </div>
             </div>
 
-            <header class="timeline-header">
+            <header class="timeline-header is-warning">
                 <span class="tag is-info">November</span>
             </header>
             <div class="timeline-item">
@@ -91,7 +98,7 @@
             </div>
 
             <div class="timeline-header">
-                <span class="tag is-medium is-success">End</span>
+                <span class="tag is-medium is-success">Stable Release</span>
             </div>
         </div>
     </div>
