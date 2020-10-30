@@ -47,11 +47,14 @@ class RaidController extends Controller
     /**
      * Returns a view to create a new raid.
      *
-     * @return View
+     * @return Application|RedirectResponse|Redirector|View
      */
-    public function create(): View
+    public function create()
     {
 //        PokemonController::index();
+        if (auth()->user()->trainer === null){
+            return redirect(route('trainer_create'))->withErrors(['errors' => 'You need to add at least one registered Trainer!']);
+        }
         $pokemon_data = Pokemon::orderBy('tier', 'desc')->get();
         return view('raid.create', ['pokemons' => $pokemon_data]);
     }
@@ -82,7 +85,9 @@ class RaidController extends Controller
      */
     public function edit(Raid $raid): View
     {
-        return view('raid.edit', compact('raid'));
+//        $pokemons = Pokemon::get('id', 'name', 'tier');
+        $pokemons = Pokemon::all();
+        return view('raid.edit', compact('raid', 'pokemons'));
     }
 
     /**
@@ -104,7 +109,12 @@ class RaidController extends Controller
      */
     public function destroy(int $id)
     {
-        return Raid::safeDelete($id);
+        if (auth()->user()->id === $id){
+            return Raid::safeDelete($id);
+        } elseif (auth()->user()->AccessLevel->label === "admin") {
+            return Raid::safeDelete($id);
+        }
+        return view('unauthorized');
     }
 
     /**

@@ -16,25 +16,25 @@
                     <div class="select @error('pokemon_id') is-danger @enderror">
 
                         <select id="pokemon_id" name="pokemon_id">
-                            @foreach(App\Pokemon::get(['id', 'name', 'tier']) as $pokemon)
+                            @foreach($pokemons as $pokemon)
                                 @if($pokemon->id == $raid->pokemon_id)
                                     <option value="{{ $pokemon->id }}" selected>{{ $pokemon->name }} - Tier {{ $pokemon->tier }}</option>
                                 @else
-                                @if($pokemon->tier == 5)
-                                    <option value="{{ $pokemon->id }}">{{ $pokemon->name }} - Tier {{ $pokemon->tier }}</option>
-                                @endif
-                                @if($pokemon->tier == 4)
-                                    <option value="{{ $pokemon->id }}">{{ $pokemon->name }} - Tier {{ $pokemon->tier }}</option>
-                                @endif
-                                @if($pokemon->tier == 3)
-                                    <option value="{{ $pokemon->id }}">{{ $pokemon->name }} - Tier {{ $pokemon->tier }}</option>
-                                @endif
-                                @if($pokemon->tier == 2)
-                                    <option value="{{ $pokemon->id }}">{{ $pokemon->name }} - Tier {{ $pokemon->tier }}</option>
-                                @endif
-                                @if($pokemon->tier == 1)
-                                    <option value="{{ $pokemon->id }}">{{ $pokemon->name }} - Tier {{ $pokemon->tier }}</option>
-                                @endif
+                                    @if($pokemon->tier == 5)
+                                        <option value="{{ $pokemon->id }}">{{ $pokemon->name }} - Tier {{ $pokemon->tier }}</option>
+                                    @endif
+                                    @if($pokemon->tier == 4)
+                                        <option value="{{ $pokemon->id }}">{{ $pokemon->name }} - Tier {{ $pokemon->tier }}</option>
+                                    @endif
+                                    @if($pokemon->tier == 3)
+                                        <option value="{{ $pokemon->id }}">{{ $pokemon->name }} - Tier {{ $pokemon->tier }}</option>
+                                    @endif
+                                    @if($pokemon->tier == 2)
+                                        <option value="{{ $pokemon->id }}">{{ $pokemon->name }} - Tier {{ $pokemon->tier }}</option>
+                                    @endif
+                                    @if($pokemon->tier == 1)
+                                        <option value="{{ $pokemon->id }}">{{ $pokemon->name }} - Tier {{ $pokemon->tier }}</option>
+                                    @endif
                                 @endif
                             @endforeach
                         </select>

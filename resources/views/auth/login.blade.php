@@ -13,7 +13,7 @@
                 <div class="field">
                     <label class="label" for="username">{{ __('Username') }}</label>
                     <div class="control has-icons-left has-icons-right">
-                        <input id="username" name="username" value="{{ old('username') }}" class="input @error('username') is-danger @enderror" type="text" placeholder="Your username" required autocomplete="username" autofocus>
+                        <input id="username" name="username" value="{{ old('username') }}" class="input @error('validation') is-danger @enderror" type="text" placeholder="Your username" required autocomplete="username" autofocus>
                         <span class="icon is-small is-left"><i class="fas fa-user"></i></span>
                         <span class="icon is-small is-right"><i class="fas fa-check"></i></span>
                         @error('username')
@@ -24,9 +24,9 @@
                     <div class="field">
                         <label class="label" for="password">{{ __('Password') }}</label>
                         <div class="control has-icons-left">
-                            <input id="password" name="password" class="input @error('password') is-danger @enderror" type="password" placeholder="***********" required autocomplete="current-password">
+                            <input id="password" name="password" class="input @error('validation') is-danger @enderror" type="password" placeholder="***********" required autocomplete="current-password">
                             <span class="icon is-small is-left"><i class="fas fa-lock"></i></span>
-                            @error('password')
+                            @error('validation')
                             <p class="help is-danger">{{ $message }}</p>
                             @enderror
                         </div>

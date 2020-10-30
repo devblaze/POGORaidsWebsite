@@ -63,14 +63,10 @@ class User extends Authenticatable
     /**
      * Check if the user is Admin.
      *
-     * @return String
+     * @return bool
      */
-    public function isAdmin(): String
+    public function isAdmin(): bool
     {
-        if ($this->AccessLevel->label === "admin")
-        {
-            return $this->AccessLevel->label;
-        }
-        return "false";
+        return $this->AccessLevel->label === "admin";
     }
 }

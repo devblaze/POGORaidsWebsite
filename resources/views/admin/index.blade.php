@@ -20,25 +20,25 @@
                     <div class="tile is-ancestor has-text-centered">
                         <div class="tile is-parent">
                             <article class="tile is-child box">
-                                <p class="title">{{ App\User::count() }}</p>
+                                <p class="title">{{ $data['users'] }}</p>
                                 <p class="subtitle">Users</p>
                             </article>
                         </div>
                         <div class="tile is-parent">
                             <article class="tile is-child box">
-                                <p class="title">{{ App\Trainer::count() }}</p>
+                                <p class="title">{{ $data['trainers'] }}</p>
                                 <p class="subtitle">Trainers</p>
                             </article>
                         </div>
                         <div class="tile is-parent">
                             <article class="tile is-child box">
-                                <p class="title">{{ App\Raid::count()}}</p>
+                                <p class="title">{{ $data['raids'] }}</p>
                                 <p class="subtitle">Raids</p>
                             </article>
                         </div>
                         <div class="tile is-parent">
                             <article class="tile is-child box">
-                                <p class="title">{{ App\Pokemon::count()}}</p>
+                                <p class="title">{{ $data['pokemon'] }}</p>
                                 <p class="subtitle">Pokemon's</p>
                             </article>
                         </div>
@@ -85,7 +85,7 @@
                                             <td width="5%"><i class="fas fa-bell"></i></td>
                                             <td>User</td>
                                             <td>Banned</td>
-                                            <td>{{ App\User::find(2)->username }}</td>
+                                            <td>{{ App\Models\User::find(2)->username }}</td>
                                             <td>16/09/2020</td>
                                             <td>18:30</td>
                                             <td class="level-right"><a class="button is-small is-primary" href="#">Details</a></td>
@@ -94,7 +94,7 @@
                                             <td width="5%"><i class="fa fa-bell-o"></i></td>
                                             <td>Trainer</td>
                                             <td>Created</td>
-                                            <td>{{ App\User::find(3)->username }}</td>
+                                            <td>{{ App\Models\User::find(3)->username }}</td>
                                             <td>14/09/2020</td>
                                             <td>12:16</td>
                                             <td class="level-right"><a class="button is-small is-primary" href="#">Details</a></td>

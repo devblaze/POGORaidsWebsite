@@ -70,9 +70,7 @@
                                             <select id="tier" name="tier">
                                                 <option selected value="">Select..</option>
                                                 <option value="1">Tier 1</option>
-                                                <option value="2">Tier 2</option>
                                                 <option value="3">Tier 3</option>
-                                                <option value="4">Tier 4</option>
                                                 <option value="5">Tier 5</option>
                                                 <option value="6">Mega Evolution</option>
                                             </select>

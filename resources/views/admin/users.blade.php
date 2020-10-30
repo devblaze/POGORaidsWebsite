@@ -6,7 +6,7 @@
             @include('admin.menu')
             {{ $users->links() }}
             <br/>
-            <table class="table is-hoverable">
+            <table class="table is-hoverable is-fullwidth">
                 <thead>
                 <th>ID</th>
                 <th>Username</th>
@@ -38,7 +38,7 @@
                             <div class="control">
                                 <div class="select">
                                     <select name="accessLevel">
-                                        @foreach(App\AccessLevel::all() as $accessLevel)
+                                        @foreach(App\Models\AccessLevel::all() as $accessLevel)
                                             <option value="{{ $accessLevel->id }}">{{ $accessLevel->name }}</option>
                                         @endforeach
                                     </select>

@@ -9,7 +9,7 @@
                 <table class="table">
                     <thead>
                     <tr>
-                        <th colspan="10">Configuring User {{ $user->username }}</th>
+                        <th colspan="10">Configure User Account</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -37,7 +37,7 @@
                             <div class="select">
                                 <select name="accessLevel">
                                     <option value="{{ $user->AccessLevel->id }}" selected>{{ $user->AccessLevel->name }}</option>
-                                    @foreach(App\AccessLevel::all() as $accessLevel)
+                                    @foreach(App\Models\AccessLevel::all() as $accessLevel)
                                         @if($accessLevel->id !== $user->AccessLevel->id)
                                         <option value="{{ $accessLevel->id }}">{{ $accessLevel->name }}</option>
                                         @endif

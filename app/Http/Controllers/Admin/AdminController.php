@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\BugReport;
-use App\User;
-use App\AccessLevel;
-use App\Trainer;
-use App\Raid;
-use App\Pokemon;
+use App\Models\BugReport;
+use App\Models\User;
+use App\Models\AccessLevel;
+use App\Models\Trainer;
+use App\Models\Raid;
+use App\Models\Pokemon;
 use App\Http\Controllers\Controller;
+use http\Env\Request;
 use Illuminate\View\View;
 
 class AdminController extends Controller
@@ -19,32 +20,46 @@ class AdminController extends Controller
     }
 
     /**
-     * Display the view for the Admin panel.
+     * Display the view for the Admin panel with the counted data.
      *
-     * @return View
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|View
      */
-    public function index(): View
+    public function index(): view
     {
-        return view('admin.index');
+        $data = [
+            'users' => User::count(),
+            'raids' => Raid::count(),
+            'trainers' => Trainer::count(),
+            'pokemon' => Pokemon::count()
+        ];
+        return view('admin.index')->with('data', $data);
     }
 
-    public function users(): View
+    /**
+     * Return user's view with data for Admin Panel.
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
+    public function users()
     {
+        $levels = AccessLevel::get('id', 'name');
         $users = User::paginate(20);
-        return view('admin.users', ['users' => $users]);
+        return view('admin.users')->with('users', $users, 'access_levels', $levels);
     }
-    public function userEdit(User $user): View
+    public function userEdit(User $user): view
     {
         return view('admin.userEdit', compact('user'));
     }
-    public function userUpdate(User $user)
+    public function userUpdate(User $user, Request $request)
     {
-        $user->where('id', $user->id)->update([
+        return $request->username;
+/*        $user->update([
             'username' => \request()->get('username'),
+            'password' => Hash::make($request->password),
             'email' => \request()->get('email'),
             'access_level_id' => \request()->get('accessLevel')
         ]);
-        return redirect(route('admin_test'));
+        return redirect(route('admin_test'));*/
     }
 
     public function accessLevels(): View

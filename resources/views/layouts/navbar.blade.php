@@ -15,7 +15,7 @@
         <div class="navbar-start">
             <a class="navbar-item" href="{{ route('home') }}">Home</a>
             <a class="navbar-item" href="{{ route('raid_index') }}"><i class="fas fa-dragon">&nbsp;</i>Raids</a>
-            @auth()
+            @auth
                 @if(Auth::user()->AccessLevel->id === 2)
                     <div class="navbar-item has-dropdown is-hoverable">
                         <a class="navbar-link"><i class="fas fa-plus-circle">&nbsp;</i>Create</a>
@@ -64,31 +64,33 @@
                                     <i class="fas fa-user">&nbsp;</i>{{ Auth::user()->username }}
                                 </a>
 
-                                <div class="navbar-dropdown">
+                                <div class="navbar-dropdown is-right">
                                     @if(Auth::user()->AccessLevel->id === 2)
                                         <a class="navbar-item" href="{{ route('admin') }}">
                                             <i class="fas fa-toolbox">&nbsp;</i>Admin Panel
                                         </a>
                                         <hr class="navbar-divider">
                                     @endif
-                                        <a class="navbar-item" href="{{ route('user_edit', auth()->user()->username) }}">
-                                            <i class="fas fa-cog" aria-hidden="true">&nbsp;</i>Settings
-                                        </a>
-                                        <a class="navbar-item">
-                                            <i class="fas fa-trophy">&nbsp;</i>VIP&nbsp;<span style="color: green; ">(Active)</span>
-                                        </a>
-                                        <hr class="navbar-divider">
+                                    <a class="navbar-item" href="{{ route('user_edit', Auth::user()->username) }}">
+                                        <i class="fas fa-cog" aria-hidden="true">&nbsp;</i>Settings
+                                    </a>
+                                    <a class="navbar-item">
+                                        <i class="fas fa-trophy">&nbsp;</i>VIP&nbsp;<span style="color: green; ">(Active)</span>
+                                    </a>
+                                    <hr class="navbar-divider">
                                     @if(Auth::user()->trainer === null)
                                         <a class="navbar-item" href="{{ route('trainer_create') }}">
                                             <i class="fas fa-user-plus">&nbsp;</i>Add Trainer
                                         </a>
                                     @endif
-                                    <a class="navbar-item" href="{{ route('trainer_edit', auth()->user()->trainer->name) }}">
-                                        <i class="fas fa-user-edit">&nbsp;</i>Edit Trainer
-                                    </a>
-                                    <a class="navbar-item">
-                                        <i class="fas fa-user-clock">&nbsp;</i>History
-                                    </a>
+                                    @if(Auth::user()->trainer !== null)
+                                        <a class="navbar-item" href="{{ route('trainer_edit', auth()->user()->trainer->name) }}">
+                                            <i class="fas fa-user-edit">&nbsp;</i>Edit Trainer
+                                        </a>
+                                        <a class="navbar-item">
+                                            <i class="fas fa-user-clock">&nbsp;</i>History
+                                        </a>
+                                    @endif
                                     <hr class="navbar-divider">
                                     <a class="navbar-item" href="{{ route('bug_report_create') }}">
                                         <i class="fas fa-bug" aria-hidden="true">&nbsp;</i>Report a bug

@@ -64,7 +64,7 @@ class PokemonController extends Controller
             'max_cp' => ['required'],
             'boosted_min_cp' => ['required'],
             'boosted_max_cp' => ['required'],
-            'pokemon_image' => ['image', 'mines:jpg,png', 'max:2048']
+            'pokemon_image' => ['image', 'max:2048']
         ]);
     }
 }

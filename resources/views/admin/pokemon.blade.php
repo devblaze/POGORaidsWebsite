@@ -6,7 +6,7 @@
             @include('admin.menu')
             {{ $pokemons->links() }}
             <br/>
-            <table class="table is-hoverable">
+            <table class="table is-hoverable is-fullwidth">
                 <thead>
                 <th>ID</th>
                 <th>Dex ID</th>
@@ -20,32 +20,17 @@
                 </thead>
                 <tbody>
                 <tr>
-                    <td colspan="2">
+                    <td colspan="7">
                         <div class="control">
-                            <input class="input is-hovered" type="text" placeholder="Name">
+                            <input class="input is-hovered" type="text" placeholder="Dex ID / Pokemon Name">
                         </div>
                     </td>
-                    <td>
-                        <div class="control">
-                            <input class="input is-hovered" type="text" placeholder="Label">
-                        </div>
-                    </td>
-                    <td>
-                        <div class="control">
-                            <input class="input is-hovered" type="text" placeholder="Password">
-                        </div>
-                    </td>
-                    <td>
-                        <div class="control">
-                            <input class="input is-hovered" type="text" placeholder="Access Level">
-                        </div>
-                    </td>
-                    <td>
-                        <button class="button is-success">
+                    <td colspan="2" class="is-centered">
+                        <button class="button is-info is-fullwidth">
                             <span class="icon is-small">
-                              <i class="fas fa-users"></i>
+                              <i class="fas fa-search"></i>
                             </span>
-                            <span>Create</span>
+                            <span>Search</span>
                         </button>
                     </td>
                 </tr>
@@ -60,11 +45,8 @@
                         <td>{{ $pokemon->boosted_min_cp }}</td>
                         <td>{{ $pokemon->boosted_max_cp }}</td>
                         <td>
-                            <a href="{{ route('admin') }}">
-                                <i class="fas fa-save" title="Save Changes">&nbsp;</i>
-                            </a>
-                            <a href="{{ route('admin') }}">
-                                <i class="fas fa-times" title="Delete Level">&nbsp;</i>
+                            <a class="button is-info" href="#">
+                                <i class="fas fa-wrench"></i>&nbsp;Edit
                             </a>
                         </td>
                     </tr>

@@ -31,44 +31,34 @@
                         </div>
                     </td>
                     <td>
-                        <center>
                         <div class="field">
                             <input class="is-checkradio" id="modifyUsers" type="checkbox" name="modifyUsers" ">
                             <label for="exampleCheckboxDefault"></label>
                         </div>
-                        </center>
                     </td>
                     <td>
-                        <center>
-                            <div class="field">
-                                <input class="is-checkradio" id="modifyUsersAccess" type="checkbox" name="modifyUsersAccess">
-                                <label for="exampleCheckboxDefault"></label>
-                            </div>
-                        </center>
+                        <div class="field">
+                            <input class="is-checkradio" id="modifyUsersAccess" type="checkbox" name="modifyUsersAccess">
+                            <label for="exampleCheckboxDefault"></label>
+                        </div>
                     </td>
                     <td>
-                        <center>
-                            <div class="field">
-                                <input class="is-checkradio" id="modifyTrainers" type="checkbox" name="modifyTrainers">
-                                <label for="exampleCheckboxDefault"></label>
-                            </div>
-                        </center>
+                        <div class="field">
+                            <input class="is-checkradio" id="modifyTrainers" type="checkbox" name="modifyTrainers">
+                            <label for="exampleCheckboxDefault"></label>
+                        </div>
                     </td>
                     <td>
-                        <center>
-                            <div class="field">
-                                <input class="is-checkradio" id="modifyRaids" type="checkbox" name="modifyRaids">
-                                <label for="exampleCheckboxDefault"></label>
-                            </div>
-                        </center>
+                        <div class="field">
+                            <input class="is-checkradio" id="modifyRaids" type="checkbox" name="modifyRaids">
+                            <label for="exampleCheckboxDefault"></label>
+                        </div>
                     </td>
                     <td>
-                        <center>
-                            <div class="field">
-                                <input class="is-checkradio" id="modifyPokemons" type="checkbox" name="modifyPokemons" checked="">
-                                <label for="exampleCheckboxDefault"></label>
-                            </div>
-                        </center>
+                        <div class="field">
+                            <input class="is-checkradio" id="modifyPokemons" type="checkbox" name="modifyPokemons">
+                            <label for="exampleCheckboxDefault"></label>
+                        </div>
                     </td>
                     <td>
                         <button class="button is-success">

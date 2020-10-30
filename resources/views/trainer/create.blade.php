@@ -142,6 +142,11 @@
                                                         </p>
                                                         @enderror--}}
                             <button type="submit" class="button is-large is-fullwidth is-success">Create Trainer</button>
+                            @error('errors')
+                            <p class="help is-danger">
+                                {{ $message }}
+                            </p>
+                            @enderror
                         </div>
                     </div>
                 </div>

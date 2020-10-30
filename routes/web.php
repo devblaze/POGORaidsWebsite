@@ -12,6 +12,8 @@ use App\Http\Controllers\HomeController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::post('/admin/users/update', 'Admin\AdminController@userUpdate')->name('admin_user_update');
+
 /**
  * Home Routes.
  */
@@ -25,11 +27,14 @@ Route::get('/unauthorized', [HomeController::class, 'unauthorized'])->name('unau
 Route::get('/raids', 'RaidController@index')->name('raid_index');
 //Route::get('/test/{raid}', 'RaidController@destroy');
 
-
 /**
- * Admin controller routes.
+ * Routes that the guests need to be authenticated in order to access.
  */
-Route::middleware( 'auth')->group(static function () {
+Auth::routes();
+Route::middleware('auth')->group(static function () {
+    /**
+     * Admin controller routes.
+     */
     Route::get('/admin', 'Admin\AdminController@index')->name('admin');
     Route::get('/admin/users', 'Admin\AdminController@users')->name('admin_users');
     Route::post('/admin/users/update', 'Admin\AdminController@userUpdate')->name('admin_user_update');
@@ -39,13 +44,7 @@ Route::middleware( 'auth')->group(static function () {
     Route::get('/admin/raids', 'Admin\AdminController@raids')->name('admin_raids');
     Route::get('/admin/pokemon', 'Admin\AdminController@pokemon')->name('admin_pokemon');
     Route::get('/admin/bugreports', 'Admin\AdminController@bugreports')->name('admin_bug_reports');
-});
 
-/**
- * Routes that the guests need to be authenticated in order to access.
- */
-Auth::routes();
-Route::middleware('auth')->group(static function () {
     /**
      * User Controller Routes.
      */

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pokemon;
 use Illuminate\View\View;
 
 class HomeController extends Controller
@@ -18,7 +19,8 @@ class HomeController extends Controller
 
     public function index(): View
     {
-        return view('home');
+        $pokemons = Pokemon::all();
+        return view('home')->with('pokemons', $pokemons);
     }
 
     public function unauthorized(): View

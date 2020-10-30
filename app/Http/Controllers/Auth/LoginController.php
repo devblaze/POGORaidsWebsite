@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
 
 class LoginController extends Controller
 {
@@ -36,6 +39,27 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    /**
+     * Override login method so we can check for either Username or Email so the User can login with both.
+     *
+     * @param Request $request
+     * @return RedirectResponse
+     * @throws ValidationException
+     */
+    public function login(Request $request): RedirectResponse
+    {
+        $this->validate($request, [
+            'username' => 'required',
+            'password' => 'required'
+        ]);
+        $fieldType = filter_var($request->username, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
+        if (auth()->attempt(array($fieldType => $request->username, 'password' => $request->password)))
+        {
+            return redirect()->route('home');
+        }
+        return redirect()->back()->withErrors(['validation' => 'Combination of Email/Username and Password is not correct!']);
     }
 
 /*    public function username(): string

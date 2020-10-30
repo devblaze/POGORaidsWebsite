@@ -110,6 +110,9 @@
     @guest
         <raids user=""></raids>
     @else
+        @if(Auth::user()->trainer !== null)
         <raids user="{{ Auth::user()->id }}" trainer="{{ Auth::user()->trainer->id }}"></raids>
+            @endif
+        <raid user="{{ Auth::user()->id }}"></raid>
     @endguest
 @endsection

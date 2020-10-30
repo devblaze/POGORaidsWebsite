@@ -6,12 +6,11 @@
             @include('admin.menu')
             {{ $bugreports->links() }}
             <br/>
-            <table class="table is-hoverable">
+            <table class="table is-hoverable is-fullwidth">
                 <thead>
                 <th>ID</th>
                 <th>From</th>
                 <th>Type</th>
-                <th>Description</th>
                 <th>Updated At</th>
                 <th>Created At</th>
                 <th>Status</th>
@@ -23,21 +22,10 @@
                         <th>{{ $bugreport->id }}</th>
                         <td>{{ $bugreport->user->username }}</td>
                         <td>{{ $bugreport->type }}</td>
-                        <td>{{ $bugreport->desc }}</td>
                         <td>{{ $bugreport->updated_at }}</td>
                         <td>{{ $bugreport->created_at }}</td>
                         <td>{{ $bugreport->status }}</td>
-                        <td>
-                            <a href="{{ route('admin') }}">
-                                <i class="fas fa-check" title="Fixed Bug">&nbsp;</i>
-                            </a>
-                            <a href="{{ route('admin') }}">
-                                <i class="fas fa-clock" title="Approved Bug">&nbsp;</i>
-                            </a>
-                            <a href="{{ route('admin') }}">
-                                <i class="fas fa-times" title="Reject Bug">&nbsp;</i>
-                            </a>
-                        </td>
+                        <td><a class="button is-info" href="#">Read it</a></td>
                     </tr>
                 @endforeach
                 </tbody>

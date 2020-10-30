@@ -6,7 +6,7 @@
             @include('admin.menu')
             {{ $trainers->links() }}
             <br/>
-            <table class="table is-hoverable">
+            <table class="table is-hoverable is-fullwidth">
                 <thead>
                 <th>ID</th>
                 <th>Username</th>
@@ -22,7 +22,7 @@
                     <td colspan="2">
                         <div class="select">
                             <select name="accessLevel">
-                                @foreach(App\User::all() as $user)
+                                @foreach(App\Models\User::all() as $user)
                                     <option value="{{ $user->id }}">{{ $user->username }}</option>
                                 @endforeach
                             </select>

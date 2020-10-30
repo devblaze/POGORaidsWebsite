@@ -6,7 +6,7 @@
             @include('admin.menu')
             {{ $raids->links() }}
             <br/>
-            <table class="table is-hoverable">
+            <table class="table is-hoverable is-fullwidth">
                 <thead>
                 <th>ID</th>
                 <th>Trainer</th>
@@ -14,36 +14,21 @@
                 <th>Tier</th>
                 <th>Invites</th>
                 <th>Weather Boost</th>
-                <th>Actions</th>
+                <th colspan="2">Created At</th>
                 </thead>
                 <tbody>
                 <tr>
-                    <td colspan="2">
+                    <td colspan="6">
                         <div class="control">
-                            <input class="input is-hovered" type="text" placeholder="Name">
+                            <input class="input is-hovered" type="text" placeholder="Trainer Name / Raid Name">
                         </div>
                     </td>
-                    <td>
-                        <div class="control">
-                            <input class="input is-hovered" type="text" placeholder="Label">
-                        </div>
-                    </td>
-                    <td>
-                        <div class="control">
-                            <input class="input is-hovered" type="text" placeholder="Password">
-                        </div>
-                    </td>
-                    <td>
-                        <div class="control">
-                            <input class="input is-hovered" type="text" placeholder="Access Level">
-                        </div>
-                    </td>
-                    <td>
-                        <button class="button is-success">
+                    <td colspan="2" class="is-centered">
+                        <button class="button is-info is-fullwidth">
                             <span class="icon is-small">
-                              <i class="fas fa-users"></i>
+                              <i class="fas fa-search"></i>
                             </span>
-                            <span>Create</span>
+                            <span>Search</span>
                         </button>
                     </td>
                 </tr>
@@ -51,17 +36,14 @@
                     <tr>
                         <th>{{ $raid->id }}</th>
                         <td>{{ $raid->trainer->name }}</td>
-                        <td>{{ $raid->name}}</td>
-                        <td>{{ $raid->tier }}</td>
+                        <td>{{ $raid->pokemon->name}}</td>
+                        <td>{{ $raid->pokemon->tier === 6 ? 'Mega' : $raid->pokemon->tier . ' Tier' }}</td>
                         <td>{{ $raid->invites }}</td>
                         <td>{{ $raid->weather_boost ? 'True' : 'False' }}</td>
                         <td>{{ $raid->end_time }}</td>
                         <td>
                             <a href="{{ route('admin') }}">
-                                <i class="fas fa-save" title="Save Changes">&nbsp;</i>
-                            </a>
-                            <a href="{{ route('admin') }}">
-                                <i class="fas fa-times" title="Delete Level">&nbsp;</i>
+                                <i class="fas fa-times" title="Delete Raid">&nbsp;</i>
                             </a>
                         </td>
                     </tr>
