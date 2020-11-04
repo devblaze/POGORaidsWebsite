@@ -14,7 +14,7 @@ php artisan migrate
 And don't forget to configure your .env file.
 
 ## Live Demo
-A live demo is set on my private server with limited access.\
+A live demo is set on my private server with limited access. (Note: demo might be some versions behind.)\
 You can find the [Live Demo here](http://blazehomeserver.ddns.net/).
 
 ## Contributing
