@@ -1,7 +1,8 @@
 ## POGORaids
-
-POGORaids is a project made to help the users of the famous mobile game Pokemon GO,
+The POGORaids is a project made to help the users of the famous mobile game Pokemon GO,
 it will help them coordinate also communicate faster and with ease, their raid battles.
+
+The project is being developed with PHP Framework [Laravel](https://laravel.com/) and for the front end [Vue.js](https://vuejs.org/) JavaScript Framework is used.
 
 ## Installation
 Use Laradock to run the project, place it inside the project.
@@ -26,11 +27,12 @@ yarn dev
 _*And don't forget to configure your .env file._
 
 ## Edit Front End
-
 If you want to change something to the front end, JavaScript or SCSS use:
 ```
 yarn watch
 ```
+## Tasks Tracker
+Our tasks for the project can be found [here](https://trello.com/b/AZwDbtsj/pogowebsite).
 
 ## Live Demo
 A live demo is set on my private server with limited access. *(Note: demo might be some versions behind.)*\
