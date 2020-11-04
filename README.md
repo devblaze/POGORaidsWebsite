@@ -33,11 +33,7 @@ yarn watch
 ```
 
 ## Live Demo
-<<<<<<< HEAD
-A live demo is set on my private server with limited access.*(Note: demo might be some versions behind.)*\
-=======
-A live demo is set on my private server with limited access. (Note: demo might be some versions behind.)\
->>>>>>> master
+A live demo is set on my private server with limited access. *(Note: demo might be some versions behind.)*\
 You can find the [Live Demo here](http://blazehomeserver.ddns.net/).
 
 ## Contributing
