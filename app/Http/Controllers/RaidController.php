@@ -79,7 +79,7 @@ class RaidController extends Controller
             ]);
         return redirect(route('raid_index'));
     }
-
+    // Test
     /**
      * Show view to edit one of raids selected.
      *
