@@ -2061,6 +2061,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    title: String
+  },
   data: function data() {
     return {
       toggle: true
@@ -2240,6 +2243,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../routes */ "./resources/js/routes.js");
 /* harmony import */ var _Countdown__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Countdown */ "./resources/js/components/Countdown.vue");
 /* harmony import */ var _RaidCountdown__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./RaidCountdown */ "./resources/js/components/RaidCountdown.vue");
+/* harmony import */ var _RaidsFilters__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./RaidsFilters */ "./resources/js/components/RaidsFilters.vue");
 //
 //
 //
@@ -2317,6 +2321,66 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 
@@ -2328,7 +2392,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   components: {
     RaidCountdown: _RaidCountdown__WEBPACK_IMPORTED_MODULE_3__["default"],
-    countdown: _Countdown__WEBPACK_IMPORTED_MODULE_2__["default"]
+    countdown: _Countdown__WEBPACK_IMPORTED_MODULE_2__["default"],
+    filters: _RaidsFilters__WEBPACK_IMPORTED_MODULE_4__["default"]
   },
   data: function data() {
     return {
@@ -2404,9 +2469,45 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  methods: {
-    filterRaids: function filterRaids() {}
+  props: {
+    title: String
+  },
+  data: function data() {
+    return {
+      toggle: true
+    };
   }
 });
 
@@ -2474,6 +2575,44 @@ exports.push([module.i, "\n.vuejs-countdown {\n    padding: 0;\n    margin: 0;\n
 /*!**********************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ExampleComponent.vue?vue&type=style&index=0&lang=css& ***!
   \**********************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.fade-enter-active, .fade-leave-active {\n    transition: height 2s;\n    transition-timing-function: ease;\n}\n.fade-enter, fade-leave-to {\n    opacity: 0;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Raids.vue?vue&type=style&index=0&lang=css&":
+/*!***********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Raids.vue?vue&type=style&index=0&lang=css& ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.fade-enter-active, .fade-leave-active {\n    transition: height 2s;\n    transition-timing-function: ease;\n}\n.fade-enter, fade-leave-to {\n    opacity: 0;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/RaidsFilters.vue?vue&type=style&index=0&lang=css&":
+/*!******************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/RaidsFilters.vue?vue&type=style&index=0&lang=css& ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3008,6 +3147,66 @@ if(false) {}
 
 
 var content = __webpack_require__(/*! !../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./ExampleComponent.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ExampleComponent.vue?vue&type=style&index=0&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Raids.vue?vue&type=style&index=0&lang=css&":
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Raids.vue?vue&type=style&index=0&lang=css& ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./Raids.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Raids.vue?vue&type=style&index=0&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/RaidsFilters.vue?vue&type=style&index=0&lang=css&":
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/RaidsFilters.vue?vue&type=style&index=0&lang=css& ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./RaidsFilters.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/RaidsFilters.vue?vue&type=style&index=0&lang=css&");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -3694,7 +3893,9 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "card" }, [
     _c("header", { staticClass: "card-header" }, [
-      _c("p", { staticClass: "card-header-title" }, [_vm._t("default")], 2),
+      _c("p", { staticClass: "card-header-title" }, [
+        _vm._v("\n                " + _vm._s(_vm.title) + "\n            ")
+      ]),
       _vm._v(" "),
       _c(
         "a",
@@ -3840,104 +4041,219 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "column is-four-fifths" }, [
+  return _c("div", { staticClass: "columns" }, [
     _c(
       "div",
-      { staticClass: "columns is-multiline" },
+      { staticClass: "column is-one-fifth" },
       [
-        _c("div", { staticClass: "column is-full" }, [
-          _c("div", { staticClass: "columns" }, [
-            _c("div", { staticClass: "column" }, [
-              _vm.isLoading
-                ? _c("div", {
-                    staticClass: "control has-icons-left is-loading"
-                  })
-                : _vm._e(),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "control has-icons-left has-icons-right" },
-                [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.search,
-                        expression: "search"
-                      }
-                    ],
-                    staticClass: "input is-rounded",
-                    attrs: {
-                      type: "email",
-                      placeholder: "Search by Pokemon Name"
-                    },
-                    domProps: { value: _vm.search },
-                    on: {
-                      keyup: _vm.find,
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.search = $event.target.value
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _vm._m(0),
-                  _vm._v(" "),
-                  _vm._m(1)
-                ]
-              )
+        _c("filters", { attrs: { title: "Raid Sort By" } }, [
+          _c("div", { staticClass: "field" }, [
+            _c("label", [_vm._v("Time Left")])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "field" }, [
+            _c("input", {
+              staticClass: "is-checkradio",
+              attrs: { id: "timeleftdesc", type: "radio", name: "timeleft" }
+            }),
+            _vm._v(" "),
+            _c("label", { attrs: { for: "timeleftdesc" } }, [_vm._v("Desc <")]),
+            _vm._v(" "),
+            _c("input", {
+              staticClass: "is-checkradio",
+              attrs: { id: "timeleftasc", type: "radio", name: "timeleft" }
+            }),
+            _vm._v(" "),
+            _c("label", { attrs: { for: "timeleftasc" } }, [_vm._v("Asc >")])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("filters", { attrs: { title: "Raid Tier" } }, [
+          _c("div", { staticClass: "field" }, [
+            _c("input", {
+              staticClass: "switch is-rounded is-primary",
+              attrs: {
+                id: "tier6",
+                type: "checkbox",
+                name: "tier6",
+                checked: "checked"
+              }
+            }),
+            _vm._v(" "),
+            _c("label", { attrs: { for: "tier6" } }, [
+              _c("span", { staticClass: "tag is-primary" }, [
+                _vm._v("Mega Evolution")
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "field" }, [
+            _c("input", {
+              staticClass: "switch is-rounded is-info",
+              attrs: {
+                id: "tier5",
+                type: "checkbox",
+                name: "tier5",
+                checked: "checked"
+              }
+            }),
+            _vm._v(" "),
+            _c("label", { attrs: { for: "tier5" } }, [
+              _c("span", { staticClass: "tag is-info" }, [_vm._v("Tier 5")])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "field" }, [
+            _c("input", {
+              staticClass: "switch is-rounded is-info",
+              attrs: {
+                id: "tier3",
+                type: "checkbox",
+                name: "tier3",
+                checked: "checked"
+              }
+            }),
+            _vm._v(" "),
+            _c("label", { attrs: { for: "tier3" } }, [
+              _c("span", { staticClass: "tag is-info" }, [_vm._v("Tier 3")])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "field" }, [
+            _c("input", {
+              staticClass: "switch is-rounded is-info",
+              attrs: {
+                id: "tier1",
+                type: "checkbox",
+                name: "tier1",
+                checked: "checked"
+              }
+            }),
+            _vm._v(" "),
+            _c("label", { attrs: { for: "tier1" } }, [
+              _c("span", { staticClass: "tag is-info" }, [_vm._v("Tier 1")])
             ])
           ])
         ]),
         _vm._v(" "),
-        _vm._l(_vm.raids, function(raid) {
-          return _c("div", { staticClass: "column is-one-third" }, [
-            _c("div", { staticClass: "card" }, [
-              _c("div", { staticClass: "card" }, [
-                _c("div", { staticClass: "card-image" }, [
-                  _c("figure", { staticClass: "image is-2by2" }, [
-                    _c("img", {
-                      attrs: {
-                        alt: "Placeholder image",
-                        src:
-                          "images/icon_" +
-                          _vm.pokemon[raid.pokemon_id - 1].name.toLowerCase() +
-                          ".png"
-                      }
+        _c("filters", { attrs: { title: "Raid Status" } }, [
+          _c("div", { staticClass: "field" }, [
+            _c("input", {
+              staticClass: "switch is-rounded",
+              attrs: { id: "status", type: "checkbox", name: "status" }
+            }),
+            _vm._v(" "),
+            _c("label", { attrs: { for: "status" } }, [_vm._v("Hatched")])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "field" }, [
+            _c("input", {
+              staticClass: "switch is-rounded",
+              attrs: {
+                id: "weatherBoost",
+                type: "checkbox",
+                name: "weatherBoost"
+              }
+            }),
+            _vm._v(" "),
+            _c("label", { attrs: { for: "weatherBoost" } }, [
+              _vm._v("Weather Boosted")
+            ])
+          ])
+        ])
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "column is-four-fifths" }, [
+      _c(
+        "div",
+        { staticClass: "columns is-multiline" },
+        [
+          _c("div", { staticClass: "column is-full" }, [
+            _c("div", { staticClass: "columns" }, [
+              _c("div", { staticClass: "column" }, [
+                _vm.isLoading
+                  ? _c("div", {
+                      staticClass: "control has-icons-left is-loading"
                     })
-                  ])
-                ]),
+                  : _vm._e(),
                 _vm._v(" "),
-                _c("div", { staticClass: "card-content" }, [
-                  _c("div", { staticClass: "media" }, [
-                    _c("div", { staticClass: "media-content" }, [
-                      _c("p", { staticClass: "title" }, [
-                        _vm._v(_vm._s(_vm.pokemon[raid.pokemon_id - 1].name))
+                _c(
+                  "div",
+                  { staticClass: "control has-icons-left has-icons-right" },
+                  [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.search,
+                          expression: "search"
+                        }
+                      ],
+                      staticClass: "input is-rounded",
+                      attrs: {
+                        type: "email",
+                        placeholder: "Search by Pokemon Name"
+                      },
+                      domProps: { value: _vm.search },
+                      on: {
+                        keyup: _vm.find,
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.search = $event.target.value
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _vm._m(0),
+                    _vm._v(" "),
+                    _vm._m(1)
+                  ]
+                )
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _vm._l(_vm.raids, function(raid) {
+            return _c("div", { staticClass: "column is-one-third" }, [
+              _c("div", { staticClass: "card" }, [
+                _c("div", { staticClass: "card" }, [
+                  _c("div", { staticClass: "card-image" }, [
+                    _c("figure", { staticClass: "image is-2by2" }, [
+                      _c("img", {
+                        attrs: {
+                          alt: "Placeholder image",
+                          src:
+                            "images/icon_" +
+                            _vm.pokemon[
+                              raid.pokemon_id - 1
+                            ].name.toLowerCase() +
+                            ".jpg"
+                        }
+                      })
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "card-content" }, [
+                    _c("div", { staticClass: "media" }, [
+                      _c("div", { staticClass: "media-content" }, [
+                        _c("p", { staticClass: "title" }, [
+                          _vm._v(_vm._s(_vm.pokemon[raid.pokemon_id - 1].name))
+                        ]),
+                        _vm._v(" "),
+                        _c("p", { staticClass: "subtitle" }, [
+                          _vm._v(
+                            "Raid Tier: " +
+                              _vm._s(_vm.pokemon[raid.pokemon_id - 1].tier)
+                          )
+                        ])
                       ]),
                       _vm._v(" "),
-                      _c("p", { staticClass: "subtitle" }, [
-                        _vm._v(
-                          "Raid Tier: " +
-                            _vm._s(_vm.pokemon[raid.pokemon_id - 1].tier)
-                        )
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticStyle: {
-                          "margin-top": "5%",
-                          display: "flex",
-                          "align-items": "center",
-                          "justify-content": "center",
-                          "padding-right": "14px"
-                        }
-                      },
-                      [
+                      _c("div", { staticClass: "weatherBoost" }, [
                         raid.weather_boost
                           ? _c(
                               "div",
@@ -3950,83 +4266,87 @@ var render = function() {
                               [_vm._v("Weather Boosted")]
                             )
                           : _c("div", [_vm._v("Not Boosted")])
-                      ]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "content" }, [
-                    _c("div", { staticClass: "columns is-mobile" }, [
-                      _c("div", { staticClass: "column" }, [
-                        _c("div", { staticStyle: { "text-align": "center" } }, [
-                          _vm._v(
-                            "\n                                        Party Invites\n                                        "
-                          ),
-                          _c("br"),
-                          _vm._v(
-                            "\n                                        0 / " +
-                              _vm._s(raid.invites) +
-                              "\n                                    "
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "content" }, [
+                      _c("div", { staticClass: "columns is-mobile" }, [
+                        _c("div", { staticClass: "column" }, [
+                          _c(
+                            "div",
+                            { staticStyle: { "text-align": "center" } },
+                            [
+                              _vm._v(
+                                "\n                                            Party Invites\n                                            "
+                              ),
+                              _c("br"),
+                              _vm._v(
+                                "\n                                            0 / " +
+                                  _vm._s(raid.invites) +
+                                  "\n                                        "
+                              )
+                            ]
                           )
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "column" }, [
-                        _c(
-                          "div",
-                          { staticStyle: { "text-align": "center" } },
-                          [
-                            raid.hatched
-                              ? _c("div", [_vm._v("Before Hatch:")])
-                              : _c("div", [_c("b", [_vm._v("Time Left:")])]),
-                            _vm._v(" "),
-                            _c("raid-countdown", { attrs: { id: raid.id } })
-                          ],
-                          1
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _vm.user
-                        ? _c("div", { staticClass: "column" }, [
-                            _c(
-                              "div",
-                              { staticStyle: { "text-align": "center" } },
-                              [
-                                _vm.trainer == raid.trainer_id
-                                  ? _c(
-                                      "a",
-                                      {
-                                        staticClass:
-                                          "button is-info is-narrow is-rounded",
-                                        attrs: {
-                                          href: "/raids/" + raid.id + "/edit"
-                                        }
-                                      },
-                                      [_vm._v("Edit")]
-                                    )
-                                  : _c(
-                                      "button",
-                                      {
-                                        staticClass:
-                                          "button is-success is-narrow is-rounded"
-                                      },
-                                      [_vm._v("Join")]
-                                    )
-                              ]
-                            )
-                          ])
-                        : _c("div", { staticClass: "column" }, [
-                            _c("p", [_vm._v("Login in order to Join!")])
-                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "column" }, [
+                          _c(
+                            "div",
+                            { staticStyle: { "text-align": "center" } },
+                            [
+                              raid.hatched
+                                ? _c("div", [_vm._v("Before Hatch:")])
+                                : _c("div", [_c("b", [_vm._v("Time Left:")])]),
+                              _vm._v(" "),
+                              _c("raid-countdown", { attrs: { id: raid.id } })
+                            ],
+                            1
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _vm.user
+                          ? _c("div", { staticClass: "column" }, [
+                              _c(
+                                "div",
+                                { staticStyle: { "text-align": "center" } },
+                                [
+                                  _vm.trainer == raid.trainer_id
+                                    ? _c(
+                                        "a",
+                                        {
+                                          staticClass:
+                                            "button is-info is-narrow is-rounded",
+                                          attrs: {
+                                            href: "/raids/" + raid.id + "/edit"
+                                          }
+                                        },
+                                        [_vm._v("Edit")]
+                                      )
+                                    : _c(
+                                        "button",
+                                        {
+                                          staticClass:
+                                            "button is-success is-narrow is-rounded"
+                                        },
+                                        [_vm._v("Join")]
+                                      )
+                                ]
+                              )
+                            ])
+                          : _c("div", { staticClass: "column" }, [
+                              _c("p", [_vm._v("Login in order to Join!")])
+                            ])
+                      ])
                     ])
                   ])
                 ])
               ])
             ])
-          ])
-        })
-      ],
-      2
-    )
+          })
+        ],
+        2
+      )
+    ])
   ])
 }
 var staticRenderFns = [
@@ -4074,7 +4394,85 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _c("div", { staticClass: "card" }, [
+    _c("header", { staticClass: "card-header" }, [
+      _c("p", { staticClass: "card-header-title" }, [
+        _vm._v("\n            " + _vm._s(_vm.title) + "\n        ")
+      ]),
+      _vm._v(" "),
+      _c(
+        "a",
+        {
+          staticClass: "card-header-icon",
+          attrs: { "aria-label": "more options" },
+          on: {
+            click: function($event) {
+              _vm.toggle = !_vm.toggle
+            }
+          }
+        },
+        [
+          _c(
+            "span",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.toggle,
+                  expression: "toggle"
+                }
+              ],
+              staticClass: "icon"
+            },
+            [
+              _c("i", {
+                staticClass: "fas fa-angle-down",
+                attrs: { "aria-hidden": "true" }
+              })
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "span",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: !_vm.toggle,
+                  expression: "!toggle"
+                }
+              ],
+              staticClass: "icon"
+            },
+            [
+              _c("i", {
+                staticClass: "fas fa-angle-up",
+                attrs: { "aria-hidden": "true" }
+              })
+            ]
+          )
+        ]
+      )
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.toggle,
+            expression: "toggle"
+          }
+        ],
+        staticClass: "card-content"
+      },
+      [_c("div", { staticClass: "content" }, [_vm._t("default")], 2)]
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -19351,11 +19749,9 @@ module.exports = g;
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _bootstrap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 /* harmony import */ var _components_Raids__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Raids */ "./resources/js/components/Raids.vue");
-/* harmony import */ var _components_RaidsFilters__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/RaidsFilters */ "./resources/js/components/RaidsFilters.vue");
-/* harmony import */ var _components_customSlider__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/customSlider */ "./resources/js/components/customSlider.vue");
-/* harmony import */ var _components_ExampleComponent__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/ExampleComponent */ "./resources/js/components/ExampleComponent.vue");
-/* harmony import */ var _components_RaidCreate__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/RaidCreate */ "./resources/js/components/RaidCreate.vue");
-
+/* harmony import */ var _components_customSlider__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/customSlider */ "./resources/js/components/customSlider.vue");
+/* harmony import */ var _components_ExampleComponent__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/ExampleComponent */ "./resources/js/components/ExampleComponent.vue");
+/* harmony import */ var _components_RaidCreate__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/RaidCreate */ "./resources/js/components/RaidCreate.vue");
 
 
 
@@ -19365,115 +19761,11 @@ var app = new Vue({
   el: '#app',
   components: {
     raids: _components_Raids__WEBPACK_IMPORTED_MODULE_1__["default"],
-    filters: _components_RaidsFilters__WEBPACK_IMPORTED_MODULE_2__["default"],
-    customslider: _components_customSlider__WEBPACK_IMPORTED_MODULE_3__["default"],
-    example: _components_ExampleComponent__WEBPACK_IMPORTED_MODULE_4__["default"],
-    raid: _components_RaidCreate__WEBPACK_IMPORTED_MODULE_5__["default"]
+    customslider: _components_customSlider__WEBPACK_IMPORTED_MODULE_2__["default"],
+    example: _components_ExampleComponent__WEBPACK_IMPORTED_MODULE_3__["default"],
+    raid: _components_RaidCreate__WEBPACK_IMPORTED_MODULE_4__["default"]
   }
 });
-/*new Vue ({
-    el: '#form',
-
-    data: {
-        form: new Form({
-            name: '',
-            tier: '',
-            time_left: '',
-            invites: '',
-            status: '',
-            weather_boosted: ''
-        })
-    },
-
-    methods: {
-        onSubmit() {
-            this.form.submit('post', '/raids/create');
-        }
-    }
-});*/
-
-/*
-
-var intervalTimer;
-
-new Vue({
-    el: '#app',
-    data: {
-        selectedTime: 0,
-        timeLeft: '00:00',
-        endTime: '0',
-        times: [
-            {
-                sec: 3,
-                display: '3s'
-            },
-            {
-                sec: 600,
-                display: ' 10m'
-            },
-            {
-                sec: 1800,
-                display: '30m'
-            }
-        ]
-    },
-    methods: {
-        setTime(seconds) {
-            clearInterval(intervalTimer);
-            this.timer(seconds);
-        },
-        timer(seconds) {
-            const now = Date.now();
-            const end = now + seconds * 1000;
-            this.displayTimeLeft(seconds);
-
-            this.selectedTime = seconds;
-            // this.initialTime = seconds;
-            this.displayEndTime(end);
-            this.countdown(end);
-        },
-        countdown(end) {
-            // this.initialTime = this.selectedTime;
-            intervalTimer = setInterval(() => {
-                const secondsLeft = Math.round((end - Date.now()) / 1000);
-
-                if(secondsLeft === 0) {
-                    this.endTime = 0;
-                }
-
-                if(secondsLeft < 0) {
-                    clearInterval(intervalTimer);
-                    return;
-                }
-                this.displayTimeLeft(secondsLeft)
-            }, 1000);
-        },
-        displayTimeLeft(secondsLeft) {
-            const minutes = Math.floor((secondsLeft % 3600) / 60);
-            const seconds = secondsLeft % 60;
-
-            this.timeLeft = `${zeroPadded(minutes)}:${zeroPadded(seconds)}`;
-        },
-        displayEndTime(timestamp) {
-            const end = new Date(timestamp);
-            const hour = end.getHours();
-            const minutes = end.getMinutes();
-
-            this.endTime = `${hourConvert(hour)}:${zeroPadded(minutes)}`
-        },
-    }
-})
-
-function zeroPadded(num) {
-    // 4 --> 04
-    return num < 10 ? `0${num}` : num;
-}
-
-function hourConvert(hour) {
-    // 15 --> 3
-    return (hour % 12) || 12;
-}
-*/
 
 /***/ }),
 
@@ -19826,7 +20118,9 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Raids_vue_vue_type_template_id_ce9d3b64___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Raids.vue?vue&type=template&id=ce9d3b64& */ "./resources/js/components/Raids.vue?vue&type=template&id=ce9d3b64&");
 /* harmony import */ var _Raids_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Raids.vue?vue&type=script&lang=js& */ "./resources/js/components/Raids.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _Raids_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Raids.vue?vue&type=style&index=0&lang=css& */ "./resources/js/components/Raids.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
 
 
 
@@ -19834,7 +20128,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _Raids_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _Raids_vue_vue_type_template_id_ce9d3b64___WEBPACK_IMPORTED_MODULE_0__["render"],
   _Raids_vue_vue_type_template_id_ce9d3b64___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
@@ -19863,6 +20157,22 @@ component.options.__file = "resources/js/components/Raids.vue"
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Raids_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./Raids.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Raids.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Raids_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/Raids.vue?vue&type=style&index=0&lang=css&":
+/*!****************************************************************************!*\
+  !*** ./resources/js/components/Raids.vue?vue&type=style&index=0&lang=css& ***!
+  \****************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Raids_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader!../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./Raids.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Raids.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Raids_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Raids_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Raids_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Raids_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Raids_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
@@ -19895,7 +20205,9 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _RaidsFilters_vue_vue_type_template_id_5d40e07d___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./RaidsFilters.vue?vue&type=template&id=5d40e07d& */ "./resources/js/components/RaidsFilters.vue?vue&type=template&id=5d40e07d&");
 /* harmony import */ var _RaidsFilters_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./RaidsFilters.vue?vue&type=script&lang=js& */ "./resources/js/components/RaidsFilters.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _RaidsFilters_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./RaidsFilters.vue?vue&type=style&index=0&lang=css& */ "./resources/js/components/RaidsFilters.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
 
 
 
@@ -19903,7 +20215,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _RaidsFilters_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _RaidsFilters_vue_vue_type_template_id_5d40e07d___WEBPACK_IMPORTED_MODULE_0__["render"],
   _RaidsFilters_vue_vue_type_template_id_5d40e07d___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
@@ -19932,6 +20244,22 @@ component.options.__file = "resources/js/components/RaidsFilters.vue"
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_RaidsFilters_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./RaidsFilters.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/RaidsFilters.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_RaidsFilters_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/RaidsFilters.vue?vue&type=style&index=0&lang=css&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/components/RaidsFilters.vue?vue&type=style&index=0&lang=css& ***!
+  \***********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_RaidsFilters_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader!../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./RaidsFilters.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/RaidsFilters.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_RaidsFilters_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_RaidsFilters_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_RaidsFilters_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_RaidsFilters_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_RaidsFilters_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 

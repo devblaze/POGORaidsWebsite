@@ -2,7 +2,7 @@
     <div class="card">
         <header class="card-header">
             <p class="card-header-title">
-                <slot></slot>
+                {{ title }}
             </p>
             <a class="card-header-icon" aria-label="more options" @click="toggle = !toggle">
                 <span class="icon" v-show="toggle">
@@ -42,6 +42,10 @@
 
 <script>
 export default {
+
+    props: {
+        title: String
+    },
 
     data() {
         return {

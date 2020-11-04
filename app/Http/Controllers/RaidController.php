@@ -8,6 +8,7 @@ use App\Models\Pokemon;
 use Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
 use Illuminate\View\View;
 
@@ -62,17 +63,19 @@ class RaidController extends Controller
     /**
      * Create the new raid in the DB after validation.
      *
+     * @param Request $request
+     * @return Application|RedirectResponse|Redirector
      */
-    public function store()
+    public function store(Request $request)
     {
 //        Party::create();
-        Raid::create($this->validateRaid() + [
+        Raid::create($this->validateRaidFields($request) + [
                 'trainer_id' => auth()->user()->trainer->id,
-                'pokemon_id' => \request()->get('pokemon_id'),
-                'weather_boost' => (bool)\request()->get('weather_boost'),
-                'hatched' => (bool)\request()->get('hatched'),
+                'pokemon_id' => $request->get('pokemon_id'),
+                'weather_boost' => (bool)$request->get('weather_boost'),
+                'hatched' => (bool)$request->get('hatched'),
 //                'seconds' => \request()->get('minutes') * 60,
-                'end_time' => Raid::finishDate(\request()->get('minutes'), (bool)\request()->get('hatched'))
+                'end_time' => Raid::finishDate($request->get('minutes'), (bool)$request->get('hatched'))
             ]);
         return redirect(route('raid_index'));
     }
@@ -94,10 +97,11 @@ class RaidController extends Controller
      * Update a raid from the DB after validation.
      *
      * @param Raid $raid
+     * @param Request $request
      * @return Application|RedirectResponse|Redirector
      */
-    public function update(Raid $raid) {
-        $raid->update($this->validateRaid());
+    public function update(Raid $raid, Request $request) {
+        $raid->update($this->validateRaidFields($request));
         return redirect($raid->path());
     }
 
@@ -120,11 +124,12 @@ class RaidController extends Controller
     /**
      * Validate the raid fields from the user.
      *
+     * @param Request $request
      * @return array
      */
-    protected function validateRaid(): array
+    protected function validateRaidFields(Request $request): array
     {
-        return \request()->validate([
+        return $request->validate([
 //            'name' => ['required'],
             'invites' => ['required', 'between:1,20'],
             'minutes' => ['required', 'min:2', 'max:2'],

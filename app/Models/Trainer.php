@@ -36,7 +36,7 @@ class Trainer extends Model
     }
 
     /**
-     * A trainer belongs/must have one and only user. (Since it has the foreign key we use 'BelongsTo')
+     * A trainer belongs/must have one and only user. (Since it has the foreign key we use 'BelongsTo').
      *
      * @return BelongsTo
      */

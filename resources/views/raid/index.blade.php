@@ -1,14 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+{{--
     <div class="column is-one-fifth">
-        <example>
-            <header>
-                Example filter
-            </header>
-        </example>
 
-        <br/>
         <div class="card">
             <header class="card-header">
                 <p class="card-header-title">
@@ -107,6 +102,7 @@
             </footer>
         </div>
     </div>
+--}}
     @guest
         <raids user=""></raids>
     @else
