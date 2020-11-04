@@ -2583,7 +2583,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.fade-enter-active, .fade-leave-active {\n    transition: height 2s;\n    transition-timing-function: ease;\n}\n.fade-enter, fade-leave-to {\n    opacity: 0;\n}\n", ""]);
+exports.push([module.i, "\n.fade-enter-active, .fade-leave-active {\r\n    transition: height 2s;\r\n    transition-timing-function: ease;\n}\n.fade-enter, fade-leave-to {\r\n    opacity: 0;\n}\r\n", ""]);
 
 // exports
 
@@ -2621,7 +2621,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.fade-enter-active, .fade-leave-active {\n    transition: height 2s;\n    transition-timing-function: ease;\n}\n.fade-enter, fade-leave-to {\n    opacity: 0;\n}\n", ""]);
+exports.push([module.i, "\n.fade-enter-active, .fade-leave-active {\r\n    transition: height 2s;\r\n    transition-timing-function: ease;\n}\n.fade-enter, fade-leave-to {\r\n    opacity: 0;\n}\r\n", ""]);
 
 // exports
 

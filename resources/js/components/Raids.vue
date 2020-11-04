@@ -70,7 +70,7 @@
                         <div class="card">
                             <div class="card-image">
                                 <figure class="image is-2by2">
-                                    <img alt="Placeholder image" :src="'images/icon_' + pokemon[raid.pokemon_id - 1].name.toLowerCase() + '.png'" />
+                                    <img alt="Placeholder image" :src="'images/icon_' + pokemon[raid.pokemon_id - 1].name.toLowerCase() + '.jpg'" />
                                 </figure>
                             </div>
                             <div class="card-content">
