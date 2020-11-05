@@ -110,12 +110,12 @@ class Raid extends Model
     }
 
     /**
-     * Needs more thinking for a better solution.
+     * A raid has many raid members.
      *
      * @return HasMany
      */
-    public function party(): HasMany
+    public function raid_member(): HasMany
     {
-        return $this->hasMany(Party::class);
+        return $this->hasMany(RaidMember::class);
     }
 }

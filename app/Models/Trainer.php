@@ -59,7 +59,7 @@ class Trainer extends Model
      *
      * @return HasMany
      */
-    public function party(): hasMany {
-        return $this->hasMany(Party::class);
+    public function raid_member(): hasMany {
+        return $this->hasMany(RaidMember::class);
     }
 }

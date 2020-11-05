@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Party;
 use App\Models\Raid;
 use App\Models\Pokemon;
+use App\Models\RaidMember;
 use Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
@@ -42,7 +42,8 @@ class RaidController extends Controller
      */
     public function show(Raid $raid): View
     {
-        return view('raid.show', ['raid' => $raid]);
+        $raid_members = RaidMember::where('raid_id', $raid->id)->get();
+        return view('raid.show', ['raid' => $raid, 'raid_members' => $raid_members]);
     }
 
     /**
@@ -68,18 +69,16 @@ class RaidController extends Controller
      */
     public function store(Request $request)
     {
-//        Party::create();
         Raid::create($this->validateRaidFields($request) + [
                 'trainer_id' => auth()->user()->trainer->id,
                 'pokemon_id' => $request->get('pokemon_id'),
                 'weather_boost' => (bool)$request->get('weather_boost'),
                 'hatched' => (bool)$request->get('hatched'),
-//                'seconds' => \request()->get('minutes') * 60,
                 'end_time' => Raid::finishDate($request->get('minutes'), (bool)$request->get('hatched'))
             ]);
         return redirect(route('raid_index'));
     }
-    // Test
+
     /**
      * Show view to edit one of raids selected.
      *

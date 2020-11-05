@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\RaidMemberController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 /*
@@ -60,6 +61,11 @@ Route::middleware('auth')->group(static function () {
     Route::get('/raids/{raid}/edit', 'RaidController@edit')->name('raid_edit');
 //    Route::get('/raids/{raid}/edit', 'RaidController@edit')->name('raid_edit')->where('any', '.*');
     Route::post('/raids/update', 'RaidController@update')->name('raid_update');
+
+    /**
+     * Raid Member Controller Routes.
+     */
+    Route::get('/raids/{raid}/join', [RaidMemberController::class, 'store'])->name('raid_join');
 
     /**
      * Bug Report controller Routes.

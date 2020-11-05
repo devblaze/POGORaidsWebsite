@@ -104,7 +104,7 @@
                                         <div class="column" v-if="user">
                                             <div style="text-align: center;">
                                                 <a class="button is-info is-narrow is-rounded" :href="'/raids/' + raid.id + '/edit'" v-if="trainer == raid.trainer_id">Edit</a>
-                                                <button class="button is-success is-narrow is-rounded" v-else="trainer == raid.trainer_id">Join</button>
+                                                <a class="button is-success is-narrow is-rounded" :href="'/raids/' + raid.id + '/join/' + user.id" v-else="trainer == raid.trainer_id">Join</a>
                                             </div>
                                         </div>
                                         <div class="column" v-else="user">
@@ -122,17 +122,6 @@
         </div>
     </div>
 </template>
-
-<style>
-.fade-enter-active, .fade-leave-active {
-    transition: height 2s;
-    transition-timing-function: ease;
-}
-
-.fade-enter, fade-leave-to {
-    opacity: 0;
-}
-</style>
 
 <script>
 import VueRouter from "vue-router";

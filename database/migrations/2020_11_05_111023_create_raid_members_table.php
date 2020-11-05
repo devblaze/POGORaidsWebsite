@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePartiesTable extends Migration
+class CreateRaidMembersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,8 @@ class CreatePartiesTable extends Migration
      */
     public function up()
     {
-        Schema::create('parties', function (Blueprint $table) {
+        Schema::disableForeignKeyConstraints();
+        Schema::create('raid_members', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('raid_id');
             $table->unsignedBigInteger('trainer_id');
@@ -21,11 +22,15 @@ class CreatePartiesTable extends Migration
 
             $table->foreign('raid_id')
                 ->references('id')
-                ->on('raids');
+                ->on('raids')
+                ->onDelete('cascade');
             $table->foreign('trainer_id')
                 ->references('id')
-                ->on('trainers');
+                ->on('trainers')
+                ->onDelete('cascade');
+
         });
+        Schema::enableForeignKeyConstraints();
     }
 
     /**
@@ -35,6 +40,6 @@ class CreatePartiesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('parties');
+        Schema::dropIfExists('raid_members');
     }
 }
